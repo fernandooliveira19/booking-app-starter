@@ -1,0 +1,1 @@
+export const BOOKING_API = 'http://localhost:8080'

@@ -10,7 +10,7 @@
             <div class="col-xs-12">
               <h2 class="page-header">
                 <i class="fa fa-user"></i> Pesquisa de Viajantes
-      <a href="traveler-form.html" class="btn btn-success pull-right"><i class="fa fa-user-plus"></i> Novo </a>
+      <a [routerLink]="['/traveler-form']" class="btn btn-success pull-right"><i class="fa fa-user-plus"></i> Novo </a>
               </h2>
     
             </div>
@@ -55,7 +55,7 @@
           <td>fer.a.oliveira19@gmail.com</td>
           <td>(11) 98311-6777</td>
           <td colspan="2">
-            <a href="traveler-form.html" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+            <a href="traveler-form.html" [routerLink]="['/traveler-form']" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
             <a href="traveler-find.html" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                     
           </td>
@@ -64,8 +64,8 @@
           <td>Giovanna Andrade Machado de Oliveira</td>
           <td>gigiovanna1209@gmail.com</td>
           <td>(11) 99265-3534</td>
-          <td colspan="2">
-            <a href="traveler-form.html" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
+          <td colspan="2"> 
+            <a href="traveler-form.html" [routerLink]="['/traveler-form']" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
             <a href="traveler-find.html" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
           </td>
         </tr>
@@ -73,6 +73,7 @@
       </tbody>
 
     </table>
+    <!--
     <div class="row">
       <ul class="pagination" >
       <li class="page-item disabled">
@@ -98,7 +99,7 @@
       </li>
       </ul>
     </div>
-
+-->
   </div>
 
     </section>

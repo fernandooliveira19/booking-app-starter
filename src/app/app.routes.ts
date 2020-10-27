@@ -1,7 +1,9 @@
 import {Routes} from '@angular/router'
 import { HomeComponent } from './home/home.component'
-import { TravelerComponent } from './travelers/travelers.component'
+import { TravelerFormComponent } from './travelers/traveler-form/traveler-form.component'
+import { TravelerListComponent } from './travelers/traveler-list/traveler-list.component'
 export const ROUTES : Routes = [
     {path : '' ,  component: HomeComponent},
-    {path : 'travelers', component:TravelerComponent}
+    {path : 'traveler-list', component:TravelerListComponent},
+    {path : 'traveler-form', component:TravelerFormComponent}
 ]

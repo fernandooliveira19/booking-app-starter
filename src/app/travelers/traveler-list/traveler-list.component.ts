@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'bkn-traveler',
-  templateUrl: './travelers.component.html'
+  templateUrl: './traveler-list.component.html'
 })
-export class TravelerComponent implements OnInit {
+export class TravelerListComponent implements OnInit {
 
   constructor() { }
 

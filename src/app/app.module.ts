@@ -7,16 +7,20 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
-import { TravelerComponent } from './travelers/travelers.component'
+import { TravelerListComponent } from './travelers/traveler-list/traveler-list.component'
 
-import {ROUTES} from './app.routes'
+import {ROUTES} from './app.routes';
+import { InputComponent } from './shared/input/input.component';
+import { TravelerFormComponent } from './travelers/traveler-form/traveler-form.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     HomeComponent,
-    TravelerComponent
+    TravelerListComponent,
+    InputComponent,
+    TravelerFormComponent
   ],
   imports: [
     BrowserModule,
