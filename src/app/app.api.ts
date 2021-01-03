@@ -1,1 +1,1 @@
-export const BOOKING_API = 'http://localhost:8080'
+export const BOOKING_API_GATEWAY = 'http://localhost:8765'
