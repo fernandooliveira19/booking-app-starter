@@ -11,7 +11,8 @@ import { TravelerListComponent } from './travelers/traveler-list/traveler-list.c
 
 import {ROUTES} from './app.routes';
 import { InputComponent } from './shared/input/input.component';
-import { TravelerFormComponent } from './travelers/traveler-form/traveler-form.component'
+import { TravelerFormComponent } from './travelers/traveler-form/traveler-form.component';
+import { LoginComponent } from './login/login.component'
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { TravelerFormComponent } from './travelers/traveler-form/traveler-form.c
     HomeComponent,
     TravelerListComponent,
     InputComponent,
-    TravelerFormComponent
+    TravelerFormComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
