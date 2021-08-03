@@ -12,7 +12,11 @@ import { TravelerListComponent } from './travelers/traveler-list/traveler-list.c
 import {ROUTES} from './app.routes';
 import { InputComponent } from './shared/input/input.component';
 import { TravelerFormComponent } from './travelers/traveler-form/traveler-form.component';
-import { LoginComponent } from './login/login.component'
+import { LoginComponent } from './login/login.component';
+import { TravelerListItemComponent } from './travelers/traveler-list/traveler-list-item/traveler-list-item.component';
+import { TravelersService } from './travelers/travelers.service';
+
+
 
 @NgModule({
   declarations: [
@@ -22,14 +26,17 @@ import { LoginComponent } from './login/login.component'
     TravelerListComponent,
     InputComponent,
     TravelerFormComponent,
-    LoginComponent
+    LoginComponent,
+    TravelerListItemComponent
+
+
   ],
   imports: [
     BrowserModule,
     HttpModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [],
+  providers: [TravelersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

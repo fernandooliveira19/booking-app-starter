@@ -16,10 +16,12 @@ export class TravelersService{
         
     }
 
-    travelers () : Observable<Traveler[]>{
+    findTravelersByName () : Observable<Traveler[]>{
         
-        return this.http.get(`${BOOKING_API_GATEWAY}/bkn-traveler/travelers/1`)
-                .map(response => response.json())
-                .catch(ErrorHandler.handleError)
+        return this.http.get(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/find?name=`)
+            .map(response => response.json())
+            .catch(ErrorHandler.handleError)
     }
+    
+   
 }

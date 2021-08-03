@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {FormGroup, FormBuilder} from '@angular/forms';
+import { TravelersService } from '../travelers.service';
+
 
 @Component({
   selector: 'bkn-traveler-form',
@@ -6,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TravelerFormComponent implements OnInit {
 
-  constructor() { }
+  /*
+  travelerForm : FormGroup
+  travelerService : TravelersService
+*/
+  constructor( private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+    /*
+  this.travelerForm = this.formBuilder.group({
+    name : this.formBuilder.control(''),
+    email : this.formBuilder.control(''),
+    document : this.formBuilder.control(''),
+    prefixPhone : this.formBuilder.control(''),
+    numberPhone : this.formBuilder.control('')
+
+  })
+  */
   }
 
 }
