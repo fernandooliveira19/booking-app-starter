@@ -11,16 +11,24 @@ export class TravelerListComponent implements OnInit {
 
   travelers: Traveler[]
 
-  filter: string
+  findForm : FormGroup
 
-  constructor(private travelerService: TravelersService) { }
+  constructor(private travelerService: TravelersService,
+              private formBuilder: FormBuilder) { }
 
   ngOnInit() {
+
+    
+    this.findForm = this.formBuilder.group({
+      name : this.formBuilder.control('')  
+    })
+   
   }
 
-  findTravelersByName(name: string){
-    this.travelerService.findTravelersByName()
-    .subscribe(travelers => this.travelers = travelers);
+  findTravelersByName(){
+
+    this.travelerService.findTravelersByName(this.findForm.get('name').value)
+    .subscribe(response => this.travelers = response);
 
   }
 
