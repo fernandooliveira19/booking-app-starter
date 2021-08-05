@@ -5,63 +5,73 @@
 <section class="content">
   <section class="invoice">
 
-        <form>
-          <div class="row">
-            <div class="col-xs-12">
-              <h2 class="page-header">
-                <i class="fa fa-user"></i> Cadastro de Viajantes
-              </h2>
-            </div>
-          </div>                
+    <form [formGroup]="travelerForm" >
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-user"></i> Cadastro de Viajantes
+          </h2>
+        </div>
+      </div>
 
-          <div class="row invoice-info">
-            
-            <div class="col-sm-10 col-xs-12">
-              <div class="form-group">
-                <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Nome</label>
-                <input type="text" class="form-control" id="inputSuccess" placeholder="Nome completo">
-                <span class="help-block"></span>
-              </div>
-            </div>
-           
-          </div>
-  <div class="row invoice-info">
-    <div class="col-sm-4 col-xs-6">
-              <div class="form-group has-success">
-                <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> E-mail</label>
-                <input type="text" class="form-control" id="inputSuccess" placeholder="E-mail">
-                <span class="help-block"><i class="fa fa-check"></i> Ok</span>
-              </div>
-            </div>
-            <div class="col-sm-2 col-xs-4">
-              <div class="form-group has-error">
-                <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> DDD</label>
-                <input type="text" class="form-control" id="inputSuccess" placeholder="DDD">
-                <span class="help-block"><i class="fa fa-remove"></i> Help block with error</span>
-              </div>
-            </div>
-    <div class="col-sm-4 col-xs-6">
-              <div class="form-group has-error">
-                <label class="control-label sr-only" for="inputSuccess"><i class="fa fa-check"></i> Telefone</label>
-                <input type="text" class="form-control" id="inputSuccess" placeholder="Telefone">
-                <span class="help-block"><i class="fa fa-remove"></i> Help block with error</span>
-              </div>
-            </div>
-  
-  </div>
-        
-        </form>
+      <div class="row invoice-info">
 
-        <div class="row">
-          <div class="col-xs-12">
-            <a href="traveler-form.html" class="btn btn-success pull-right"><i class="fa fa-user-plus"></i> Cadastrar
-            </a>
-          
-            <a href="traveler-find.html" [routerLink]="['/traveler-list']" class="btn btn-danger pull-right"><i class="fa fa-close"></i> Cancelar
-            </a>
+        <div class="col-sm-10 col-xs-12">
+          <div class="form-group">
+            <label class="control-label sr-only" for="name"><i class="fa fa-check"></i> Nome</label>
+            <input type="text" class="form-control" id="name" placeholder="Nome completo" formControlName="name"
+            required>
+            <span class="help-block"></span>
           </div>
         </div>
 
-    </section>
+      </div>
+      <div class="row invoice-info">
+        <div class="col-sm-4 col-xs-6">
+          <div class="form-group">
+            <label class="control-label sr-only" for="email"><i class="fa fa-check"></i> E-mail</label>
+            <input type="email" class="form-control" id="email" placeholder="E-mail" formControlName="email"
+            >
+            <span class="help-block"></span>
+          </div>
+        </div>
+        <div class="col-sm-2 col-xs-4">
+          <div class="form-group">
+            <label class="control-label sr-only" for="prefixPhone"><i class="fa fa-check"></i> DDD</label>
+            <input type="text" class="form-control" id="prefixPhone" placeholder="DDD" formControlName="prefixPhone"
+                  maxlength="2" >
+            <span class="help-block"></span>
+          </div>
+        </div>
+        <div class="col-sm-4 col-xs-6">
+          <div class="form-group">
+            <label class="control-label sr-only" for="numberPhone"><i class="fa fa-check"></i> Telefone</label>
+            <input type="text" class="form-control" id="numberPhone" placeholder="Telefone" formControlName="numberPhone"
+                    maxlength="9">
+            <span class="help-block"></span>
+          </div>
+        </div>
+
+      </div>
+      <div class="row">
+        <div class="col-xs-12">
+          <!--
+          <a href="traveler-form.html" class="btn btn-success pull-right"><i class="fa fa-user-plus"></i> Cadastrar
+          </a>
+        -->
+        <button  (click)= "onSubmit()" class="btn btn-success pull-right" value="Cadastrar">
+          <i class="fa fa-user-plus"></i> Cadastrar
+        </button>
+          <a href="traveler-find.html" [routerLink]="['/traveler-list']" class="btn btn-danger pull-right"><i
+              class="fa fa-close"></i> Cancelar
+          </a>
+        </div>
+      </div>
+
+    </form>
+
+    
+
+  </section>
 </section>
 <!-- FIM DO CONTEUDO-->

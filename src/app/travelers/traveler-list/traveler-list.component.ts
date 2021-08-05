@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Traveler } from '../traveler.model';
 import { TravelersService } from '../travelers.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'bkn-traveler',

@@ -16,6 +16,13 @@ export class TravelersService{
         
     }
 
+    createTraveler(requestBody: Traveler):Observable<Traveler>{
+        console.log(requestBody)
+        return this.http.post(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers`, requestBody)
+        .map(response => response.json())
+        .catch(ErrorHandler.handleError)
+    }
+
     findTravelersByName () : Observable<Traveler[]>{
         
         return this.http.get(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/find?name=`)

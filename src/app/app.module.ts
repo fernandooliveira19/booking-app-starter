@@ -15,6 +15,8 @@ import { TravelerFormComponent } from './travelers/traveler-form/traveler-form.c
 import { LoginComponent } from './login/login.component';
 import { TravelerListItemComponent } from './travelers/traveler-list/traveler-list-item/traveler-list-item.component';
 import { TravelersService } from './travelers/travelers.service';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 
 
 
@@ -33,10 +35,15 @@ import { TravelersService } from './travelers/travelers.service';
   ],
   imports: [
     BrowserModule,
+    ReactiveFormsModule,
     HttpModule,
+    FormsModule,
     RouterModule.forRoot(ROUTES)
   ],
-  providers: [TravelersService],
+  providers: [
+    TravelersService,
+    FormBuilder 
+    ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
