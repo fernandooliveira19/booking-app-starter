@@ -66,11 +66,11 @@
           <a href="traveler-form.html" class="btn btn-success pull-right"><i class="fa fa-user-plus"></i> Cadastrar
           </a>
         -->
-        <button  (click)= "onSubmit()" class="btn btn-success pull-right" value="Cadastrar">
+        <button  (click)= "create()" class="btn btn-success pull-right" value="Cadastrar">
           <i class="fa fa-user-plus"></i> Cadastrar
         </button>
-          <a href="traveler-find.html" [routerLink]="['/traveler-list']" class="btn btn-danger pull-right"><i
-              class="fa fa-close"></i> Cancelar
+          <a [routerLink]="['/travelers']" class="btn btn-danger pull-right">
+            <i class="fa fa-close"></i> Cancelar
           </a>
         </div>
       </div>

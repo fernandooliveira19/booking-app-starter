@@ -24,6 +24,7 @@ export class TravelerFormComponent implements OnInit {
   this.travelerForm = this.formBuilder.group({
     name : this.formBuilder.control(''),
     email : this.formBuilder.control(''),
+    document : this.formBuilder.control(''),
     prefixPhone : this.formBuilder.control(''),
     numberPhone : this.formBuilder.control('')
 
@@ -31,13 +32,13 @@ export class TravelerFormComponent implements OnInit {
   
   }
 
-  onSubmit(){
+  create(){
 
     console.log(this.travelerForm.getRawValue())
 
     this.travelersService.createTraveler(this.travelerForm.getRawValue())
         .subscribe(response => this.traveler)
-
+    
   }
 
 }

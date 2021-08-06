@@ -31,5 +31,11 @@ export class TravelerListComponent implements OnInit {
     .subscribe(response => this.travelers = response);
 
   }
+  clear(){
+    this.findForm = this.formBuilder.group({
+      name : this.formBuilder.control('')  
+    })
+    this.travelers = []
+  }
 
 }

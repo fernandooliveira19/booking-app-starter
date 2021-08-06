@@ -6,6 +6,11 @@ import { TravelerListComponent } from './travelers/traveler-list/traveler-list.c
 export const ROUTES : Routes = [
     {path : '' ,  component: HomeComponent},
     {path : 'login', component:LoginComponent},
-    {path : 'traveler-list', component:TravelerListComponent},
+    {path : 'travelers', component:TravelerListComponent,
+        children:[
+            {path:'travelers/:id', component:TravelerFormComponent}
+        ]
+    },
     {path : 'traveler-form', component:TravelerFormComponent}
+       
 ]
