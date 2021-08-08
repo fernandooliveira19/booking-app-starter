@@ -16,6 +16,7 @@ import { LoginComponent } from './login/login.component';
 import { TravelerListItemComponent } from './travelers/traveler-list/traveler-list-item/traveler-list-item.component';
 import { TravelersService } from './travelers/travelers.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TravelerDetailComponent } from './travelers/traveler-detail/traveler-detail.component';
 
 
 
@@ -29,7 +30,8 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angul
     InputComponent,
     TravelerFormComponent,
     LoginComponent,
-    TravelerListItemComponent
+    TravelerListItemComponent,
+    TravelerDetailComponent
 
 
   ],
