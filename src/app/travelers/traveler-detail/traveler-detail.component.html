@@ -5,11 +5,11 @@
 <section class="content">
   <section class="invoice">
 
-    <form [formGroup]="travelerForm" >
+    <form  [formGroup]="updateForm" novalidate>
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-user"></i> Atualização de Viajantes
+            <i class="fa fa-user"></i> Atualização de Viajantes 
           </h2>
         </div>
       </div>
@@ -17,54 +17,51 @@
       <div class="row invoice-info">
 
         <div class="col-sm-6 col-xs-8">
-          <div class="form-group">
-            <label class="control-label sr-only" for="name"><i class="fa fa-check"></i> Nome</label>
-            <input type="text" class="form-control" id="name" placeholder="Nome completo" formControlName="name"
-            required>
-            <span class="help-block"></span>
-          </div>
+
+          <bkn-input-container errorMessage="Nome é obrigatório" label="Nome">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Nome completo" 
+            formControlName="name" autocomplete="off" value="{{traveler?.name}}">
+          </bkn-input-container>
         </div>
         <div class="col-sm-4 col-xs-4">
-          <div class="form-group">
-            <label class="control-label sr-only" for="document"><i class="fa fa-check"></i> CPF</label>
-            <input type="text" class="form-control" id="document" placeholder="CPF" formControlName="document">
-            <span class="help-block"></span>
-          </div>
+
+          <bkn-input-container errorMessage="CPF inválido" label="CPF">
+            <input type="text" class="form-control" id="document" placeholder="CPF" 
+            formControlName="document" name="document" value="{{traveler?.document}}">
+          </bkn-input-container>  
+         
         </div>
 
       </div>
       <div class="row invoice-info">
         <div class="col-sm-4 col-xs-6">
-          <div class="form-group">
-            <label class="control-label sr-only" for="email"><i class="fa fa-check"></i> E-mail</label>
-            <input type="email" class="form-control" id="email" placeholder="E-mail" formControlName="email"
-            >
-            <span class="help-block"></span>
-          </div>
+
+          <bkn-input-container errorMessage="Email inválido" label="E-mail">
+            <input type="text" class="form-control" id="email" placeholder="E-mail" formControlName="email"
+            name="email" autocomplete="off" value="{{traveler?.email}}">
+          </bkn-input-container>
+          
         </div>
         <div class="col-sm-2 col-xs-4">
-          <div class="form-group">
-            <label class="control-label sr-only" for="prefixPhone"><i class="fa fa-check"></i> DDD</label>
+          <bkn-input-container errorMessage="DDD é obrigatório e deve ser numérico" label="DDD">
             <input type="text" class="form-control" id="prefixPhone" placeholder="DDD" formControlName="prefixPhone"
-                  maxlength="2" >
-            <span class="help-block"></span>
-          </div>
+                  maxlength="2" name="prefixPhone" value="{{traveler?.prefixPhone}}">
+          </bkn-input-container>
+            
         </div>
         <div class="col-sm-4 col-xs-6">
-          <div class="form-group">
-            <label class="control-label sr-only" for="numberPhone"><i class="fa fa-check"></i> Telefone</label>
+          <bkn-input-container errorMessage="Telefone é obrigatório" label="Telefone">
             <input type="text" class="form-control" id="numberPhone" placeholder="Telefone" formControlName="numberPhone"
-                    maxlength="10">
-            <span class="help-block"></span>
-          </div>
+                    maxlength="10" name="numberPhone" value="{{traveler?.numberPhone}}">
+          </bkn-input-container>        
         </div>
 
       </div>
       <div class="row">
         <div class="col-xs-12">
- 
-        <button  (click)= "create()" class="btn btn-success pull-right" value="Atualizar">
-          <i class="fa fa-user-update"></i> Atualizar
+       
+         <button  (click)= "updateTraveler()" class="btn btn-success pull-right" value="Cadastrar" [disabled]="!updateForm.valid">
+          <i class="fa fa-pencil"></i> Atualizar
         </button>
           <a [routerLink]="['/travelers']" class="btn btn-danger pull-right">
             <i class="fa fa-close"></i> Cancelar

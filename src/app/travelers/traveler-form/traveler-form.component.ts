@@ -12,35 +12,33 @@ import { TravelersService } from '../travelers.service';
 export class TravelerFormComponent implements OnInit {
 
 
-  travelerForm : FormGroup;
+  createForm : FormGroup;
  
   traveler : Traveler
 
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 
   constructor( private formBuilder: FormBuilder,
-                private travelersService: TravelersService) { }
+               private travelersService: TravelersService) { }
 
   ngOnInit() {
   
 
-  this.travelerForm = this.formBuilder.group({
+  this.createForm = this.formBuilder.group({
     name : this.formBuilder.control('', [Validators.required]),
     email : this.formBuilder.control('', [Validators.pattern(this.emailPattern),Validators.required ]),
     document : this.formBuilder.control(''),
     prefixPhone : this.formBuilder.control('', [Validators.required, Validators.pattern("^[0-9]*$")]),
     numberPhone: this.formBuilder.control('',[Validators.required])
-    
   })
-  
-  
+    
   }
 
   create(){
 
-    console.log(this.travelerForm.getRawValue())
+    console.log(this.createForm.getRawValue())
 
-    this.travelersService.createTraveler(this.travelerForm.getRawValue())
+    this.travelersService.createTraveler(this.createForm.getRawValue())
         .subscribe(response => this.traveler)
     
   }

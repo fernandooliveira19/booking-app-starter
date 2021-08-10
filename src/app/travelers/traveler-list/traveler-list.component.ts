@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Traveler } from '../traveler.model';
 import { TravelersService } from '../travelers.service';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'bkn-traveler',
@@ -13,8 +14,11 @@ export class TravelerListComponent implements OnInit {
 
   findForm : FormGroup
 
+
   constructor(private travelerService: TravelersService,
-              private formBuilder: FormBuilder) { }
+              private formBuilder: FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
 
@@ -36,6 +40,10 @@ export class TravelerListComponent implements OnInit {
       name : this.formBuilder.control('')  
     })
     this.travelers = []
+  }
+
+  updateTraveler(id: number){
+    this.router.navigate(['update', id], {relativeTo: this.route});
   }
 
 }

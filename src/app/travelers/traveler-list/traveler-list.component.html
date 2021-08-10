@@ -10,7 +10,7 @@
         <div class="col-xs-12">
           <h2 class="page-header">
             <i class="fa fa-user"></i> Pesquisa de Viajantes
-            <a [routerLink]="['/travelers/new']" class="btn btn-success pull-right"><i class="fa fa-user-plus"></i> Novo
+            <a [routerLink]="['/travelers/create']" class="btn btn-success pull-right"><i class="fa fa-user-plus"></i> Novo
             </a>
           </h2>
 
@@ -62,9 +62,10 @@
             <td>{{traveler.email}}</td>
             <td>({{traveler.prefixPhone}}) {{traveler.numberPhone}}</td>
             <td colspan="2">
-              <a href="traveler-form.html" [routerLink]="['/traveler-form']" class="btn btn-info btn-sm"><i
-                  class="fa fa-edit"></i></a>
-              <a href="traveler-find.html" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+              <a (click)="updateTraveler(traveler.id)" class="btn btn-info btn-sm"><i
+                  class="fa fa-edit"></i>
+              </a>
+              <a [routerLink]="travelers" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
 
             </td>
           </tr>

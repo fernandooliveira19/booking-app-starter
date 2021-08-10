@@ -5,7 +5,7 @@
 <section class="content">
   <section class="invoice">
 
-    <form  [formGroup]="travelerForm" novalidate>
+    <form  [formGroup]="createForm" novalidate>
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
@@ -60,7 +60,7 @@
       <div class="row">
         <div class="col-xs-12">
        
-         <button  (click)= "create()" class="btn btn-success pull-right" value="Cadastrar" [disabled]="!travelerForm.valid">
+         <button  (click)= "create()" class="btn btn-success pull-right" value="Cadastrar" [disabled]="!createForm.valid">
           <i class="fa fa-user-plus"></i> Cadastrar
         </button>
           <a [routerLink]="['/travelers']" class="btn btn-danger pull-right">
