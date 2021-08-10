@@ -17,6 +17,7 @@ import { TravelerListItemComponent } from './travelers/traveler-list/traveler-li
 import { TravelersService } from './travelers/travelers.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TravelerDetailComponent } from './travelers/traveler-detail/traveler-detail.component';
+import { TravelerResolverGuard } from './travelers/traveler.resolver.guard';
 
 
 
@@ -44,7 +45,8 @@ import { TravelerDetailComponent } from './travelers/traveler-detail/traveler-de
   ],
   providers: [
     TravelersService,
-    FormBuilder 
+    FormBuilder,
+    TravelerResolverGuard
     ],
   bootstrap: [AppComponent]
 })

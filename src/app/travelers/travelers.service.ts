@@ -37,9 +37,9 @@ export class TravelersService{
             .catch(ErrorHandler.handleError)
     }
 
-    updateTraveler(requestBody: Traveler, id: number):Observable<Traveler>{
+    updateTraveler(requestBody: Traveler):Observable<Traveler>{
         console.log(requestBody)
-        return this.http.put(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/update/${id}`, requestBody)
+        return this.http.put(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/update`, requestBody)
         .map(response => response.json())
         .catch(ErrorHandler.handleError)
     }
