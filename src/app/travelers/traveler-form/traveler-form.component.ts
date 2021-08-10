@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {FormGroup, FormBuilder} from '@angular/forms';
+import {FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
 import { Traveler } from '../traveler.model';
 import { TravelersService } from '../travelers.service';
 
@@ -16,19 +16,23 @@ export class TravelerFormComponent implements OnInit {
  
   traveler : Traveler
 
+  emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
+
   constructor( private formBuilder: FormBuilder,
                 private travelersService: TravelersService) { }
 
   ngOnInit() {
-   
-  this.travelerForm = this.formBuilder.group({
-    name : this.formBuilder.control(''),
-    email : this.formBuilder.control(''),
-    document : this.formBuilder.control(''),
-    prefixPhone : this.formBuilder.control(''),
-    numberPhone : this.formBuilder.control('')
+  
 
+  this.travelerForm = this.formBuilder.group({
+    name : this.formBuilder.control('', [Validators.required]),
+    email : this.formBuilder.control('', [Validators.pattern(this.emailPattern),Validators.required ]),
+    document : this.formBuilder.control(''),
+    prefixPhone : this.formBuilder.control('', [Validators.required, Validators.pattern("^[0-9]*$")]),
+    numberPhone: this.formBuilder.control('',[Validators.required])
+    
   })
+  
   
   }
 
@@ -40,5 +44,5 @@ export class TravelerFormComponent implements OnInit {
         .subscribe(response => this.traveler)
     
   }
-
+  
 }
