@@ -6,6 +6,7 @@ export class ErrorHandler{
 
     static handleError(error : Response | any){
         let errorMessage : string
+        console.log(`${error.statusEnum}`)
         if(error instanceof Response){
             errorMessage = `Erro ${error.statusEnum} ao acessar a URL ${error.url} - ${error.statusText}`
         }else{

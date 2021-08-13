@@ -18,6 +18,9 @@ import { TravelersService } from './travelers/travelers.service';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TravelerDetailComponent } from './travelers/traveler-detail/traveler-detail.component';
 import { TravelerResolverGuard } from './travelers/traveler.resolver.guard';
+import { BookingFormComponent } from './bookings/booking-form/booking-form.component';
+import { BookingListComponent } from './bookings/booking-list/booking-list.component';
+import { BookingService } from './bookings/booking.service';
 
 
 
@@ -32,7 +35,9 @@ import { TravelerResolverGuard } from './travelers/traveler.resolver.guard';
     TravelerFormComponent,
     LoginComponent,
     TravelerListItemComponent,
-    TravelerDetailComponent
+    TravelerDetailComponent,
+    BookingFormComponent,
+    BookingListComponent
 
 
   ],
@@ -46,7 +51,8 @@ import { TravelerResolverGuard } from './travelers/traveler.resolver.guard';
   providers: [
     TravelersService,
     FormBuilder,
-    TravelerResolverGuard
+    TravelerResolverGuard,
+    BookingService
     ],
   bootstrap: [AppComponent]
 })

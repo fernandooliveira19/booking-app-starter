@@ -5,6 +5,8 @@ import { TravelerFormComponent } from './travelers/traveler-form/traveler-form.c
 import { TravelerListComponent } from './travelers/traveler-list/traveler-list.component'
 import { TravelerDetailComponent } from './travelers/traveler-detail/traveler-detail.component'
 import { TravelerResolverGuard } from './travelers/traveler.resolver.guard'
+import { BookingListComponent } from './bookings/booking-list/booking-list.component'
+import { BookingFormComponent } from './bookings/booking-form/booking-form.component'
 export const ROUTES : Routes = [
     {path : '' ,  component: HomeComponent},
     {path : 'login', component:LoginComponent},
@@ -14,6 +16,8 @@ export const ROUTES : Routes = [
             travelerSaved : TravelerResolverGuard
         }
     },
-    {path : 'travelers/create', component:TravelerFormComponent}
+    {path : 'travelers/create', component:TravelerFormComponent},
+    {path : 'bookings', component:BookingListComponent },
+    {path : 'bookings/create', component:BookingFormComponent}
        
 ]

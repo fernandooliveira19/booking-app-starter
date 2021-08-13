@@ -1,0 +1,114 @@
+<section class="content-header">
+</section>
+
+<section class="content">
+  <section class="invoice">
+
+    <form  [formGroup]="createForm" novalidate>
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-suitcase"></i> Cadastro de Reservas 
+          </h2>
+        </div>
+      </div>
+
+      <div class="row invoice-info">
+
+        <div class="col-sm-6 col-xs-8">
+          <select class="form-control form-control-lg" formControlName="traveler">
+            <option>Selecione viajante...</option>
+          </select>
+           <!-- 
+          <bkn-input-container errorMessage="Nome é obrigatório" label="Nome">
+            <input type="text" class="form-control" name="name" id="name" placeholder="Nome completo" 
+            formControlName="name" autocomplete="off" >
+          </bkn-input-container>
+          -->
+        </div>
+        <div class="col-sm-3 col-xs-4">
+
+          <bkn-input-container errorMessage="Data de check-in inválida" label="Check in">
+            <input type="datetime-local" class="form-control" id="checkIn" placeholder="Check in" 
+            formControlName="checkIn" name="checkIn" >
+          </bkn-input-container>  
+         
+        </div>
+        <div class="col-sm-3 col-xs-4">
+
+          <bkn-input-container errorMessage="Data de check-out inválida" label="Check out">
+            <input type="datetime-local" class="form-control" id="checkOut" placeholder="Check out" 
+            formControlName="checkOut" name="checkOut" >
+          </bkn-input-container>
+         
+        </div>
+        
+
+      </div>
+      <div class="row invoice-info">
+        <div class="col-sm-3 col-xs-6">
+
+          <bkn-input-container errorMessage="Valor da Reserva é obrigatório" label="Valor da Reserva">
+            <input type="text" class="form-control" id="totalAmount" placeholder="Valor Total" formControlName="totalAmount"
+            name="totalAmount" autocomplete="off">
+          </bkn-input-container>
+          
+        </div>
+        <div class="col-sm-3 col-xs-4">
+          <select class="form-control form-control-lg" 
+          ng-options="item as item.label for item in items" formControlName="bookingStatus">
+            
+          </select>
+        
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <bkn-input-container errorMessage="Situação do pagamento é obrigatório" label="Situação do Pagamento">
+            <input type="text" class="form-control" id="paymentStatus" placeholder="Situação do Pagamento" formControlName="paymentStatus"
+                    name="paymentStatus" >
+          </bkn-input-container>        
+        </div>
+        <div class="col-sm-3 col-xs-6">
+          <bkn-input-container errorMessage="Forma de contrato é obrigatório" label="Forma de Contrato">
+            <input type="text" class="form-control" id="contractType" placeholder="Forma de Contrato" formControlName="contractType"
+                  name="contractType" >
+          </bkn-input-container>        
+        </div>
+
+      </div>
+
+      <div class="row invoice-info">
+        <div class="col-sm-3 col-xs-6">
+          <bkn-input-container errorMessage="Quantidade de adultos é obrigatório" label="Adultos">
+            <input type="number" max="8" min="1" class="form-control" id="adults" placeholder="Adultos" formControlName="adults"
+                    name="adults" >
+          </bkn-input-container>
+         </div>
+         <div class="col-sm-3 col-xs-6">
+          <bkn-input-container errorMessage="Quantidade de crianças é obrigatório" label="Crianças">
+            <input type="number" max="7" min="0" class="form-control" id="children" placeholder="Crianças" formControlName="children"
+                    name="children" >
+          </bkn-input-container>
+         </div>
+      </div> 
+      <div class="row">
+        <div class="col-xs-12">
+       
+         <button  (click)= "create()" class="btn btn-success pull-right" value="Cadastrar" [disabled]="!createForm.valid">
+          <i class="fa fa-calendar-plus-o"></i> Cadastrar
+        </button>
+        <button  (click)= "create()" class="btn btn-primary pull-right" value="Cadastrar" [disabled]="!createForm.valid">
+          <i class="fa fa-plus"></i> Lançamento
+        </button>
+          <a [routerLink]="['/bookings']" class="btn btn-danger pull-right">
+            <i class="fa fa-close"></i> Cancelar
+          </a>
+        </div>
+      </div>
+
+    </form>
+
+    
+
+  </section>
+</section>
+<!-- FIM DO CONTEUDO-->

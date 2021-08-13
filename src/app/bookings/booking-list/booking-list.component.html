@@ -1,0 +1,110 @@
+<section class="content-header">
+</section>
+
+<section class="content">
+  <section class="invoice">
+
+    <form [formGroup]="findForm">
+      <div class="row">
+        <div class="col-xs-12">
+          <h2 class="page-header">
+            <i class="fa fa-suitcase"></i> Pesquisa de Reservas
+            <a [routerLink]="['/bookings/create']" class="btn btn-success pull-right"><i class="fa fa-calendar-plus-o"></i> Novo
+            </a>
+          </h2>
+
+        </div>
+      </div>
+
+      <div class="row invoice-info">
+
+        <div class="col-sm-3 col-xs-3">
+          <div class="form-group">
+            <label class="control-label sr-only" for="bookingDate"><i class="fa fa-check"></i> Data</label>
+            <input type="datetime-local" class="form-control" id="bookingDate" placeholder="Data"
+                    formControlName="bookingDate">
+            <span class="help-block"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-3">
+          <div class="form-group">
+            <label class="control-label sr-only" for="travelerName"><i class="fa fa-check"></i> Viajante</label>
+            <input type="text" class="form-control" id="travelerName" placeholder="Viajante"
+                    formControlName="travelerName">
+            <span class="help-block"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-3">
+          <div class="form-group">
+            <label class="control-label sr-only" for="bookingStatus"><i class="fa fa-check"></i> Pagamento</label>
+            <input type="text" class="form-control" id="bookingStatus" placeholder="Pagamento"
+                    formControlName="bookingStatus">
+            <span class="help-block"></span>
+          </div>
+        </div>
+        <div class="col-sm-3 col-xs-3">
+          <div class="form-group">
+            <label class="control-label sr-only" for="paymentStatus"><i class="fa fa-check"></i> Pagamento</label>
+            <input type="text" class="form-control" id="paymentStatus" placeholder="Pagamento"
+                    formControlName="paymentStatus">
+            <span class="help-block"></span>
+          </div>
+        </div>
+
+      </div>
+     
+      <div class="row">
+        <div class="col-xs-12">
+          <button (click)="findBookings()" class="btn btn-info pull-right">
+            <i class="fa fa-search"></i> Pesquisar
+          </button>
+          <button (click)="clear()" class="btn btn-danger pull-right">
+            <i class="fa fa-close"></i> Cancelar
+          </button>
+        </div>
+      </div>
+
+    </form>
+    <div class="table-home-box-item" *ngIf="bookings?.length > 0">
+
+      <table class="table table-striped table-hover table-sm">
+        <thead>
+          <tr>
+            <th>Check in</th>
+            <th>Check out</th>
+            <th>Viajante</th>
+            <th>Valor Reserva</th>
+            <th>Valor Pago</th>
+            <th>Valor Pendente</th>
+            <th>Pagamento</th>
+            <th>Situação</th>
+            <th>Ação</th>
+          </tr>
+        </thead>
+        <tbody *ngFor="let booking of bookings">
+
+         <tr>
+            <td>{{booking.checkIn}}</td>
+            <td>{{booking.checkOut}}</td>
+            <td>{{booking.travelerName}}</td>
+            <td>{{booking.totalAmount}}</td>
+            <td>{{booking.paidAmount}}</td>
+            <td>{{booking.pendingAmount}}</td>
+            <td>{{booking.paymentStatus}}</td>
+            <td>{{booking.bookingStatus}}</td>
+            <td colspan="2">
+              <a (click)="editBooking(booking.id)" class="btn btn-info btn-sm" >
+                <i class="fa fa-edit"></i>
+              </a>
+            </td>
+          </tr>
+
+        </tbody>
+
+      </table>
+   
+    </div>
+
+  </section>
+</section>
+
