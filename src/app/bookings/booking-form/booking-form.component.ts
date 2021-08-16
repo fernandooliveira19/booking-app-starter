@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Traveler } from 'app/travelers/traveler.model';
+import { TravelersService } from 'app/travelers/travelers.service';
+import { Observable } from 'rxjs';
 import { Booking } from '../booking.model';
 import { BookingService } from '../booking.service';
 
@@ -11,15 +14,33 @@ export class BookingFormComponent implements OnInit {
 
   createForm :FormGroup
   booking: Booking
+  travelers : Traveler[]
 
-  items : any[]
+  bookingStatusList : any = [
+    {label: 'Cancelado', value: 'CANCELED'},
+    {label: 'Reservado', value: 'RESERVED'},
+    {label: 'Pré-Reservado', value: 'PRE_RESERVED'},
+    {label: 'Finalizado', value: 'FINISHED'}
+  ];
+  paymentStatusList : any = [
+    {label: 'Pago', value: 'PAID'},
+    {label: 'Pendente', value: 'PENDING'}
+  ];
+  contractTypeList : any = [
+    {label: 'Direto com viajante', value: 'DIRECT'},
+    {label: 'Site', value: 'SITE'}
+  ];
+
 
   constructor(
     private bookingService: BookingService,
-    private formBuilder : FormBuilder) { }
+    private formBuilder : FormBuilder,
+    private travelerService: TravelersService) { }
 
   ngOnInit() {
 
+    this.getActiveTravelers()
+    
     this.createForm = this.formBuilder.group({
       traveler : this.formBuilder.control('', [Validators.required]),
       checkIn : this.formBuilder.control('', [Validators.required ]),
@@ -31,17 +52,22 @@ export class BookingFormComponent implements OnInit {
       adults: this.formBuilder.control('',[Validators.required]),
       children: this.formBuilder.control('',[Validators.required])});
 
-
-      this.items = [{
-        id: 1,
-        label: 'aLabel',
-        subItem: { name: 'aSubItem' }
-      }, {
-        id: 2,
-        label: 'bLabel',
-        subItem: { name: 'bSubItem' }
-      }];
+    
 
   }
 
+  getActiveTravelers(){
+
+    this.travelerService
+    .getActiveTravelers()
+    .subscribe(response => this.travelers = response);
+  }
+
+  // Choose city using select dropdown
+  /*
+    changeCity(e) {
+    this.cityName.setValue(e.target.value, {
+      onlySelf: true
+    })
+*/
 }

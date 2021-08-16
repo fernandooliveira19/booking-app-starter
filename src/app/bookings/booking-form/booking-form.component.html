@@ -17,14 +17,10 @@
 
         <div class="col-sm-6 col-xs-8">
           <select class="form-control form-control-lg" formControlName="traveler">
-            <option>Selecione viajante...</option>
+            <option value="" disabled>Viajante...</option>
+            <option *ngFor="let trav of travelers" 
+                    [ngValue]="trav.id">{{trav?.name}}</option>
           </select>
-           <!-- 
-          <bkn-input-container errorMessage="Nome é obrigatório" label="Nome">
-            <input type="text" class="form-control" name="name" id="name" placeholder="Nome completo" 
-            formControlName="name" autocomplete="off" >
-          </bkn-input-container>
-          -->
         </div>
         <div class="col-sm-3 col-xs-4">
 
@@ -55,23 +51,25 @@
           
         </div>
         <div class="col-sm-3 col-xs-4">
-          <select class="form-control form-control-lg" 
-          ng-options="item as item.label for item in items" formControlName="bookingStatus">
-            
+          <select class="form-control form-control-lg" formControlName="bookingStatus">
+            <option value="" disabled>Situação...</option>
+            <option *ngFor="let bs of bookingStatusList" 
+                    [ngValue]="bs.value">{{bs?.label}}</option>
           </select>
-        
         </div>
         <div class="col-sm-3 col-xs-6">
-          <bkn-input-container errorMessage="Situação do pagamento é obrigatório" label="Situação do Pagamento">
-            <input type="text" class="form-control" id="paymentStatus" placeholder="Situação do Pagamento" formControlName="paymentStatus"
-                    name="paymentStatus" >
-          </bkn-input-container>        
+          <select class="form-control form-control-lg" formControlName="paymentStatus">
+            <option value="" disabled>Pagamento...</option>
+            <option *ngFor="let payment of paymentStatusList" 
+                    [ngValue]="payment.value">{{payment?.label}}</option>
+          </select>        
         </div>
         <div class="col-sm-3 col-xs-6">
-          <bkn-input-container errorMessage="Forma de contrato é obrigatório" label="Forma de Contrato">
-            <input type="text" class="form-control" id="contractType" placeholder="Forma de Contrato" formControlName="contractType"
-                  name="contractType" >
-          </bkn-input-container>        
+          <select class="form-control form-control-lg" formControlName="contractType">
+            <option value="" disabled>Tipo de Contrato...</option>
+            <option *ngFor="let contract of contractTypeList" 
+                    [ngValue]="contract.value">{{contract?.label}}</option>
+          </select>        
         </div>
 
       </div>
