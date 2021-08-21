@@ -21,6 +21,8 @@ import { TravelerResolverGuard } from './travelers/traveler.resolver.guard';
 import { BookingFormComponent } from './bookings/booking-form/booking-form.component';
 import { BookingListComponent } from './bookings/booking-list/booking-list.component';
 import { BookingService } from './bookings/booking.service';
+import { LaunchFormComponent } from './launchs/launch-form/launch-form.component';
+
 
 
 
@@ -37,7 +39,8 @@ import { BookingService } from './bookings/booking.service';
     TravelerListItemComponent,
     TravelerDetailComponent,
     BookingFormComponent,
-    BookingListComponent
+    BookingListComponent,
+    LaunchFormComponent
 
 
   ],

@@ -1,4 +1,3 @@
-import { Launch } from "app/app/launchs/launch.model";
 
 export interface Booking{
     id: number
@@ -12,6 +11,7 @@ export interface Booking{
     pendingAmount : string
     contractType: string
     rating : number
+    observation: string
     
 
 }
