@@ -8,7 +8,7 @@ export class ErrorHandler{
         let errorMessage : string
         console.log(`${error.statusEnum}`)
         if(error instanceof Response){
-            errorMessage = `Erro ${error.statusEnum} ao acessar a URL ${error.url} - ${error.statusText}`
+            errorMessage = `Erro ${error.status} ao acessar a URL ${error.url} - ${error.statusText}`
         }else{
             errorMessage = error.toString();
         }
