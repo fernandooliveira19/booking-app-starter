@@ -50,8 +50,7 @@ export class BookingFormComponent implements OnInit {
       paymentStatus: this.formBuilder.control('',[Validators.required]),
       contractType: this.formBuilder.control('',[Validators.required]),
       adults: this.formBuilder.control('',[Validators.required]),
-      children: this.formBuilder.control('',[Validators.required]),
-      observation: this.formBuilder.control('')});
+      children: this.formBuilder.control('',[Validators.required])});
 
     
 
@@ -64,7 +63,6 @@ export class BookingFormComponent implements OnInit {
     .subscribe(response => this.travelers = response);
   }
 
-  
   // Choose city using select dropdown
   /*
     changeCity(e) {
