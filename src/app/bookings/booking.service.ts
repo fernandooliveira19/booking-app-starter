@@ -17,13 +17,13 @@ export class BookingService{
 
     findBookingById (id: number) : Observable<Booking>{
         
-        return this.http.get(`${BOOKING_MOCKOON}/bkn-booking/v1/bookings/${id}`)
+        return this.http.get<Booking>(`${BOOKING_MOCKOON}/bkn-booking/v1/bookings/${id}`)
          .catch(ErrorHandler.handleError)
     }
 
     findBookings() : Observable<Booking[]>{
         
-        return this.http.get(`${BOOKING_MOCKOON}/bkn-booking/v1/bookings`)
+        return this.http.get<Booking[]>(`${BOOKING_MOCKOON}/bkn-booking/v1/bookings`)
         .catch(ErrorHandler.handleError)
     }
 }

@@ -8,6 +8,9 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { TravelerListComponent } from './travelers/traveler-list/traveler-list.component'
+import { LocationStrategy, HashLocationStrategy,registerLocaleData } from '@angular/common';
+import locatePt from '@angular/common/locales/pt'
+registerLocaleData(locatePt,'pt')
 
 import {ROUTES} from './app.routes';
 import { InputComponent } from './shared/input/input.component';
@@ -15,7 +18,7 @@ import { TravelerFormComponent } from './travelers/traveler-form/traveler-form.c
 import { LoginComponent } from './login/login.component';
 import { TravelerListItemComponent } from './travelers/traveler-list/traveler-list-item/traveler-list-item.component';
 import { TravelersService } from './travelers/travelers.service';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder,FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TravelerDetailComponent } from './travelers/traveler-detail/traveler-detail.component';
 import { TravelerResolverGuard } from './travelers/traveler.resolver.guard';
 import { BookingFormComponent } from './bookings/booking-form/booking-form.component';

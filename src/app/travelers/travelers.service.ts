@@ -19,29 +19,29 @@ export class TravelersService{
 
     createTraveler(requestBody: Traveler):Observable<Traveler>{
       
-        return this.http.post(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/create`, requestBody)
+        return this.http.post<Traveler>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/create`, requestBody)
             .catch(ErrorHandler.handleError)
     }
 
     findTravelersByName (filter: string) : Observable<Traveler[]>{
         
-        return this.http.get(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/find?name=${filter}`)
+        return this.http.get<Traveler[]>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/find?name=${filter}`)
             .catch(ErrorHandler.handleError)
     }
 
     findTravelerById (id: number) : Observable<Traveler>{
         
-        return this.http.get(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/${id}`)
+        return this.http.get<Traveler>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/${id}`)
             .catch(ErrorHandler.handleError)
     }
 
     updateTraveler(requestBody: Traveler):Observable<Traveler>{
         
-        return this.http.put(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/update`, requestBody)
+        return this.http.put<Traveler>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/update`, requestBody)
         .catch(ErrorHandler.handleError)
     }
     getActiveTravelers():Observable<Traveler[]> {
-        return this.http.get(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/actives/`)
+        return this.http.get<Traveler[]>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/actives/`)
         .catch(ErrorHandler.handleError)
     }
     
