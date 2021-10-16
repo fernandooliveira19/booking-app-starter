@@ -46,7 +46,7 @@ import { BookingService } from './bookings/booking.service';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES)
+    RouterModule.forRoot(ROUTES, { relativeLinkResolution: 'legacy' })
   ],
   providers: [
     TravelersService,

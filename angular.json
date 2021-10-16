@@ -23,33 +23,42 @@
             ],
             "styles": [
               {
-                "input": "node_modules/font-awesome/css/font-awesome.min.css"
+                "input": "node_modules/font-awesome/css/font-awesome.min.css",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/bootstrap/css/bootstrap.min.css"
+                "input": "node_modules/admin-lte/bootstrap/css/bootstrap.min.css",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/dist/css/AdminLTE.min.css"
+                "input": "node_modules/admin-lte/dist/css/AdminLTE.min.css",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/dist/css/skins/skin-green.min.css"
+                "input": "node_modules/admin-lte/dist/css/skins/skin-green.min.css",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/plugins/iCheck/flat/green.css"
+                "input": "node_modules/admin-lte/plugins/iCheck/flat/green.css",
+                "inject": true
               },
               {
-                "input": "src/styles.css"
+                "input": "src/styles.css",
+                "inject": true
               }
             ],
             "scripts": [
               {
-                "input": "node_modules/jquery/dist/jquery.min.js"
+                "input": "node_modules/jquery/dist/jquery.min.js",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/bootstrap/js/bootstrap.min.js"
+                "input": "node_modules/admin-lte/bootstrap/js/bootstrap.min.js",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/dist/js/app.min.js"
+                "input": "node_modules/admin-lte/dist/js/app.min.js",
+                "inject": true
               }
             ]
           },
@@ -64,7 +73,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,
@@ -105,33 +113,42 @@
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
               {
-                "input": "node_modules/jquery/dist/jquery.min.js"
+                "input": "node_modules/jquery/dist/jquery.min.js",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/bootstrap/js/bootstrap.min.js"
+                "input": "node_modules/admin-lte/bootstrap/js/bootstrap.min.js",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/dist/js/app.min.js"
+                "input": "node_modules/admin-lte/dist/js/app.min.js",
+                "inject": true
               }
             ],
             "styles": [
               {
-                "input": "node_modules/font-awesome/css/font-awesome.min.css"
+                "input": "node_modules/font-awesome/css/font-awesome.min.css",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/bootstrap/css/bootstrap.min.css"
+                "input": "node_modules/admin-lte/bootstrap/css/bootstrap.min.css",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/dist/css/AdminLTE.min.css"
+                "input": "node_modules/admin-lte/dist/css/AdminLTE.min.css",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/dist/css/skins/skin-green.min.css"
+                "input": "node_modules/admin-lte/dist/css/skins/skin-green.min.css",
+                "inject": true
               },
               {
-                "input": "node_modules/admin-lte/plugins/iCheck/flat/green.css"
+                "input": "node_modules/admin-lte/plugins/iCheck/flat/green.css",
+                "inject": true
               },
               {
-                "input": "src/styles.css"
+                "input": "src/styles.css",
+                "inject": true
               }
             ],
             "assets": [
