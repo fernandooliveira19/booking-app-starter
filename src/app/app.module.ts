@@ -25,9 +25,6 @@ import { BookingFormComponent } from './bookings/booking-form/booking-form.compo
 import { BookingListComponent } from './bookings/booking-list/booking-list.component';
 import { BookingService } from './bookings/booking.service';
 
-
-
-
 @NgModule({
   declarations: [
     AppComponent,

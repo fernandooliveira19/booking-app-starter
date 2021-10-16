@@ -2,9 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Traveler } from 'app/travelers/traveler.model';
 import { TravelersService } from 'app/travelers/travelers.service';
-import { Observable } from 'rxjs';
 import { Booking } from '../booking.model';
 import { BookingService } from '../booking.service';
+
 
 @Component({
   selector: 'bkn-booking-form',
@@ -35,7 +35,9 @@ export class BookingFormComponent implements OnInit {
   constructor(
     private bookingService: BookingService,
     private formBuilder : FormBuilder,
-    private travelerService: TravelersService) { }
+    private travelerService: TravelersService) { 
+      
+    }
 
   ngOnInit() {
 
@@ -55,7 +57,7 @@ export class BookingFormComponent implements OnInit {
     
 
   }
-
+  
   getActiveTravelers(){
 
     this.travelerService
