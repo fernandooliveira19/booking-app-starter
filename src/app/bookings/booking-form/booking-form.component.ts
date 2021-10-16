@@ -65,6 +65,10 @@ export class BookingFormComponent implements OnInit {
     .subscribe(response => this.travelers = response);
   }
 
+  create(){
+    
+  }
+
   // Choose city using select dropdown
   /*
     changeCity(e) {

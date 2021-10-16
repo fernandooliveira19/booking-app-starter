@@ -11,6 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
+            "aot": true,
             "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -41,13 +42,25 @@
               }
             ],
             "scripts": [
-              {"input": "node_modules/jquery/dist/jquery.min.js"},
-              {"input": "node_modules/admin-lte/bootstrap/js/bootstrap.min.js"},
-              {"input": "node_modules/admin-lte/dist/js/app.min.js"}
+              {
+                "input": "node_modules/jquery/dist/jquery.min.js"
+              },
+              {
+                "input": "node_modules/admin-lte/bootstrap/js/bootstrap.min.js"
+              },
+              {
+                "input": "node_modules/admin-lte/dist/js/app.min.js"
+              }
             ]
           },
           "configurations": {
             "production": {
+              "budgets": [
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "6kb"
+                }
+              ],
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
@@ -91,9 +104,15 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "src/tsconfig.spec.json",
             "scripts": [
-              {"input": "node_modules/jquery/dist/jquery.min.js"},
-              {"input": "node_modules/admin-lte/bootstrap/js/bootstrap.min.js"},
-              {"input": "node_modules/admin-lte/dist/js/app.min.js"}
+              {
+                "input": "node_modules/jquery/dist/jquery.min.js"
+              },
+              {
+                "input": "node_modules/admin-lte/bootstrap/js/bootstrap.min.js"
+              },
+              {
+                "input": "node_modules/admin-lte/dist/js/app.min.js"
+              }
             ],
             "styles": [
               {
@@ -161,10 +180,13 @@
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "bkn",
-      "styleext": "css"
+      "style": "css"
     },
     "@schematics/angular:directive": {
       "prefix": "bkn"
     }
+  },
+  "cli": {
+    "analytics": false
   }
 }
