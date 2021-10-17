@@ -34,7 +34,7 @@ export class BookingListComponent implements OnInit {
   } 
 
   clear(){
-    
+
   }
 
 }

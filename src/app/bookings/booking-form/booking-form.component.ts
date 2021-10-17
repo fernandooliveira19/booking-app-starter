@@ -66,7 +66,7 @@ export class BookingFormComponent implements OnInit {
   }
 
   create(){
-    
+
   }
 
   // Choose city using select dropdown
