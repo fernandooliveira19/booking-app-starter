@@ -4,7 +4,6 @@ import { Traveler } from '../traveler.model';
 import { TravelersService } from '../travelers.service';
 
 
-
 @Component({
   selector: 'bkn-traveler-form',
   templateUrl: './traveler-form.component.html'
@@ -22,15 +21,15 @@ export class TravelerFormComponent implements OnInit {
                private travelersService: TravelersService) { }
 
   ngOnInit() {
-  
-
-  this.createForm = this.formBuilder.group({
+     
+  this.createForm = new FormGroup({
     name : this.formBuilder.control('', [Validators.required]),
     email : this.formBuilder.control('', [Validators.pattern(this.emailPattern),Validators.required ]),
     document : this.formBuilder.control(''),
     prefixPhone : this.formBuilder.control('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-    numberPhone: this.formBuilder.control('',[Validators.required])
-  })
+    numberPhone: this.formBuilder.control('',[Validators.required, Validators.pattern("00000-0000")])
+  },
+  {validators:[Validators.required], updateOn:'blur'})
     
   }
 

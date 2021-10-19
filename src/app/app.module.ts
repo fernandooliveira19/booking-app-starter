@@ -24,6 +24,7 @@ import { TravelerResolverGuard } from './travelers/traveler.resolver.guard';
 import { BookingFormComponent } from './bookings/booking-form/booking-form.component';
 import { BookingListComponent } from './bookings/booking-list/booking-list.component';
 import { BookingService } from './bookings/booking.service';
+import { NgxMaskModule } from 'ngx-mask';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,11 @@ import { BookingService } from './bookings/booking.service';
     ReactiveFormsModule,
     HttpClientModule,
     FormsModule,
-    RouterModule.forRoot(ROUTES, { relativeLinkResolution: 'legacy' })
+    RouterModule.forRoot(ROUTES, { relativeLinkResolution: 'legacy' }),
+    NgxMaskModule.forRoot({
+      dropSpecialCharacters: false
+    })
+  
   ],
   providers: [
     TravelersService,
