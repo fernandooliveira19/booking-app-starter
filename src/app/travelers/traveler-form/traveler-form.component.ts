@@ -23,13 +23,15 @@ export class TravelerFormComponent implements OnInit {
   ngOnInit() {
      
   this.createForm = new FormGroup({
-    name : this.formBuilder.control('', [Validators.required]),
-    email : this.formBuilder.control('', [Validators.pattern(this.emailPattern),Validators.required ]),
+    name : this.formBuilder.control('', {validators: Validators.required, updateOn:"blur"}),
+    email : this.formBuilder.control('', {validators: Validators.pattern(this.emailPattern),
+       updateOn:"blur"}),
     document : this.formBuilder.control(''),
-    prefixPhone : this.formBuilder.control('', [Validators.required, Validators.pattern("^[0-9]*$")]),
-    numberPhone: this.formBuilder.control('',[Validators.required, Validators.pattern("00000-0000")])
-  },
-  {validators:[Validators.required], updateOn:'blur'})
+    prefixPhone : this.formBuilder.control('', {validators: [Validators.required,
+                                                       Validators.pattern("^[0-9]*$")],
+                                                       updateOn:"blur"}),
+    numberPhone: this.formBuilder.control('',{validators: Validators.required, updateOn:"blur"})
+  })
     
   }
 

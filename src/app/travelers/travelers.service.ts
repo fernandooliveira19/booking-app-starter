@@ -36,7 +36,7 @@ export class TravelersService{
     }
 
     updateTraveler(requestBody: Traveler):Observable<Traveler>{
-        
+        console.log(requestBody)
         return this.http.put<Traveler>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/update`, requestBody)
         
     }
