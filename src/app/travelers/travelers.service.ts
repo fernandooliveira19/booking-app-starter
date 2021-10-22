@@ -3,9 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import {Traveler} from "./traveler.model" 
 import { Observable } from "rxjs";
 import { BOOKING_API_GATEWAY} from "app/app.api"
-import { catchError} from 'rxjs/operators'
 
-import {ErrorHandler} from "app/app.error-handler"
 
 @Injectable()
 export class TravelersService{
@@ -19,7 +17,7 @@ export class TravelersService{
 
     createTraveler(requestBody: Traveler):Observable<Traveler>{
       
-        return this.http.post<Traveler>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/create`, requestBody)
+        return this.http.post<Traveler>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers`, requestBody)
            
     }
 
@@ -37,7 +35,7 @@ export class TravelersService{
 
     updateTraveler(requestBody: Traveler):Observable<Traveler>{
         console.log(requestBody)
-        return this.http.put<Traveler>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/update`, requestBody)
+        return this.http.put<Traveler>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers`, requestBody)
         
     }
     getActiveTravelers():Observable<Traveler[]> {
