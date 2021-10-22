@@ -27,7 +27,8 @@
 
           <bkn-input-container errorMessage="CPF inválido" label="CPF">
             <input type="text" class="form-control" id="document" placeholder="CPF" 
-            formControlName="document" name="document" mask="000.000.000-00" required="false">
+            formControlName="document" name="document" mask="000.000.000-00" required="false"
+            dropSpecialCharacters="true">
           </bkn-input-container>  
          
         </div>
@@ -38,7 +39,7 @@
 
           <bkn-input-container errorMessage="Email inválido" label="E-mail">
             <input type="text" class="form-control" id="email" placeholder="E-mail" formControlName="email"
-            name="email" autocomplete="off" >
+            name="email" autocomplete="off"  >
           </bkn-input-container>
           
         </div>

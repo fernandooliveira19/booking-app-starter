@@ -27,7 +27,9 @@
 
           <bkn-input-container errorMessage="CPF inválido" label="CPF">
             <input type="text" class="form-control" id="document" placeholder="CPF" 
-            formControlName="document" name="document" mask="000.000.000-00" required="false">
+            formControlName="document" name="document" mask="000.000.000-00" required="false"
+            dropSpecialCharacters="true"
+            >
           </bkn-input-container>  
          
         </div>
