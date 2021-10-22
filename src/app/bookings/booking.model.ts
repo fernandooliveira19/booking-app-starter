@@ -1,4 +1,3 @@
-import { Launch } from "app/app/launchs/launch.model";
 
 export interface Booking{
     id: number
