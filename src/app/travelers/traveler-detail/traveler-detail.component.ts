@@ -3,6 +3,7 @@ import { Traveler } from '../traveler.model';
 import { TravelersService } from '../travelers.service';
 import { ActivatedRoute } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { NotificationService } from 'app/shared/messages/notification.service';
 
 @Component({
   selector: 'bkn-traveler-detail',
@@ -16,12 +17,12 @@ export class TravelerDetailComponent implements OnInit {
 
   constructor(private travelersService: TravelersService,
               private route : ActivatedRoute,
-              private formBuilder : FormBuilder) { }
+              private formBuilder : FormBuilder,
+              private notificationService: NotificationService) { }
 
   ngOnInit() {
    
    const traveler = this.route.snapshot.data['travelerSaved'];
-   console.log(traveler)
 
    this.updateForm =  new FormGroup({
     id : this.formBuilder.control(traveler.id, [Validators.required]), 
@@ -38,10 +39,13 @@ export class TravelerDetailComponent implements OnInit {
     
   }
   updateTraveler() {
+    const travelerToUpdate = this.updateForm.getRawValue()
     
-    this.travelersService.updateTraveler(this.updateForm.getRawValue())
-      .subscribe(response => this.traveler)
-  }
-   
- 
+    this.travelersService.updateTraveler(travelerToUpdate)
+      .subscribe(response => this.traveler,
+            response => this.notificationService.notify(response.error.errorList[0].message),  
+      () =>{
+        this.notificationService.notify(`Viajante atualizado com sucesso`)
+      })
+  }   
 }

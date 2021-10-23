@@ -25,6 +25,9 @@ import { BookingFormComponent } from './bookings/booking-form/booking-form.compo
 import { BookingListComponent } from './bookings/booking-list/booking-list.component';
 import { BookingService } from './bookings/booking.service';
 import { NgxMaskModule } from 'ngx-mask';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { SnackbarComponent } from './shared/messages/snackbar/snackbar.component'
+import { NotificationService} from './shared/messages/notification.service'
 
 @NgModule({
   declarations: [
@@ -38,9 +41,8 @@ import { NgxMaskModule } from 'ngx-mask';
     TravelerListItemComponent,
     TravelerDetailComponent,
     BookingFormComponent,
-    BookingListComponent
-
-
+    BookingListComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -50,14 +52,16 @@ import { NgxMaskModule } from 'ngx-mask';
     RouterModule.forRoot(ROUTES, { relativeLinkResolution: 'legacy' }),
     NgxMaskModule.forRoot({
       dropSpecialCharacters: false
-    })
+    }),
+    BrowserAnimationsModule
   
   ],
   providers: [
     TravelersService,
     FormBuilder,
     TravelerResolverGuard,
-    BookingService
+    BookingService,
+    NotificationService
     ],
   bootstrap: [AppComponent]
 })

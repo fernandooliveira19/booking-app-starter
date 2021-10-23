@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormGroup, FormBuilder, Validators, AbstractControl} from '@angular/forms';
+import { NotificationService } from 'app/shared/messages/notification.service';
 import { Traveler } from '../traveler.model';
 import { TravelersService } from '../travelers.service';
 
@@ -18,7 +19,8 @@ export class TravelerFormComponent implements OnInit {
   emailPattern = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i
 
   constructor( private formBuilder: FormBuilder,
-               private travelersService: TravelersService) { }
+               private travelersService: TravelersService,
+               private notificationService: NotificationService) { }
 
   ngOnInit() {
      
@@ -28,8 +30,8 @@ export class TravelerFormComponent implements OnInit {
        updateOn:"blur"}),
     document : this.formBuilder.control(''),
     prefixPhone : this.formBuilder.control('', {validators: [Validators.required,
-                                                       Validators.pattern("^[0-9]*$")],
-                                                       updateOn:"blur"}),
+                                                    Validators.pattern("^[0-9]*$")],
+                                                      updateOn:"blur"}),
     numberPhone: this.formBuilder.control('',{validators: Validators.required, updateOn:"blur"})
   })
     
@@ -37,11 +39,14 @@ export class TravelerFormComponent implements OnInit {
 
   create(){
 
-    console.log(this.createForm.getRawValue())
+    const travelerToSave = this.createForm.getRawValue()
 
-    this.travelersService.createTraveler(this.createForm.getRawValue())
-        .subscribe(response => this.traveler)
-    
+    this.travelersService.createTraveler(travelerToSave)
+        .subscribe(response => this.traveler,
+        response => this.notificationService.notify(response.error.errorList[0].message),  
+        () =>{
+          this.notificationService.notify(`Viajante cadastrado com sucesso`)
+        })
   }
   
 }
