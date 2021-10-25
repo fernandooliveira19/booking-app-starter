@@ -75,8 +75,8 @@ export class BookingFormComponent implements OnInit {
 
   addLaunch():void{
     const dialogRef = this.launchDialog.open(LaunchFormDialogComponent,{
-      width: '500px',
-      height: '300px'
+      width: '600px',
+      height: '400px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
