@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { LaunchFormDialogComponent } from 'app/launchs/launch-form-dialog/launch-form-dialog.component';
 import { Traveler } from 'app/travelers/traveler.model';
 import { TravelersService } from 'app/travelers/travelers.service';
 import { Booking } from '../booking.model';
@@ -35,7 +37,8 @@ export class BookingFormComponent implements OnInit {
   constructor(
     private bookingService: BookingService,
     private formBuilder : FormBuilder,
-    private travelerService: TravelersService) { 
+    private travelerService: TravelersService,
+    private launchDialog: MatDialog) { 
       
     }
 
@@ -60,20 +63,27 @@ export class BookingFormComponent implements OnInit {
   
   getActiveTravelers(){
 
-    this.travelerService
-    .getActiveTravelers()
-    .subscribe(response => this.travelers = response);
+    this.travelerService.getActiveTravelers()
+      .subscribe(response => this.travelers = response);
   }
 
   create(){
-
+    const bookingToSave = this.createForm.getRawValue();
+    
+    this.bookingService.createBooking(bookingToSave);
   }
 
-  // Choose city using select dropdown
-  /*
-    changeCity(e) {
-    this.cityName.setValue(e.target.value, {
-      onlySelf: true
-    })
-*/
+  addLaunch():void{
+    const dialogRef = this.launchDialog.open(LaunchFormDialogComponent,{
+      width: '500px',
+      height: '300px'
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('The dialog was closed')
+    });
+  }
+
+
+ 
 }

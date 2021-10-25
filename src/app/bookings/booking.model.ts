@@ -1,5 +1,5 @@
 
-export interface Booking{
+export class Booking{
     id: number
     checkIn : string
     checkOut: string
@@ -11,6 +11,12 @@ export interface Booking{
     pendingAmount : string
     contractType: string
     rating : number
-    
+    launchs:[{
+        paymentType: string
+        paymentDate:string
+        scheduleDate:string
+        paymentStatus:string
+        amount:string
+    }]     
 
 }

@@ -27,4 +27,9 @@ export class BookingService{
         return this.http.get<Booking[]>(`${BOOKING_MOCKOON}/bkn-booking/v1/bookings`)
        
     }
+
+    createBooking(booking: Booking): Observable<Booking>{
+        console.log(booking)
+        return this.http.post<Booking>(`${BOOKING_MOCKOON}/bkn-booking/v1/bookings`, booking)
+    }
 }

@@ -22,6 +22,10 @@
             ],
             "styles": [
               {
+                "input": "node_modules/@angular/material/prebuilt-themes/indigo-pink.css",
+                "inject": true
+              },
+              {
                 "input": "node_modules/font-awesome/css/font-awesome.min.css",
                 "inject": true
               },

@@ -27,7 +27,11 @@ import { BookingService } from './bookings/booking.service';
 import { NgxMaskModule } from 'ngx-mask';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { SnackbarComponent } from './shared/messages/snackbar/snackbar.component'
-import { NotificationService} from './shared/messages/notification.service'
+import { NotificationService} from './shared/messages/notification.service';
+import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
+import { MatInputModule} from '@angular/material/input';
+import { MatNativeDateModule} from '@angular/material/core';
+import { LaunchFormDialogComponent } from './launchs/launch-form-dialog/launch-form-dialog.component'
 
 @NgModule({
   declarations: [
@@ -42,7 +46,8 @@ import { NotificationService} from './shared/messages/notification.service'
     TravelerDetailComponent,
     BookingFormComponent,
     BookingListComponent,
-    SnackbarComponent
+    SnackbarComponent,
+    LaunchFormDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,10 @@ import { NotificationService} from './shared/messages/notification.service'
     NgxMaskModule.forRoot({
       dropSpecialCharacters: false
     }),
-    BrowserAnimationsModule
+    BrowserAnimationsModule, 
+    MatDialogModule,
+    MatInputModule,
+    MatNativeDateModule
   
   ],
   providers: [
@@ -61,7 +69,11 @@ import { NotificationService} from './shared/messages/notification.service'
     FormBuilder,
     TravelerResolverGuard,
     BookingService,
-    NotificationService
+    NotificationService,
+    {
+      provide:MatDialogRef,
+      useValue : {}
+    }
     ],
   bootstrap: [AppComponent]
 })

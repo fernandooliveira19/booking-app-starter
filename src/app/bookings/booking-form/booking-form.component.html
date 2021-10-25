@@ -94,7 +94,7 @@
          <button  (click)= "create()" class="btn btn-success pull-right" value="Cadastrar" [disabled]="!createForm.valid">
           <i class="fa fa-calendar-plus-o"></i> Cadastrar
         </button>
-        <button  (click)= "create()" class="btn btn-primary pull-right" value="Cadastrar" [disabled]="!createForm.valid">
+        <button  (click)= "addLaunch()" class="btn btn-primary pull-right" value="Cadastrar" >
           <i class="fa fa-plus"></i> Lançamento
         </button>
           <a [routerLink]="['/bookings']" class="btn btn-danger pull-right">
@@ -105,11 +105,11 @@
 
     </form>
 
-    
-
   </section>
 </section>
+
 <!-- FIM DO CONTEUDO-->
+<!--
 <ng-template #content let-c="close" let-d="dismiss">
   <div class="modal-header">
     <h4 class="modal-title" id="modal-basic-title">Hi there!</h4>
@@ -124,4 +124,4 @@
     <button type="button" class="btn btn-outline-dark" (click)="c('Save click')">Save</button>
   </div>
 </ng-template>
-
+-->
