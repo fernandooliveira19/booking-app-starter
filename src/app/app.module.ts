@@ -32,6 +32,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule} from '@angular/material/input';
 import { MatNativeDateModule} from '@angular/material/core';
 import { LaunchFormDialogComponent } from './launchs/launch-form-dialog/launch-form-dialog.component'
+import { LaunchService} from './launchs/launch.service'
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { LaunchFormDialogComponent } from './launchs/launch-form-dialog/launch-f
     TravelerResolverGuard,
     BookingService,
     NotificationService,
+    LaunchService,
     {
       provide:MatDialogRef,
       useValue : {}

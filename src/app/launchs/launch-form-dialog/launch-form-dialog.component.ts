@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog'
+import { NotificationService } from 'app/shared/messages/notification.service';
+import { Launch } from '../../bookings/booking.model';
+import { LaunchService } from '../launch.service';
+
 
 @Component({
   selector: 'bkn-launch-form-dialog',
@@ -8,7 +12,8 @@ import { MatDialogRef } from '@angular/material/dialog'
 })
 export class LaunchFormDialogComponent implements OnInit {
 
-  createLaunchForm : FormGroup
+  createForm : FormGroup
+  launch : Launch
 
   paymentTypeList : any = [
     {label: 'Pix', value: 'PIX'},
@@ -23,10 +28,12 @@ export class LaunchFormDialogComponent implements OnInit {
   ];
 
   constructor(  private formBuilder : FormBuilder,
-                public dialogRef: MatDialogRef<LaunchFormDialogComponent>) { }
+                public dialogRef: MatDialogRef<LaunchFormDialogComponent>,
+                private launchService: LaunchService,
+                private notificationService: NotificationService) { }
 
   ngOnInit(): void {
-    this.createLaunchForm = new FormGroup({
+    this.createForm = new FormGroup({
       amount : this.formBuilder.control('', {validators: Validators.required}),
       scheduleDate: this.formBuilder.control('',{validators: Validators.required}),
       paymentType: this.formBuilder.control('',{validators: Validators.required}),
@@ -42,6 +49,9 @@ export class LaunchFormDialogComponent implements OnInit {
 
   create(){
 
+    const launchToSave = this.createForm.getRawValue()
+
+    
   }
 
 

@@ -1,6 +1,6 @@
 <section class="content">
   <section class="invoice">
-    <form [formGroup]="createLaunchForm" novalidate>
+    <form [formGroup]="createForm" novalidate>
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
@@ -55,7 +55,7 @@
       <div class="row">
         <div class="col-xs-12">
 
-          <button (click)="create()" class="btn btn-success pull-right" value="Incluir" [disabled]="!createLaunchForm.valid">
+          <button (click)="create()" class="btn btn-success pull-right" value="Incluir" [disabled]="!createForm.valid">
             <i class="fa fa-user-plus"></i> Incluir
           </button>
           <button (click)="cancel()" class="btn btn-danger pull-right" value="Cancelar">

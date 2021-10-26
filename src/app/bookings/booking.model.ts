@@ -1,22 +1,26 @@
+class Booking{
 
-export class Booking{
-    id: number
-    checkIn : string
-    checkOut: string
-    travelerName : string
-    bookingStatus: string 
-    paymentStatus: string
-    totalAmount: string
-    paidAmount : string
-    pendingAmount : string
-    contractType: string
-    rating : number
-    launchs:[{
-        paymentType: string
-        paymentDate:string
-        scheduleDate:string
-        paymentStatus:string
-        amount:string
-    }]     
-
+    constructor(
+    public checkIn : string,
+    public checkOut: string,
+    public travelerName : string,
+    public bookingStatus: string, 
+    public paymentStatus: string,
+    public totalAmount: string,
+    public contractType: string,
+    public launchs: Launch[] = [],
+    public id?: number,
+    public paidAmount? : string,
+    public pendingAmount? : string,
+    public rating? : number
+    ){}
 }
+class Launch{
+    constructor(
+    public paymentType: string,
+    public paymentDate:string,
+    public scheduleDate:string,
+    public paymentStatus:string,
+    public amount:string){}
+}
+export {Booking, Launch}
