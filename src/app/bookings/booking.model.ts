@@ -18,9 +18,9 @@ class Booking{
 class Launch{
     constructor(
     public paymentType: string,
-    public paymentDate:string,
     public scheduleDate:string,
     public paymentStatus:string,
-    public amount:string){}
+    public amount:string,
+    public paymentDate?:string){}
 }
 export {Booking, Launch}

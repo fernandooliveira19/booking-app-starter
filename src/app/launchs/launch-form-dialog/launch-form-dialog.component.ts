@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef } from '@angular/material/dialog'
 import { NotificationService } from 'app/shared/messages/notification.service';
@@ -12,6 +12,9 @@ import { LaunchService } from '../launch.service';
 })
 export class LaunchFormDialogComponent implements OnInit {
 
+  @Output()
+  emitter = new EventEmitter();
+  
   createForm : FormGroup
   launch : Launch
 
@@ -47,11 +50,14 @@ export class LaunchFormDialogComponent implements OnInit {
     this.dialogRef.close()
   }
 
-  create(){
+  addLaunch(){
 
+    this.dialogRef.close(this.createForm.getRawValue())
+    /** 
     const launchToSave = this.createForm.getRawValue()
-
-    
+    console.log(launchToSave)
+    this.emitter.emit(launchToSave);
+    */
   }
 
 

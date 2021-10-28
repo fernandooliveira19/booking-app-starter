@@ -32,7 +32,7 @@ import { MatDialogModule, MatDialogRef } from '@angular/material/dialog';
 import { MatInputModule} from '@angular/material/input';
 import { MatNativeDateModule} from '@angular/material/core';
 import { LaunchFormDialogComponent } from './launchs/launch-form-dialog/launch-form-dialog.component'
-import { LaunchService} from './launchs/launch.service'
+import { LaunchService} from './launchs/launch.service';
 
 @NgModule({
   declarations: [

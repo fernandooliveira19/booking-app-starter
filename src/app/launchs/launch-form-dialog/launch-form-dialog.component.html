@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
-            <i class="fa fa-user"></i> Cadastro de Lançamentos
+            <i class="fa fa-credit-card"></i> Incluir Lançamento
           </h2>
         </div>
       </div>
@@ -18,7 +18,7 @@
         </div>
         <div class="col-sm-6 col-xs-12">
           <bkn-input-container errorMessage="Data de agendamento inválida" label="Agendamento">
-            <input type="datetime-local" class="form-control" id="schedule" placeholder="Agendamento"
+            <input type="date" class="form-control" id="schedule" placeholder="Agendamento"
               formControlName="scheduleDate" name="scheduleDate">
           </bkn-input-container>
         </div>
@@ -28,7 +28,7 @@
       <div class="row invoice-info ">
         <div class="col-sm-6 col-xs-12">
           <select class="form-control form-control-lg" formControlName="paymentType">
-            <option value="" disabled>Pagamento...</option>
+            <option value="" disabled>Forma de Pagamento...</option>
             <option *ngFor="let payment of paymentTypeList" [ngValue]="payment.value">{{payment?.label}}</option>
           </select>
         </div>
@@ -44,7 +44,7 @@
       <div class="row invoice-info">
         <div class="col-sm-6 col-xs-12">
             <bkn-input-container errorMessage="Data de agendamento inválida" label="Agendamento">
-              <input type="datetime-local" class="form-control" id="schedule" placeholder="Agendamento"
+              <input type="date" class="form-control" id="schedule" placeholder="Agendamento"
                 formControlName="scheduleDate" name="scheduleDate">
             </bkn-input-container>
           </div>
@@ -55,7 +55,7 @@
       <div class="row">
         <div class="col-xs-12">
 
-          <button (click)="create()" class="btn btn-success pull-right" value="Incluir" [disabled]="!createForm.valid">
+          <button (click)="addLaunch()" class="btn btn-success pull-right" value="Incluir">
             <i class="fa fa-user-plus"></i> Incluir
           </button>
           <button (click)="cancel()" class="btn btn-danger pull-right" value="Cancelar">

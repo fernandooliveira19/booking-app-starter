@@ -2,9 +2,10 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { LaunchFormDialogComponent } from 'app/launchs/launch-form-dialog/launch-form-dialog.component';
+import { LaunchService } from 'app/launchs/launch.service';
 import { Traveler } from 'app/travelers/traveler.model';
 import { TravelersService } from 'app/travelers/travelers.service';
-import { Booking } from '../booking.model';
+import { Booking, Launch } from '../booking.model';
 import { BookingService } from '../booking.service';
 
 
@@ -17,12 +18,11 @@ export class BookingFormComponent implements OnInit {
   createForm :FormGroup
   booking: Booking
   travelers : Traveler[]
+  launchs : Launch []
 
   bookingStatusList : any = [
-    {label: 'Cancelado', value: 'CANCELED'},
     {label: 'Reservado', value: 'RESERVED'},
-    {label: 'Pré-Reservado', value: 'PRE_RESERVED'},
-    {label: 'Finalizado', value: 'FINISHED'}
+    {label: 'Pré-Reservado', value: 'PRE_RESERVED'}
   ];
   paymentStatusList : any = [
     {label: 'Pago', value: 'PAID'},
@@ -38,7 +38,8 @@ export class BookingFormComponent implements OnInit {
     private bookingService: BookingService,
     private formBuilder : FormBuilder,
     private travelerService: TravelersService,
-    private launchDialog: MatDialog) { 
+    private launchDialog: MatDialog,
+    private launchService: LaunchService) { 
       
     }
 
@@ -55,9 +56,15 @@ export class BookingFormComponent implements OnInit {
       paymentStatus: this.formBuilder.control('',[Validators.required]),
       contractType: this.formBuilder.control('',[Validators.required]),
       adults: this.formBuilder.control('',[Validators.required]),
-      children: this.formBuilder.control('',[Validators.required])});
+      children: this.formBuilder.control('',[Validators.required])
+    });
 
-    
+
+  }
+
+  onAddLaunch(launch: Launch){
+    console.log(this.booking)
+    console.log(launch)
 
   }
   
@@ -73,15 +80,18 @@ export class BookingFormComponent implements OnInit {
     this.bookingService.createBooking(bookingToSave);
   }
 
-  addLaunch():void{
+  openLaunchDialog():void{
+   
     const dialogRef = this.launchDialog.open(LaunchFormDialogComponent,{
       width: '600px',
       height: '400px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      console.log('The dialog was closed')
+      this.launchs = result
+      console.log(this.launchs)
     });
+    
   }
 
 
