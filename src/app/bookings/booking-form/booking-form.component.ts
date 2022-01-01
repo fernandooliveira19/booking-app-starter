@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { LaunchFormDialogComponent } from 'app/launchs/launch-form-dialog/launch-form-dialog.component';
 import { LaunchService } from 'app/launchs/launch.service';
@@ -47,29 +47,26 @@ export class BookingFormComponent implements OnInit {
 
     this.getActiveTravelers()
     
-    this.createForm = this.formBuilder.group({
-      traveler : this.formBuilder.control('', [Validators.required]),
-      checkIn : this.formBuilder.control('', [Validators.required ]),
-      checkOut : this.formBuilder.control('', [Validators.required ]),
-      totalAmount : this.formBuilder.control('', [Validators.required]),
-      bookingStatus: this.formBuilder.control('',[Validators.required]),
-      paymentStatus: this.formBuilder.control('',[Validators.required]),
-      contractType: this.formBuilder.control('',[Validators.required]),
-      adults: this.formBuilder.control('',[Validators.required]),
-      children: this.formBuilder.control('',[Validators.required])
+    this.createForm = new FormGroup({
+      traveler : new FormControl('', [Validators.required]),
+      checkIn : new FormControl('', [Validators.required ]),
+      checkOut : new FormControl('', [Validators.required ]),
+      totalAmount : new FormControl('', [Validators.required]),
+      bookingStatus: new FormControl('',[Validators.required]),
+      paymentStatus: new FormControl('',[Validators.required]),
+      contractType: new FormControl('',[Validators.required]),
+      adults: new FormControl('',[Validators.required]),
+      children: new FormControl('',[Validators.required]),
+      launchs : new FormBuilder().array([
+        new FormGroup({
+          amount : new FormControl('')
+        })
+      ])
     });
 
 
   }
-
-  onAddLaunch(launch: Launch){
-    console.log(this.booking)
-    console.log(launch)
-
-  }
-  
   getActiveTravelers(){
-
     this.travelerService.getActiveTravelers()
       .subscribe(response => this.travelers = response);
   }
@@ -90,10 +87,41 @@ export class BookingFormComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.launchs = result
       console.log(this.launchs)
+      Object.keys(this.launchs).forEach(key => {
+        let control = this.launchFormGroup().get(key)
+        if (control){
+          control.setValue(this.launchs[key], {onlySelf:true})
+        }
+      
+      })
+
+
+
+      this.createForm.controls['launchs'].patchValue({
+        amount : new FormControl('123.00')
+      })
+      console.log(this.createForm.getRawValue())
     });
     
   }
-
-
- 
+  launchFormGroup(): FormGroup {
+    return new FormGroup({
+      amount : new FormControl(''),
+      paymentDate : new FormControl('')
+    })
+  }
 }
+
+function launchFormGroup(): FormGroup{
+
+  return new FormGroup({
+    amount : new FormControl('123.00')
+  })
+}
+function addLaunchInBooking(launchs: Launch[]) {
+  return new FormGroup({
+    amount : new FormControl(200.00)
+  })
+}
+
+

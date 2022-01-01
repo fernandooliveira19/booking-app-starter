@@ -43,7 +43,7 @@ export class TravelerFormComponent implements OnInit {
 
     this.travelersService.createTraveler(travelerToSave)
         .subscribe(response => this.traveler,
-        response => this.notificationService.notify(response.error.errorList[0].message),  
+        response => this.notificationService.notify(response.error.message),  
         () =>{
           this.notificationService.notify(`Viajante cadastrado com sucesso`)
         })

@@ -17,28 +17,28 @@ export class TravelersService{
 
     createTraveler(requestBody: Traveler):Observable<Traveler>{
       
-        return this.http.post<Traveler>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers`, requestBody)
+        return this.http.post<Traveler>(`${BOOKING_API_GATEWAY}/v1/travelers`, requestBody)
            
     }
 
     findTravelersByName (filter: string) : Observable<Traveler[]>{
         
-        return this.http.get<Traveler[]>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/find?name=${filter}`)
+        return this.http.get<Traveler[]>(`${BOOKING_API_GATEWAY}/v1/travelers/find?name=${filter}`)
             
     }
 
     findTravelerById (id: number) : Observable<Traveler>{
         
-        return this.http.get<Traveler>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/${id}`)
+        return this.http.get<Traveler>(`${BOOKING_API_GATEWAY}/v1/travelers/${id}`)
             
     }
 
     updateTraveler(requestBody: Traveler):Observable<Traveler>{
-        return this.http.put<Traveler>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers`, requestBody)
+        return this.http.put<Traveler>(`${BOOKING_API_GATEWAY}/v1/travelers`, requestBody)
         
     }
     getActiveTravelers():Observable<Traveler[]> {
-        return this.http.get<Traveler[]>(`${BOOKING_API_GATEWAY}/bkn-traveler/v1/travelers/actives/`)
+        return this.http.get<Traveler[]>(`${BOOKING_API_GATEWAY}/v1/travelers/actives/`)
        
     }
     
