@@ -11,50 +11,48 @@
 
       <div class="row invoice-info">
         <div class="col-sm-6 col-xs-12">
-          <bkn-input-container errorMessage="Valor da Lançamento é obrigatório" label="Valor Lançamento">
-            <input type="text" class="form-control" id="amount" placeholder="Valor" formControlName="amount"
+          <bkn-input-container errorMessage="Valor da Lançamento é obrigatório" label="Valor">
+            <input type="text" class="form-control" id="amount" placeholder="0.00" formControlName="amount"
               name="totalAmount" autocomplete="off" mask="separator.2" thousandSeparator=".">
           </bkn-input-container>
         </div>
         <div class="col-sm-6 col-xs-12">
-          <bkn-input-container errorMessage="Data de agendamento inválida" label="Agendamento">
+          <bkn-input-container errorMessage="Data de agendamento inválida" label="Data agendamento">
             <input type="date" class="form-control" id="schedule" placeholder="Agendamento"
               formControlName="scheduleDate" name="scheduleDate">
           </bkn-input-container>
         </div>
-
       </div>
       
-      <div class="row invoice-info ">
+      <div class="row invoice-info">
         <div class="col-sm-6 col-xs-12">
+          <label class="control-label" for="paymentType">Forma de pagamento</label>
           <select class="form-control form-control-lg" formControlName="paymentType">
-            <option value="" disabled>Forma de Pagamento...</option>
+            <option value="" disabled>Selecione...</option>
             <option *ngFor="let payment of paymentTypeList" [ngValue]="payment.value">{{payment?.label}}</option>
           </select>
         </div>
         <div class="col-sm-6 col-xs-12">
+          <label class="control-label" for="paymentStatus">Status pagamento</label>
           <select class="form-control form-control-lg" formControlName="paymentStatus">
-            <option value="" disabled>Situação...</option>
+            <option value="" disabled>Selecione...</option>
             <option *ngFor="let bs of paymentStatusList" [ngValue]="bs.value">{{bs?.label}}</option>
           </select>
         </div>
       </div>
 
 
-      <div class="row invoice-info">
+      <div class="row invoice-info" >
         <div class="col-sm-6 col-xs-12">
-            <bkn-input-container errorMessage="Data de agendamento inválida" label="Agendamento">
-              <input type="date" class="form-control" id="schedule" placeholder="Agendamento"
-                formControlName="scheduleDate" name="scheduleDate">
+            <bkn-input-container errorMessage="Data de pagamento inválida" label="Data pagamento">
+              <input type="date" class="form-control" id="paymentDate" placeholder="Data pagamento"
+                formControlName="paymentDate" name="paymentDate">
             </bkn-input-container>
           </div>
       </div>
 
-
-
       <div class="row">
         <div class="col-xs-12">
-
           <button (click)="addLaunch()" class="btn btn-success pull-right" value="Incluir">
             <i class="fa fa-user-plus"></i> Incluir
           </button>
@@ -64,6 +62,5 @@
         </div>
       </div>
     </form>
-
   </section>
 </section>

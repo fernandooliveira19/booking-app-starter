@@ -59,7 +59,4 @@ export class LaunchFormDialogComponent implements OnInit {
     this.emitter.emit(launchToSave);
     */
   }
-
-
-
 }

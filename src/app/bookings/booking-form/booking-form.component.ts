@@ -3,6 +3,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { MatDialog } from '@angular/material/dialog';
 import { LaunchFormDialogComponent } from 'app/launchs/launch-form-dialog/launch-form-dialog.component';
 import { LaunchService } from 'app/launchs/launch.service';
+import { NotificationService } from 'app/shared/messages/notification.service';
 import { Traveler } from 'app/travelers/traveler.model';
 import { TravelersService } from 'app/travelers/travelers.service';
 import { Booking, Launch } from '../booking.model';
@@ -18,7 +19,8 @@ export class BookingFormComponent implements OnInit {
   createForm :FormGroup
   booking: Booking
   travelers : Traveler[]
-  launchs : Launch []
+  launchs : Launch [] = []
+  bookingToSave : Booking
 
   bookingStatusList : any = [
     {label: 'Reservado', value: 'RESERVED'},
@@ -39,7 +41,8 @@ export class BookingFormComponent implements OnInit {
     private formBuilder : FormBuilder,
     private travelerService: TravelersService,
     private launchDialog: MatDialog,
-    private launchService: LaunchService) { 
+    private launchService: LaunchService,
+    private notificationService: NotificationService) { 
       
     }
 
@@ -72,56 +75,29 @@ export class BookingFormComponent implements OnInit {
   }
 
   create(){
-    const bookingToSave = this.createForm.getRawValue();
-    
-    this.bookingService.createBooking(bookingToSave);
+
+    this.bookingToSave = this.createForm.getRawValue()
+    this.bookingToSave.launchs = this.launchs
+
+    const requestBody = this.bookingToSave
+
+    this.bookingService.createBooking(requestBody).subscribe(response => this.booking, 
+      response => this.notificationService.notify(response.error.message),  
+      () =>{
+        this.notificationService.notify(`Reserva cadastrada com sucesso`)
+      })
+  
   }
 
   openLaunchDialog():void{
    
     const dialogRef = this.launchDialog.open(LaunchFormDialogComponent,{
       width: '600px',
-      height: '400px'
+      height: '500px'
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.launchs = result
-      console.log(this.launchs)
-      Object.keys(this.launchs).forEach(key => {
-        let control = this.launchFormGroup().get(key)
-        if (control){
-          control.setValue(this.launchs[key], {onlySelf:true})
-        }
-      
-      })
-
-
-
-      this.createForm.controls['launchs'].patchValue({
-        amount : new FormControl('123.00')
-      })
-      console.log(this.createForm.getRawValue())
+      this.launchs.push(result)
     });
-    
-  }
-  launchFormGroup(): FormGroup {
-    return new FormGroup({
-      amount : new FormControl(''),
-      paymentDate : new FormControl('')
-    })
   }
 }
-
-function launchFormGroup(): FormGroup{
-
-  return new FormGroup({
-    amount : new FormControl('123.00')
-  })
-}
-function addLaunchInBooking(launchs: Launch[]) {
-  return new FormGroup({
-    amount : new FormControl(200.00)
-  })
-}
-
-

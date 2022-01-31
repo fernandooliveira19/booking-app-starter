@@ -14,10 +14,11 @@
       </div>
 
       <div class="row invoice-info">
-
+        
         <div class="col-sm-6 col-xs-8">
+          <label class="control-label" for="traveler">Viajante</label>
           <select class="form-control form-control-lg" formControlName="traveler">
-            <option value="" disabled>Viajante...</option>
+            <option value="" disabled>Selecione...</option>
             <option *ngFor="let trav of travelers" [ngValue]="trav.id">{{trav?.name}}</option>
           </select>
         </div>
@@ -44,27 +45,28 @@
         <div class="col-sm-3 col-xs-6">
 
           <bkn-input-container errorMessage="Valor da Reserva é obrigatório" label="Valor da Reserva">
-            <input type="text" class="form-control" id="totalAmount" placeholder="Valor Total"
+            <input type="text" class="form-control" id="totalAmount" placeholder="0,00"
               formControlName="totalAmount" name="totalAmount" autocomplete="off" mask="separator.2"
               thousandSeparator=".">
           </bkn-input-container>
 
         </div>
         <div class="col-sm-3 col-xs-6">
+          <label class="control-label" for="contractType">Tipo de Contrato</label>
           <select class="form-control form-control-lg" formControlName="contractType">
-            <option value="" disabled>Tipo de Contrato...</option>
+            <option value="" disabled>Selecione...</option>
             <option *ngFor="let contract of contractTypeList" [ngValue]="contract.value">{{contract?.label}}</option>
           </select>
         </div>
         <div class="col-sm-3 col-xs-6">
           <bkn-input-container errorMessage="Quantidade de adultos é obrigatório" label="Adultos">
-            <input type="number" max="8" min="1" class="form-control" id="adults" placeholder="Adultos"
+            <input type="number" max="8" min="1" class="form-control" id="adults" placeholder="1-8"
               formControlName="adults" name="adults">
           </bkn-input-container>
         </div>
         <div class="col-sm-3 col-xs-6">
           <bkn-input-container errorMessage="Quantidade de crianças é obrigatório" label="Crianças">
-            <input type="number" max="7" min="0" class="form-control" id="children" placeholder="Crianças"
+            <input type="number" max="7" min="0" class="form-control" id="children" placeholder="0-7"
               formControlName="children" name="children">
           </bkn-input-container>
         </div>
@@ -117,7 +119,7 @@
         <div class="col-xs-12">
 
           <button (click)="create()" class="btn btn-success pull-right" value="Cadastrar"
-            [disabled]="!createForm.valid">
+            >
             <i class="fa fa-calendar-plus-o"></i> Cadastrar
           </button>
           <button (click)="openLaunchDialog()" class="btn btn-primary pull-right" value="Cadastrar">
