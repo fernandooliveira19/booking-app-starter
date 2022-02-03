@@ -51,7 +51,7 @@ export class BookingFormComponent implements OnInit {
     this.getActiveTravelers()
     
     this.createForm = new FormGroup({
-      traveler : new FormControl('', [Validators.required]),
+      travelerId : new FormControl('', [Validators.required]),
       checkIn : new FormControl('', [Validators.required ]),
       checkOut : new FormControl('', [Validators.required ]),
       totalAmount : new FormControl('', [Validators.required]),
@@ -59,12 +59,7 @@ export class BookingFormComponent implements OnInit {
       paymentStatus: new FormControl('',[Validators.required]),
       contractType: new FormControl('',[Validators.required]),
       adults: new FormControl('',[Validators.required]),
-      children: new FormControl('',[Validators.required]),
-      launchs : new FormBuilder().array([
-        new FormGroup({
-          amount : new FormControl('')
-        })
-      ])
+      children: new FormControl('',[Validators.required])
     });
 
 

@@ -16,8 +16,8 @@
       <div class="row invoice-info">
         
         <div class="col-sm-6 col-xs-8">
-          <label class="control-label" for="traveler">Viajante</label>
-          <select class="form-control form-control-lg" formControlName="traveler">
+          <label class="control-label" for="travelerId">Viajante</label>
+          <select class="form-control form-control-lg" formControlName="travelerId">
             <option value="" disabled>Selecione...</option>
             <option *ngFor="let trav of travelers" [ngValue]="trav.id">{{trav?.name}}</option>
           </select>
