@@ -18,18 +18,18 @@ export class BookingService{
     findBookingById (id: number) : Observable<Booking>{
         
         return this.http
-            .get<Booking>(`${BOOKING_MOCKOON}/v1/bookings/${id}`)
+            .get<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings/${id}`)
          
     }
 
     findBookings() : Observable<Booking[]>{
         
-        return this.http.get<Booking[]>(`${BOOKING_MOCKOON}/v1/bookings`)
+        return this.http.get<Booking[]>(`${BOOKING_API_GATEWAY}/v1/bookings`)
        
     }
 
     createBooking(requestBody: Booking): Observable<Booking>{
-        return this.http.post<Booking>(`${BOOKING_MOCKOON}/v1/bookings`, requestBody)
+        return this.http.post<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings`, requestBody)
     }
     
 }

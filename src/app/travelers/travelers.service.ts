@@ -2,7 +2,7 @@ import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import {Traveler} from "./traveler.model" 
 import { Observable } from "rxjs";
-import { BOOKING_API_GATEWAY} from "app/app.api"
+import { BOOKING_API_GATEWAY, BOOKING_API_LOCAL} from "app/app.api"
 
 
 @Injectable()
