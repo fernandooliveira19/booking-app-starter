@@ -21,6 +21,7 @@ export class BookingFormComponent implements OnInit {
   travelers : Traveler[]
   launchs : Launch [] = []
   bookingToSave : Booking
+  inputs = []
 
   bookingStatusList : any = [
     {label: 'Reservado', value: 'RESERVED'},
@@ -94,5 +95,8 @@ export class BookingFormComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       this.launchs.push(result)
     });
+  }
+  addLauch(){
+    this.inputs.push({});
   }
 }

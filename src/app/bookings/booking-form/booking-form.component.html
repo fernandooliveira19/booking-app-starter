@@ -74,7 +74,7 @@
           </bkn-input-container>
         </div>
       </div>
-
+   
       <div class="row" *ngIf="launchs?.length > 0">
         <div class="col-xs-12">
           <h2 class="page-header">
@@ -83,40 +83,8 @@
         </div>
       </div>
 
-      <div class="table-home-box-item" *ngIf="launchs?.length > 0">
 
-        <table class="table table-striped table-hover table-sm">
-          <thead>
-            <tr>
-              <th>Valor</th>
-              <th>Data agendamento</th>
-              <th>Situação</th>
-              <th>Tipo Pagamento</th>
-              <th>Data Pagamento</th>
-              <th>Ações</th>
-            </tr>
-          </thead>
-          <tbody *ngFor="let launch of launchs">
-
-            <tr>
-              <td>{{launch.amount}}</td>
-              <td>{{launch.scheduleDate}}</td>
-              <td>{{launch.paymentStatus}}</td>
-              <td>{{launch.paymentType}}</td>
-              <td>{{launch?.paymentDate}}</td>
-              <td colspan="2">
-                <a class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
-                </a>
-                <a class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
-
-              </td>
-            </tr>
-
-          </tbody>
-
-        </table>
-
-      </div>
+      
 
       <div class="row">
         <div class="col-xs-12">
@@ -125,7 +93,7 @@
             >
             <i class="fa fa-calendar-plus-o"></i> Cadastrar
           </button>
-          <button (click)="openLaunchDialog()" class="btn btn-primary pull-right" value="Cadastrar">
+          <button (click)="addLauch()" class="btn btn-primary pull-right" value="Cadastrar">
             <i class="fa fa-plus"></i> Lançamento
           </button>
           <a [routerLink]="['/bookings']" class="btn btn-danger pull-right">
@@ -133,7 +101,7 @@
           </a>
         </div>
       </div>
-
+      <bkn-launch *ngFor="let input of inputs"></bkn-launch>
     </form>
 
   </section>

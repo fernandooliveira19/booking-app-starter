@@ -33,6 +33,7 @@ import { MatInputModule} from '@angular/material/input';
 import { MatNativeDateModule} from '@angular/material/core';
 import { LaunchFormDialogComponent } from './launchs/launch-form-dialog/launch-form-dialog.component'
 import { LaunchService} from './launchs/launch.service';
+import { LaunchComponent } from './launchs/launch/launch.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { LaunchService} from './launchs/launch.service';
     BookingFormComponent,
     BookingListComponent,
     SnackbarComponent,
-    LaunchFormDialogComponent
+    LaunchFormDialogComponent,
+    LaunchComponent
   ],
   imports: [
     BrowserModule,
