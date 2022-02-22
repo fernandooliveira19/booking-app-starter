@@ -4,7 +4,7 @@
 <section class="content">
   <section class="invoice">
 
-    <form [formGroup]="createForm" novalidate>
+    <form [formGroup]="bookingForm" novalidate >
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
@@ -19,7 +19,7 @@
           <label class="control-label" for="travelerId">Viajante</label>
           <select class="form-control form-control-lg" formControlName="travelerId">
             <option value="" disabled>Selecione...</option>
-            <option *ngFor="let trav of travelers" [ngValue]="trav.id">{{trav?.name}}</option>
+            <option *ngFor="let trav of bookingService.travelers" [ngValue]="trav.id">{{trav?.name}}</option>
           </select>
         </div>
         <div class="col-sm-3 col-xs-4">
@@ -58,7 +58,7 @@
           <label class="control-label" for="contractType">Tipo de Contrato</label>
           <select class="form-control form-control-lg" formControlName="contractType">
             <option value="" disabled>Selecione...</option>
-            <option *ngFor="let contract of contractTypeList" [ngValue]="contract.value">{{contract?.label}}</option>
+            <option *ngFor="let contract of bookingService.contractTypeList" [ngValue]="contract.value">{{contract?.label}}</option>
           </select>
         </div>
         <div class="col-sm-3 col-xs-6">
@@ -75,7 +75,7 @@
         </div>
       </div>
 
-      <div class="row" *ngIf="launchs?.length > 0">
+      <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
             <i class="fa fa-credit-card"></i> Lançamentos
@@ -83,7 +83,7 @@
         </div>
       </div>
 
-      <div class="table-home-box-item" *ngIf="launchs?.length > 0">
+      <div class="table-home-box-item" >
 
         <table class="table table-striped table-hover table-sm">
           <thead>
@@ -93,21 +93,29 @@
               <th>Situação</th>
               <th>Tipo Pagamento</th>
               <th>Data Pagamento</th>
-              <th>Ações</th>
+              <th>
+                <a (click)="openLaunchDialog(null, bookingService.booking?.id)" class="btn btn-primary pull-right" value="Cadastrar">
+                  <i class="fa fa-plus"></i> Lançamento
+                </a>
+              </th>
             </tr>
           </thead>
-          <tbody *ngFor="let launch of launchs">
+          <tbody>
+            
 
-            <tr>
+            <tr *ngFor="let launch of bookingService.launchs; let i=index;">
               <td>{{launch.amount}}</td>
               <td>{{launch.scheduleDate}}</td>
               <td>{{launch.paymentStatus}}</td>
               <td>{{launch.paymentType}}</td>
               <td>{{launch?.paymentDate}}</td>
               <td colspan="2">
-                <a class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
+                <a (click)="openLaunchDialog(i, bookingService.booking?.id)" class="btn btn-sm btn-info" value="Editar">
+                  <i class="fa fa-pencil"></i>
                 </a>
-                <a class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                <a (click)="removeLaunch(launch?.id, i)" class="btn btn-danger btn-sm">
+                  <i class="fa fa-trash"></i>
+                </a>
 
               </td>
             </tr>
@@ -121,13 +129,11 @@
       <div class="row">
         <div class="col-xs-12">
 
-          <button (click)="create()" class="btn btn-success pull-right" value="Cadastrar"
+          <button (click)="bookingService.create()" class="btn btn-success pull-right" value="Cadastrar"
             >
             <i class="fa fa-calendar-plus-o"></i> Cadastrar
           </button>
-          <button (click)="openLaunchDialog()" class="btn btn-primary pull-right" value="Cadastrar">
-            <i class="fa fa-plus"></i> Lançamento
-          </button>
+         
           <a [routerLink]="['/bookings']" class="btn btn-danger pull-right">
             <i class="fa fa-close"></i> Cancelar
           </a>
