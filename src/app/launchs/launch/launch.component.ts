@@ -1,7 +1,7 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Launch } from 'app/bookings/booking.model';
+import { Launch } from 'app/launchs/launch.model';
 import { BookingService } from 'app/bookings/booking.service';
 
 @Component({

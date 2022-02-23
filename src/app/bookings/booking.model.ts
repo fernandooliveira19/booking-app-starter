@@ -1,3 +1,4 @@
+import {Launch} from 'app/launchs/launch.model';
 class Booking{
    travelerId: number;    
    checkIn : string;
@@ -15,13 +16,5 @@ class Booking{
    pendingAmount? : string;
    rating? : number;
 }
-class Launch{
-   
-    bookingId?: number;
-    paymentType: string;
-    scheduleDate:string;
-    paymentStatus:string;
-    amount:string;
-    paymentDate?:string;
-}
-export {Booking, Launch}
+
+export {Booking}

@@ -2,7 +2,7 @@ import { EventEmitter, Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { Observable } from "rxjs";
 
-import { Launch } from "./../bookings/booking.model";
+import { Launch } from "./../launchs/launch.model";
 
 
 @Injectable()
