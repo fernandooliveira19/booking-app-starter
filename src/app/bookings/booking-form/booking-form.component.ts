@@ -35,18 +35,8 @@ export class BookingFormComponent implements OnInit {
   }
 
   create(){
-/*
-    this.bookingToSave = this.createForm.getRawValue()
-    this.bookingToSave.launchs = this.launchs
+    this.bookingService.create(this.bookingForm);
 
-    const requestBody = this.bookingToSave
-
-    this.bookingService.createBooking(requestBody).subscribe(response => this.booking, 
-      response => this.notificationService.notify(response.error.message),  
-      () =>{
-        this.notificationService.notify(`Reserva cadastrada com sucesso`)
-      })
-  */
   }
 
   openLaunchDialog(launchIndex: any, bookingId: number):void{
@@ -56,17 +46,7 @@ export class BookingFormComponent implements OnInit {
     dialogConfig.width="50%";
     dialogConfig.data={launchIndex, bookingId};
     this.dialog.open(LaunchFormDialogComponent,dialogConfig);
-   
-    /*
-    const dialogRef = this.launchDialog.open(LaunchFormDialogComponent,{
-      width: '600px',
-      height: '500px'
-    });
-
-    dialogRef.afterClosed().subscribe(result => {
-      this.launchs.push(result)
-    });
-    */
+  
   }
 
   removeLaunch(launchId : number,  index: number){
