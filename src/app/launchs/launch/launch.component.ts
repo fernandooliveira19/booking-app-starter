@@ -1,19 +1,15 @@
-import { Component, EventEmitter, Inject, Input, OnInit, Output } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog'
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Launch } from 'app/bookings/booking.model';
 import { BookingService } from 'app/bookings/booking.service';
-import { NotificationService } from 'app/shared/messages/notification.service';
-import { Launch } from '../../bookings/booking.model';
-import { LaunchService } from '../launch.service';
-
 
 @Component({
-  selector: 'bkn-launch-form-dialog',
-  templateUrl: './launch-form-dialog.component.html'
+  selector: 'bkn-launch',
+  templateUrl: './launch.component.html'
 })
-export class LaunchFormDialogComponent implements OnInit {
+export class LaunchComponent implements OnInit {
 
-  
   launchForm : FormGroup;
   launch : Launch;
 
@@ -31,7 +27,7 @@ export class LaunchFormDialogComponent implements OnInit {
 
   constructor(  @Inject(MAT_DIALOG_DATA) public data,
                 private formBuilder : FormBuilder,
-                public dialogRef: MatDialogRef<LaunchFormDialogComponent>,
+                public dialogRef: MatDialogRef<LaunchComponent>,
                 private bookingService: BookingService
                 ) { }
 
@@ -74,5 +70,5 @@ export class LaunchFormDialogComponent implements OnInit {
   cancel(){
     this.dialogRef.close()
   }
- 
+
 }

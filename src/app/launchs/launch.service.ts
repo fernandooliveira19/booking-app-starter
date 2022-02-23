@@ -8,14 +8,8 @@ import { Launch } from "./../bookings/booking.model";
 @Injectable()
 export class LaunchService{
 
-    createLaunch = new EventEmitter<any>();
-
     constructor(private http:HttpClient){
 
-    }
-   
-    addLaunch(launch: Launch){
-        this.createLaunch.emit(launch)
     }
    
 }

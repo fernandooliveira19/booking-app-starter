@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
-import { LaunchFormDialogComponent } from 'app/launchs/launch-form-dialog/launch-form-dialog.component';
+import { LaunchComponent } from 'app/launchs/launch/launch.component';
 import { NotificationService } from 'app/shared/messages/notification.service';
 import { Booking, Launch } from '../booking.model';
 import { BookingService } from '../booking.service';
@@ -45,7 +45,7 @@ export class BookingFormComponent implements OnInit {
     dialogConfig.disableClose = true;
     dialogConfig.width="50%";
     dialogConfig.data={launchIndex, bookingId};
-    this.dialog.open(LaunchFormDialogComponent,dialogConfig);
+    this.dialog.open(LaunchComponent,dialogConfig);
   
   }
 
