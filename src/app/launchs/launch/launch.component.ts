@@ -12,7 +12,8 @@ export class LaunchComponent implements OnInit {
 
   launchForm : FormGroup;
   launch : Launch;
-
+  showPaymentDateField : boolean;
+  
   paymentTypeList : any = [
     {label: 'Pix', value: 'PIX'},
     {label: 'Site', value: 'SITE'},
@@ -48,7 +49,14 @@ export class LaunchComponent implements OnInit {
       paymentStatus: this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].paymentStatus,{validators: Validators.required}),
       paymentDate: this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].paymentDate)
     }); 
-   
+
+     const paymentStatus = this.launchForm.get('paymentStatus').value;
+     if(paymentStatus =='PAID'){
+      this.showPaymentDateField = true;
+     }else{
+      this.showPaymentDateField=false;
+     }
+    
   }
     
   }
@@ -69,6 +77,16 @@ export class LaunchComponent implements OnInit {
 
   cancel(){
     this.dialogRef.close()
+  }
+
+  showPaymentDate(ctrl){
+   
+    if(ctrl.value == '1: PAID'){
+      this.showPaymentDateField = true;
+    }else{
+      this.showPaymentDateField = false;
+    }
+    
   }
 
 }

@@ -4,7 +4,7 @@
         <div class="row">
           <div class="col-xs-12">
             <h2 class="page-header">
-              <i class="fa fa-credit-card"></i> Incluir Lançamento
+              <i class="fa fa-credit-card"></i> Lançamento
             </h2>
           </div>
         </div>
@@ -34,7 +34,7 @@
           </div>
           <div class="col-sm-6 col-xs-12">
             <label class="control-label" for="paymentStatus">Status pagamento</label>
-            <select class="form-control form-control-lg" formControlName="paymentStatus">
+            <select class="form-control form-control-lg" formControlName="paymentStatus" (change)="showPaymentDate($event.target)">
               <option value="" disabled>Selecione...</option>
               <option *ngFor="let bs of paymentStatusList" [ngValue]="bs.value">{{bs?.label}}</option>
             </select>
@@ -42,7 +42,7 @@
         </div>
   
   
-        <div class="row invoice-info" >
+        <div class="row invoice-info" *ngIf="showPaymentDateField">
           <div class="col-sm-6 col-xs-12">
               <bkn-input-container errorMessage="Data de pagamento inválida" label="Data pagamento">
                 <input type="date" class="form-control" id="paymentDate" placeholder="Data pagamento"
@@ -53,8 +53,8 @@
   
         <div class="row">
           <div class="col-xs-12">
-            <button class="btn btn-success pull-right" value="Incluir">
-              <i class="fa fa-user-plus"></i> Incluir
+            <button class="btn btn-success pull-right" value="Salvar">
+              <i class="fa fa-user-plus"></i> Salvar
             </button>
             <button [mat-dialog-close] class="btn btn-danger pull-right" value="Cancelar">
               <i class="fa fa-close"></i> Cancelar
