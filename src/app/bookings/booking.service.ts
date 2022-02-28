@@ -27,7 +27,10 @@ export class BookingService {
 
   bookingStatusList: any = [
     { label: 'Reservado', value: 'RESERVED' },
-    { label: 'Pré-Reservado', value: 'PRE_RESERVED' }
+    { label: 'Pré-Reservado', value: 'PRE_RESERVED' },
+    { label: 'Cancelado', value: 'CANCELED'},
+    { label: 'Estadia Atual', value: 'CURRENT_BOOKING'},
+    { label: 'Pós-Estadia', value: 'AFTER_BOOKING'}
   ];
   paymentStatusList: any = [
     { label: 'Pago', value: 'PAID' },
@@ -49,7 +52,8 @@ export class BookingService {
       paymentStatus: new FormControl('', [Validators.required]),
       contractType: new FormControl('', [Validators.required]),
       adults: new FormControl('', [Validators.required]),
-      children: new FormControl('', [Validators.required])
+      children: new FormControl('', [Validators.required]),
+      observation : new FormControl('')
     });
 
   }
