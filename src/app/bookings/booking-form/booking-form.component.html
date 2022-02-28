@@ -47,10 +47,7 @@
           <bkn-input-container errorMessage="Valor da Reserva é obrigatório" label="Valor da Reserva">
             <input type="text" class="form-control" id="totalAmount" placeholder="0,00"
               formControlName="totalAmount" name="totalAmount" 
-              autocomplete="off" 
-              mask="separator.2"
-              thousandSeparator="." 
-              >
+              currencyMask [options]="{prefix: '', thousands:'.', decimal:',', allowNegative:false}">
           </bkn-input-container>
 
         </div>

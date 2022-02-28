@@ -6,6 +6,7 @@ import { LaunchComponent } from 'app/launchs/launch/launch.component';
 import { NotificationService } from 'app/shared/messages/notification.service';
 import { Booking} from '../booking.model';
 import { BookingService } from '../booking.service';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 
 @Component({

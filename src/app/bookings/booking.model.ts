@@ -6,7 +6,7 @@ class Booking{
    travelerName : string;
    bookingStatus: string; 
    paymentStatus: string;
-   totalAmount: string;
+   totalAmount: number;
    contractType: string;
    children : number;
    adults: number;    

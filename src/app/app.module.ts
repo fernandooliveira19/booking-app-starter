@@ -33,6 +33,7 @@ import { MatInputModule} from '@angular/material/input';
 import { MatNativeDateModule} from '@angular/material/core';
 import { LaunchService} from './launchs/launch.service';
 import { LaunchComponent } from './launchs/launch/launch.component';
+import { CurrencyMaskModule } from 'ng2-currency-mask';
 
 @NgModule({
   declarations: [
@@ -62,7 +63,8 @@ import { LaunchComponent } from './launchs/launch/launch.component';
     BrowserAnimationsModule, 
     MatDialogModule,
     MatInputModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    CurrencyMaskModule
    
   
   ],
