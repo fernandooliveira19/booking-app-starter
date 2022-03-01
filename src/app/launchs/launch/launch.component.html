@@ -13,7 +13,7 @@
           <div class="col-sm-6 col-xs-12">
             <bkn-input-container errorMessage="Valor da Lançamento é obrigatório" label="Valor">
               <input type="text" class="form-control" id="amount" placeholder="R$ 0,00" formControlName="amount"
-                name="totalAmount" autocomplete="off" mask="separator.2" thousandSeparator=".">
+                name="totalAmount" currencyMask [options]="{prefix: '', thousands:'.', decimal:',', allowNegative:false}">
             </bkn-input-container>
           </div>
           <div class="col-sm-6 col-xs-12">

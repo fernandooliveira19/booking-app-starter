@@ -4,7 +4,7 @@ class Launch{
     paymentType: string;
     scheduleDate:string;
     paymentStatus:string;
-    amount:string;
+    amount:number;
     paymentDate?:string;
 }
 
