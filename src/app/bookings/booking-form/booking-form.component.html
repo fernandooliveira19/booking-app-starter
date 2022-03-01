@@ -23,18 +23,17 @@
           </select>
         </div>
         <div class="col-sm-3 col-xs-4">
-
+          
           <bkn-input-container errorMessage="Data de check-in inválida" label="Check in">
             <input type="datetime-local" class="form-control" id="checkIn" placeholder="Check in"
               formControlName="checkIn" name="checkIn">
           </bkn-input-container>
-
         </div>
         <div class="col-sm-3 col-xs-4">
-
           <bkn-input-container errorMessage="Data de check-out inválida" label="Check out">
             <input type="datetime-local" class="form-control" id="checkOut" placeholder="Check out"
-              formControlName="checkOut" name="checkOut">
+              formControlName="checkOut" name="checkOut"
+              min="checkIn">
           </bkn-input-container>
         </div>
       </div>
@@ -124,11 +123,11 @@
             
 
             <tr *ngFor="let launch of bookingService.launchs; let i=index;">
-              <td>{{launch.amount}}</td>
-              <td>{{launch.scheduleDate}}</td>
+              <td>{{launch.amount | currency:'BRL':true}}</td>
+              <td>{{launch.scheduleDate | date: 'dd/MM/yyyy'}}</td>
               <td>{{launch.paymentStatus}}</td>
               <td>{{launch.paymentType}}</td>
-              <td>{{launch?.paymentDate}}</td>
+              <td>{{launch?.paymentDate | date: 'dd/MM/yyyy'}}</td>
               <td colspan="2">
                 <a (click)="openLaunchDialog(i, bookingService.booking?.id)" class="btn btn-sm btn-info" value="Editar">
                   <i class="fa fa-pencil"></i>

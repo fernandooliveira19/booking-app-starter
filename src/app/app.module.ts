@@ -34,6 +34,8 @@ import { MatNativeDateModule} from '@angular/material/core';
 import { LaunchService} from './launchs/launch.service';
 import { LaunchComponent } from './launchs/launch/launch.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { LOCALE_ID } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -64,7 +66,8 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     MatDialogModule,
     MatInputModule,
     MatNativeDateModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    MatDatepickerModule
    
   
   ],
@@ -78,7 +81,9 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
     {
       provide:MatDialogRef,
       useValue : {}
-    }
+    },
+    { provide: LOCALE_ID,
+      useValue: 'pt-BR'}
     ],
   bootstrap: [AppComponent]
 })
