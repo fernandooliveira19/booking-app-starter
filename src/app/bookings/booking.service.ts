@@ -47,7 +47,7 @@ export class BookingService {
       travelerId: new FormControl('', [Validators.required]),
       checkIn: new FormControl('', [Validators.required]),
       checkOut: new FormControl('', [Validators.required]),
-      totalAmount: new FormControl('', [Validators.required]),
+      amountTotal: new FormControl('', [Validators.required]),
       bookingStatus: new FormControl('', [Validators.required]),
       paymentStatus: new FormControl('', [Validators.required]),
       contractType: new FormControl('', [Validators.required]),

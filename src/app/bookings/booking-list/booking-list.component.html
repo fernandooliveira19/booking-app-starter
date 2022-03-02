@@ -84,12 +84,12 @@
         <tbody *ngFor="let booking of bookings">
 
          <tr>
-            <td>{{booking.checkIn}}</td>
-            <td>{{booking.checkOut}}</td>
+            <td>{{booking.checkIn | date: 'dd/MM/yyyy HH:mm'}}</td>
+            <td>{{booking.checkOut | date: 'dd/MM/yyyy HH:mm'}}</td>
             <td>{{booking.travelerName}}</td>
-            <td>{{booking.totalAmount}}</td>
-            <td>{{booking.paidAmount}}</td>
-            <td>{{booking.pendingAmount}}</td>
+            <td>{{booking.amountTotal  | currency:'BRL':true}}</td>
+            <td>{{booking.amountPaid | currency:'BRL':true}}</td>
+            <td>{{booking.amountPending | currency:'BRL':true}}</td>
             <td>{{booking.paymentStatus}}</td>
             <td>{{booking.bookingStatus}}</td>
             <td colspan="2">

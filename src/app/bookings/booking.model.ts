@@ -6,15 +6,16 @@ class Booking{
    travelerName : string;
    bookingStatus: string; 
    paymentStatus: string;
-   totalAmount: number;
+   amountTotal: number;
    contractType: string;
    children : number;
    adults: number;    
    launchs: Launch[] = [];
    id?: number;
-   paidAmount? : string;
-   pendingAmount? : string;
+   amountPaid? : number;
+   amountPending? : number;
    rating? : number;
+
 }
 
 export {Booking}
