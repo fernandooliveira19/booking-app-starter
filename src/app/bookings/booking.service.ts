@@ -68,7 +68,8 @@ export class BookingService {
       contractType: new FormControl(booking.contractType, [Validators.required]),
       adults: new FormControl(booking.adults, [Validators.required]),
       children: new FormControl(booking.children, [Validators.required]),
-      observation : new FormControl(booking.observation)
+      observation : new FormControl(booking.observation),
+      id: new FormControl(booking.id)
       
     });
   }
@@ -94,7 +95,7 @@ export class BookingService {
   }
 
   create(booking: FormGroup) {
-    console.log(booking.value)
+    
     var body = {
       ...booking.value,
       launchs: this.launchs
@@ -109,6 +110,26 @@ export class BookingService {
 
   createBooking(requestBody: Booking): Observable<Booking> {
     return this.http.post<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings`, requestBody)
+  }
+
+  update(booking: FormGroup){
+   
+    var body = {
+      ...booking.value,
+      launchs: this.launchs
+    };
+
+    this.updateBooking(body).subscribe(response => this.booking,
+      response => this.notificationService.notify(response.error.message),
+      () => {
+        this.notificationService.notify(`Reserva atualizada com sucesso`)
+      });
+  }
+
+  updateBooking(requestBody: Booking): Observable<Booking> {
+    let bookingId = requestBody.id;
+   
+    return this.http.put<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings/${bookingId}`, requestBody)
   }
 
 }

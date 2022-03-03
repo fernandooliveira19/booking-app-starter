@@ -5,6 +5,7 @@
   <section class="invoice">
 
     <form [formGroup]="bookingForm" novalidate >
+      <input type="hidden" formControlName="id" name="id" id="id"/> 
       <div class="row">
         <div class="col-xs-12">
           <h2 class="page-header">
@@ -17,7 +18,7 @@
         
         <div class="col-sm-6 col-xs-8">
           <label class="control-label" for="travelerId">Viajante</label>
-          <select class="form-control form-control-lg" formControlName="travelerId" readonly="update">
+          <select class="form-control form-control-lg" formControlName="travelerId" >
             <option value="" disabled>Selecione...</option>
             <option *ngFor="let trav of bookingService.travelers" [ngValue]="trav.id">{{trav?.name}}</option>
           </select>
@@ -149,12 +150,12 @@
         <div class="col-xs-12">
 
           <div *ngIf="update == false">
-          <button (click)="create()" class="btn btn-success pull-right"  value="Cadastrar">
+          <button (click)="createBooking()" class="btn btn-success pull-right"  value="Cadastrar">
             <i class="fa fa-calendar-plus-o"></i> Cadastrar
           </button>
           </div>
           <div *ngIf="update==true">
-            <button (click)="update()" class="btn btn-success pull-right"  value="Atualizar">
+            <button (click)="updateBooking()" class="btn btn-success pull-right"  value="Atualizar">
               <i class="fa fa-pencil"></i> Atualizar
             </button>
             </div>

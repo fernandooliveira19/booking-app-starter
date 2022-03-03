@@ -18,7 +18,7 @@ export class LaunchComponent implements OnInit {
     {label: 'Pix', value: 'PIX'},
     {label: 'Site', value: 'SITE'},
     {label: 'Transferência', value: 'TRANSFER'},
-    {label: 'Depósito', value: 'CREDIT'},
+    {label: 'Depósito', value: 'DEPOSIT'},
     {label: 'Local', value: 'LOCAL'}
   ];
   paymentStatusList : any = [
