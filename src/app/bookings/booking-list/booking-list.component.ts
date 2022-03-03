@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Booking } from '../booking.model';
 import { BookingService } from '../booking.service';
 
@@ -14,7 +15,9 @@ export class BookingListComponent implements OnInit {
   bookings : Booking[]
   
   constructor(private bookingService : BookingService,
-              private formBuilder : FormBuilder) { }
+              private formBuilder : FormBuilder,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.findForm = this.formBuilder.group({
@@ -32,6 +35,10 @@ export class BookingListComponent implements OnInit {
     console.log(this.bookings)
 
   } 
+
+  updateBooking(id: number){
+    this.router.navigate(['update', id], {relativeTo: this.route});
+  }
 
   clear(){
 

@@ -42,7 +42,7 @@ export class BookingService {
     private notificationService: NotificationService) {
 
   }
-  getBookingForm(): FormGroup {
+  getCreateBookingForm(): FormGroup {
     return new FormGroup({
       travelerId: new FormControl('', [Validators.required]),
       checkIn: new FormControl('', [Validators.required]),
@@ -55,7 +55,22 @@ export class BookingService {
       children: new FormControl('', [Validators.required]),
       observation : new FormControl('')
     });
+  }
 
+  getUpdateBookingForm(booking: Booking): FormGroup {
+    return new FormGroup({
+      travelerId: new FormControl(booking.travelerId, [Validators.required]),
+      checkIn: new FormControl(booking.checkIn, [Validators.required]),
+      checkOut: new FormControl(booking.checkOut, [Validators.required]),
+      amountTotal: new FormControl(booking.amountTotal, [Validators.required]),
+      bookingStatus: new FormControl(booking.bookingStatus, [Validators.required]),
+      paymentStatus: new FormControl(booking.paymentStatus, [Validators.required]),
+      contractType: new FormControl(booking.contractType, [Validators.required]),
+      adults: new FormControl(booking.adults, [Validators.required]),
+      children: new FormControl(booking.children, [Validators.required]),
+      observation : new FormControl(booking.observation)
+      
+    });
   }
 
   getActiveTravelers() {

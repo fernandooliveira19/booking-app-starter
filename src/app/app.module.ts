@@ -16,7 +16,6 @@ import {ROUTES} from './app.routes';
 import { InputComponent } from './shared/input/input.component';
 import { TravelerFormComponent } from './travelers/traveler-form/traveler-form.component';
 import { LoginComponent } from './login/login.component';
-import { TravelerListItemComponent } from './travelers/traveler-list/traveler-list-item/traveler-list-item.component';
 import { TravelersService } from './travelers/travelers.service';
 import { FormBuilder,FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TravelerDetailComponent } from './travelers/traveler-detail/traveler-detail.component';
@@ -36,6 +35,7 @@ import { LaunchComponent } from './launchs/launch/launch.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { LOCALE_ID } from '@angular/core';
+import { BookingResolverGuard } from './bookings/booking.resolver.guard';
 
 @NgModule({
   declarations: [
@@ -46,7 +46,6 @@ import { LOCALE_ID } from '@angular/core';
     InputComponent,
     TravelerFormComponent,
     LoginComponent,
-    TravelerListItemComponent,
     TravelerDetailComponent,
     BookingFormComponent,
     BookingListComponent,
@@ -75,6 +74,7 @@ import { LOCALE_ID } from '@angular/core';
     TravelersService,
     FormBuilder,
     TravelerResolverGuard,
+    BookingResolverGuard,
     BookingService,
     NotificationService,
     LaunchService,

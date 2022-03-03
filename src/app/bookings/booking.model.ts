@@ -15,6 +15,7 @@ class Booking{
    amountPaid? : number;
    amountPending? : number;
    rating? : number;
+   observation? : string; 
 
 }
 
