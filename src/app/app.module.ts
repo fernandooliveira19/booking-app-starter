@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
 import { TravelerListComponent } from './travelers/traveler-list/traveler-list.component'
-import { LocationStrategy, HashLocationStrategy,registerLocaleData } from '@angular/common';
+import { registerLocaleData } from '@angular/common';
 import locatePt from '@angular/common/locales/pt'
 registerLocaleData(locatePt,'pt')
 
