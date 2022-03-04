@@ -8,6 +8,7 @@ import { Booking} from '../booking.model';
 import { BookingService } from '../booking.service';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { ActivatedRoute } from '@angular/router';
+import { LaunchService } from 'app/launchs/launch.service';
 
 
 @Component({
@@ -28,7 +29,8 @@ export class BookingFormComponent implements OnInit {
     public bookingService: BookingService,
     private dialog: MatDialog,
     private notificationService: NotificationService,
-    private route : ActivatedRoute) { 
+    private route : ActivatedRoute,
+    private launchService: LaunchService) { 
       
     }
 
@@ -69,7 +71,19 @@ export class BookingFormComponent implements OnInit {
   }
 
   removeLaunch(launchId : number,  index: number){
-    this.bookingService.launchs.splice(index, 1);
+
+    if(launchId != null){
+      this.launchService.deleteLaunch(launchId)
+        .subscribe(() => {
+          this.bookingService.launchs.splice(index, 1);
+        },
+        err =>{
+          this.notificationService.notify(`Lançamento não encontrado pelo id: ${launchId}`)
+        });
+
+    }else{
+      this.bookingService.launchs.splice(index, 1);
+    }
 
   }
 }

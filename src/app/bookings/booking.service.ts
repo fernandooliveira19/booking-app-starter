@@ -1,13 +1,13 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
-import { BOOKING_API_GATEWAY, BOOKING_API_LOCAL, BOOKING_MOCKOON } from "app/app.api";
+import { BOOKING_API_GATEWAY} from "app/app.api";
 import { ErrorHandler } from "app/app.error-handler";
 import { Observable } from "rxjs";
 import { Booking} from "./booking.model";
 
 import { TravelersService } from "app/travelers/travelers.service";
 import { Traveler } from 'app/travelers/traveler.model';
-import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NotificationService } from "app/shared/messages/notification.service";
 import { Launch } from "app/launchs/launch.model";
 

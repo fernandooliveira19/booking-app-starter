@@ -39,10 +39,12 @@ export class LaunchComponent implements OnInit {
       scheduleDate: this.formBuilder.control('',{validators: Validators.required}),
       paymentType: this.formBuilder.control('',{validators: Validators.required}),
       paymentStatus: this.formBuilder.control('',{validators: Validators.required}),
-      paymentDate: this.formBuilder.control('')
+      paymentDate: this.formBuilder.control(''),
+      id: this.formBuilder.control(null)
     });
   }else{
      this.launchForm = new FormGroup({
+      id: this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].id ), 
       amount : this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].amount, {validators: Validators.required}),
       scheduleDate: this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].scheduleDate,{validators: Validators.required}),
       paymentType: this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].paymentType,{validators: Validators.required}),

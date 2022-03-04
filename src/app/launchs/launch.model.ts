@@ -6,6 +6,7 @@ class Launch{
     paymentStatus:string;
     amount:number;
     paymentDate?:string;
+    id?:number;
 }
 
 export {Launch}
