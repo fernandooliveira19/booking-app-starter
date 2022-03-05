@@ -78,7 +78,7 @@
           </bkn-input-container>
         </div>
        
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-3 col-xs-6" *ngIf="update == true">
           <label class="control-label" for="contractType">Situação</label>
           <select class="form-control form-control-lg" formControlName="bookingStatus" readonly>
             <option value="" disabled>Selecione...</option>
@@ -86,7 +86,7 @@
           </select>
         </div>
 
-        <div class="col-sm-3 col-xs-6">
+        <div class="col-sm-3 col-xs-6" *ngIf="update == true">
           <label class="control-label" for="contractType">Pagamento</label>
           <select class="form-control form-control-lg" formControlName="paymentStatus" readonly>
             <option value="" disabled>Selecione...</option>
@@ -126,8 +126,8 @@
             <tr *ngFor="let launch of bookingService.launchs; let i=index;">
               <td>{{launch.amount | currency:'BRL':true}}</td>
               <td>{{launch.scheduleDate | date: 'dd/MM/yyyy'}}</td>
-              <td>{{launch.paymentStatus}}</td>
-              <td>{{launch.paymentType}}</td>
+              <td>{{launch.paymentStatus | paymentStatus}}</td>
+              <td>{{launch.paymentType | paymentType}}</td>
               <td>{{launch?.paymentDate | date: 'dd/MM/yyyy'}}</td>
               <td colspan="2">
                 <a (click)="openLaunchDialog(i, bookingService.booking?.id)" class="btn btn-sm btn-info" value="Editar">

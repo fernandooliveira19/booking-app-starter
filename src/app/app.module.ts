@@ -36,6 +36,9 @@ import { CurrencyMaskModule } from 'ng2-currency-mask';
 import {MatDatepickerModule} from '@angular/material/datepicker';
 import { LOCALE_ID } from '@angular/core';
 import { BookingResolverGuard } from './bookings/booking.resolver.guard';
+import { PaymentStatusPipe } from './shared/pipe/payment-status.pipe';
+import { PaymentTypePipe } from './shared/pipe/payment-type.pipe';
+import { BookingStatusPipe } from './shared/pipe/booking-status.pipe';
 
 @NgModule({
   declarations: [
@@ -50,7 +53,10 @@ import { BookingResolverGuard } from './bookings/booking.resolver.guard';
     BookingFormComponent,
     BookingListComponent,
     SnackbarComponent,
-    LaunchComponent
+    LaunchComponent,
+    PaymentStatusPipe,
+    PaymentTypePipe,
+    BookingStatusPipe
   ],
   imports: [
     BrowserModule,
