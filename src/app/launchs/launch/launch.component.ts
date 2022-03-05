@@ -87,6 +87,8 @@ export class LaunchComponent implements OnInit {
       this.showPaymentDateField = true;
     }else{
       this.showPaymentDateField = false;
+      this.launchForm.get('paymentDate').setValue('');
+      
     }
     
   }
