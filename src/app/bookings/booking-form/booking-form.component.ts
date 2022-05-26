@@ -41,7 +41,6 @@ export class BookingFormComponent implements OnInit {
    
     if(this.booking != null){
       this.bookingForm = this.bookingService.getUpdateBookingForm(this.booking);
-      console.log(this.booking.launchs);
       this.bookingService.launchs = this.booking.launchs;
       this.update = true;
     }else{
@@ -58,6 +57,10 @@ export class BookingFormComponent implements OnInit {
   }
   updateBooking(){
     this.bookingService.update(this.bookingForm);
+  }
+  generateContract(){
+  
+    this.bookingService.generateContract(this.booking.id);
   }
 
   openLaunchDialog(launchIndex: any, bookingId: number):void{

@@ -148,7 +148,11 @@
 
       <div class="row">
         <div class="col-xs-12">
-
+          <div *ngIf="update==true">
+            <button (click)="generateContract()" class="btn btn-primary pull-left"  value="Atualizar">
+              <i class="fa fa-file"></i> Contrato
+            </button>
+          </div>
           <div *ngIf="update == false">
           <button (click)="createBooking()" class="btn btn-success pull-right"  value="Cadastrar">
             <i class="fa fa-calendar-plus-o"></i> Cadastrar
@@ -158,7 +162,7 @@
             <button (click)="updateBooking()" class="btn btn-success pull-right"  value="Atualizar">
               <i class="fa fa-pencil"></i> Atualizar
             </button>
-            </div>
+          </div>
          
           <a [routerLink]="['/bookings']" class="btn btn-danger pull-right">
             <i class="fa fa-close"></i> Cancelar

@@ -132,4 +132,9 @@ export class BookingService {
     return this.http.put<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings/${bookingId}`, requestBody)
   }
 
+  generateContract(bookingId: number){
+   
+    this.http.get<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings/${bookingId}/contract`)
+  }
+
 }
