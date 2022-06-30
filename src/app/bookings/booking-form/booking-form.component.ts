@@ -60,7 +60,11 @@ export class BookingFormComponent implements OnInit {
   }
   generateContract(){
   
-    this.bookingService.generateContract(this.booking.id);
+    this.bookingService.generateContract(this.booking.id).subscribe(res =>{
+      const fileUrl = URL.createObjectURL(res);
+      window.open(fileUrl, '_blank');
+    });
+
   }
 
   openLaunchDialog(launchIndex: any, bookingId: number):void{

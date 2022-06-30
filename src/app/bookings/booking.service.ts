@@ -1,4 +1,4 @@
-import { Injectable } from "@angular/core";
+import { Injectable, Component } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
 import { BOOKING_API_GATEWAY} from "app/app.api";
 import { ErrorHandler } from "app/app.error-handler";
@@ -10,6 +10,7 @@ import { Traveler } from 'app/travelers/traveler.model';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NotificationService } from "app/shared/messages/notification.service";
 import { Launch } from "app/launchs/launch.model";
+import { map } from 'rxjs/operators';
 
 
 @Injectable()
@@ -132,9 +133,13 @@ export class BookingService {
     return this.http.put<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings/${bookingId}`, requestBody)
   }
 
-  generateContract(bookingId: number){
-   
-    this.http.get<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings/${bookingId}/contract`)
+  generateContract(bookingId: number): Observable<Blob>{
+    const options = {responseType: 'blob' as 'json'};
+    const url = `${BOOKING_API_GATEWAY}/v1/bookings/${bookingId}/contract`;
+    
+    return this.http.get<Blob>(url, options)
+    .pipe(map(res => new Blob([res], {type :'application/pdf'})));
+    
   }
 
 }
