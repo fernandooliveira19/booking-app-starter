@@ -31,7 +31,7 @@ export class BookingService {
     { label: 'Pré-Reservado', value: 'PRE_RESERVED' },
     { label: 'Cancelado', value: 'CANCELED'},
     { label: 'Estadia Atual', value: 'CURRENT_BOOKING'},
-    { label: 'Pós-Estadia', value: 'AFTER_BOOKING'}
+    { label: 'Finalizado', value: 'FINISHED'}
   ];
   paymentStatusList: any = [
     { label: 'Pago', value: 'PAID' },

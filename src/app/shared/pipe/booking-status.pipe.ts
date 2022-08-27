@@ -20,8 +20,8 @@ export class BookingStatusPipe implements PipeTransform {
       case 'CURRENT_BOOKING':
         return 'Estadia Atual'
           break;
-      case 'AFTER_BOOKING':
-        return 'Pós-Estadia'
+      case 'FINISHED':
+        return 'Finalizado'
           break;
       default:
           return '';
