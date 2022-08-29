@@ -32,7 +32,7 @@ export class BookingListComponent implements OnInit {
   findBookings(){
     this.bookingService.findBookings()
     .subscribe(response => this.bookings = response);
-    console.log(this.bookings)
+  
 
   } 
 
