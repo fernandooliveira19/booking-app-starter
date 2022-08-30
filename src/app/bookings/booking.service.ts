@@ -144,6 +144,15 @@ export class BookingService {
     
   }
 
+  generateAuthorization(bookingId: number): Observable<Blob>{
+    const options = {responseType: 'blob' as 'json'};
+    const url = `${BOOKING_API_GATEWAY}/v1/bookings/${bookingId}/authorization`;
+    
+    return this.http.get<Blob>(url, options)
+    .pipe(map(res => new Blob([res], {type :'application/pdf'})));
+    
+  }
+
   finishBooking(requestBody: Booking): Observable<Booking> {
     let bookingId = requestBody.id;
    

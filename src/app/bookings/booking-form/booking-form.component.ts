@@ -24,7 +24,7 @@ export class BookingFormComponent implements OnInit {
   bookingToSave : Booking
 
   update : boolean;
-  showContractButton: boolean = false;
+  showFileButtons: boolean = false;
 
   constructor(
     public bookingService: BookingService,
@@ -46,7 +46,7 @@ export class BookingFormComponent implements OnInit {
       this.update = true;
       if(this.booking.bookingStatus == 'PRE_RESERVED' 
         || this.booking.bookingStatus == 'RESERVED'){
-          this.showContractButton = true;
+          this.showFileButtons = true;
       }
 
     }else{
@@ -67,6 +67,15 @@ export class BookingFormComponent implements OnInit {
   generateContract(){
   
     this.bookingService.generateContract(this.booking.id).subscribe(res =>{
+      const fileUrl = URL.createObjectURL(res);
+      window.open(fileUrl, '_blank');
+    });
+
+  }
+
+  generateAuthorization(){
+  
+    this.bookingService.generateAuthorization(this.booking.id).subscribe(res =>{
       const fileUrl = URL.createObjectURL(res);
       window.open(fileUrl, '_blank');
     });

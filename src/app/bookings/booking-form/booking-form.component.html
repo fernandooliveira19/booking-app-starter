@@ -148,9 +148,12 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <div *ngIf="update==true  && showContractButton == true">
-            <button (click)="generateContract()" class="btn btn-primary pull-left"  value="Atualizar">
+          <div *ngIf="update==true  && showFileButtons == true">
+            <button (click)="generateContract()" class="btn btn-primary pull-left"  value="Contrato">
               <i class="fa fa-file"></i> Contrato
+            </button>
+            <button (click)="generateAuthorization()" class="btn btn-primary pull-left"  value="Autorização">
+              <i class="fa fa-file"></i> Autorização
             </button>
           </div>
           <div *ngIf="update == false">
