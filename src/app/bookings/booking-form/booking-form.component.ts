@@ -24,6 +24,7 @@ export class BookingFormComponent implements OnInit {
   bookingToSave : Booking
 
   update : boolean;
+  showContractButton: boolean = false;
 
   constructor(
     public bookingService: BookingService,
@@ -43,6 +44,11 @@ export class BookingFormComponent implements OnInit {
       this.bookingForm = this.bookingService.getUpdateBookingForm(this.booking);
       this.bookingService.launchs = this.booking.launchs;
       this.update = true;
+      if(this.booking.bookingStatus == 'PRE_RESERVED' 
+        || this.booking.bookingStatus == 'RESERVED'){
+          this.showContractButton = true;
+      }
+
     }else{
       this.bookingForm = this.bookingService.getCreateBookingForm();
       this.bookingService.launchs = [];

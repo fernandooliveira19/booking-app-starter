@@ -64,8 +64,8 @@ export class BookingService {
       checkIn: new FormControl(booking.checkIn, [Validators.required]),
       checkOut: new FormControl(booking.checkOut, [Validators.required]),
       amountTotal: new FormControl(booking.amountTotal, [Validators.required]),
-      bookingStatus: new FormControl({value: booking.bookingStatus, disabled: true}, [Validators.required]),
-      paymentStatus: new FormControl({value:booking.paymentStatus,disabled:true}, [Validators.required]),
+      bookingStatus: new FormControl(booking.bookingStatus, [Validators.required]),
+      paymentStatus: new FormControl(booking.paymentStatus, [Validators.required]),
       contractType: new FormControl(booking.contractType, [Validators.required]),
       adults: new FormControl(booking.adults, [Validators.required]),
       children: new FormControl(booking.children, [Validators.required]),
@@ -128,6 +128,7 @@ export class BookingService {
   }
 
   updateBooking(requestBody: Booking): Observable<Booking> {
+   
     
     let bookingId = requestBody.id;
    

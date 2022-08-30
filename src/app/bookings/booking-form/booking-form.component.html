@@ -148,7 +148,7 @@
 
       <div class="row">
         <div class="col-xs-12">
-          <div *ngIf="update==true">
+          <div *ngIf="update==true  && showContractButton == true">
             <button (click)="generateContract()" class="btn btn-primary pull-left"  value="Atualizar">
               <i class="fa fa-file"></i> Contrato
             </button>
