@@ -7,6 +7,8 @@ class Launch{
     amount:number;
     paymentDate?:string;
     id?:number;
+    travelerName?:string;
+    checkIn?:string;
 }
 
 export {Launch}
