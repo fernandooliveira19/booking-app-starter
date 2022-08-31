@@ -39,6 +39,7 @@ import { BookingResolverGuard } from './bookings/booking.resolver.guard';
 import { PaymentStatusPipe } from './shared/pipe/payment-status.pipe';
 import { PaymentTypePipe } from './shared/pipe/payment-type.pipe';
 import { BookingStatusPipe } from './shared/pipe/booking-status.pipe';
+import { LaunchListComponent } from './launchs/launch-list/launch-list.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +57,8 @@ import { BookingStatusPipe } from './shared/pipe/booking-status.pipe';
     LaunchComponent,
     PaymentStatusPipe,
     PaymentTypePipe,
-    BookingStatusPipe
+    BookingStatusPipe,
+    LaunchListComponent
   ],
   imports: [
     BrowserModule,

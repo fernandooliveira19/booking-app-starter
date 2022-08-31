@@ -8,6 +8,7 @@ import { TravelerResolverGuard } from './travelers/traveler.resolver.guard'
 import { BookingResolverGuard} from './bookings/booking.resolver.guard'
 import { BookingListComponent } from './bookings/booking-list/booking-list.component'
 import { BookingFormComponent } from './bookings/booking-form/booking-form.component'
+import { LaunchListComponent } from './launchs/launch-list/launch-list.component'
 export const ROUTES : Routes = [
     {path : '' ,  component: HomeComponent},
     {path : 'login', component:LoginComponent},
@@ -24,6 +25,7 @@ export const ROUTES : Routes = [
             bookingSaved : BookingResolverGuard
         }
     },
-    {path : 'bookings/create', component:BookingFormComponent}
+    {path : 'bookings/create', component:BookingFormComponent},
+    {path : 'launchs', component:LaunchListComponent}
        
 ]
