@@ -14,6 +14,9 @@ export class PaymentStatusPipe implements PipeTransform {
       case 'PENDING':
         return 'Pendente'
           break;
+      case 'CANCELED':
+        return 'Cancelado'
+          break;
       default:
           return '';
           break;

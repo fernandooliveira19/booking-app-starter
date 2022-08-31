@@ -23,7 +23,8 @@ export class LaunchComponent implements OnInit {
   ];
   paymentStatusList : any = [
     {label: 'Pago', value: 'PAID'},
-    {label: 'Pendente', value: 'PENDING'}
+    {label: 'Pendente', value: 'PENDING'},
+    {label: 'Cancelado', value:'CANCELED'}
   ];
 
   constructor(  @Inject(MAT_DIALOG_DATA) public data,
