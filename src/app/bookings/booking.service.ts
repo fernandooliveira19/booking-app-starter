@@ -91,7 +91,7 @@ export class BookingService {
 
   findBookings(): Observable<Booking[]> {
 
-    return this.http.get<Booking[]>(`${BOOKING_API_GATEWAY}/v1/bookings`)
+    return this.http.get<Booking[]>(`${BOOKING_API_GATEWAY}/v1/bookings/next`)
 
   }
 
