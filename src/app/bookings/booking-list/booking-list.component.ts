@@ -26,7 +26,8 @@ export class BookingListComponent implements OnInit {
       paymentStatus : this.formBuilder.control(''),
       bookingStatus : this.formBuilder.control('')
        
-    })
+    });
+    this.findBookings();
   }
 
   findBookings(){
