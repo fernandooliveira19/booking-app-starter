@@ -20,34 +20,29 @@
 
         <div class="col-sm-3 col-xs-3">
           <div class="form-group">
-            <label class="control-label sr-only" for="bookingDate"><i class="fa fa-check"></i> Data</label>
-            <input type="datetime-local" class="form-control" id="bookingDate" placeholder="Data"
-                    formControlName="bookingDate">
-            <span class="help-block"></span>
+            <label class="control-label" for="contractType">Situação</label>
+            <select class="form-control form-control-lg" formControlName="bookingStatus">
+              <option value="" >Selecione...</option>
+              <option *ngFor="let bookingStatus of bookingService.bookingStatusList" [ngValue]="bookingStatus.value">{{bookingStatus?.label}}</option>
+            </select>
+        </div>
+        </div>
+        <div class="col-sm-3 col-xs-3">
+          <div class="form-group">
+            <label class="control-label" for="contractType">Pagamento</label>
+            <select class="form-control form-control-lg" formControlName="paymentStatus" >
+              <option value="" >Selecione...</option>
+              <option *ngFor="let paymentStatus of bookingService.paymentStatusList" [ngValue]="paymentStatus.value">{{paymentStatus?.label}}</option>
+            </select>
           </div>
         </div>
         <div class="col-sm-3 col-xs-3">
           <div class="form-group">
-            <label class="control-label sr-only" for="travelerName"><i class="fa fa-check"></i> Viajante</label>
-            <input type="text" class="form-control" id="travelerName" placeholder="Viajante"
-                    formControlName="travelerName">
-            <span class="help-block"></span>
-          </div>
-        </div>
-        <div class="col-sm-3 col-xs-3">
-          <div class="form-group">
-            <label class="control-label sr-only" for="bookingStatus"><i class="fa fa-check"></i> Pagamento</label>
-            <input type="text" class="form-control" id="bookingStatus" placeholder="Pagamento"
-                    formControlName="bookingStatus">
-            <span class="help-block"></span>
-          </div>
-        </div>
-        <div class="col-sm-3 col-xs-3">
-          <div class="form-group">
-            <label class="control-label sr-only" for="paymentStatus"><i class="fa fa-check"></i> Pagamento</label>
-            <input type="text" class="form-control" id="paymentStatus" placeholder="Pagamento"
-                    formControlName="paymentStatus">
-            <span class="help-block"></span>
+            <label class="control-label" for="contractType">Tipo de Contrato</label>
+            <select class="form-control form-control-lg" formControlName="contractType">
+              <option value="" >Selecione...</option>
+              <option *ngFor="let contract of bookingService.contractTypeList" [ngValue]="contract.value">{{contract?.label}}</option>
+            </select>
           </div>
         </div>
 
@@ -55,7 +50,7 @@
      
       <div class="row">
         <div class="col-xs-12">
-          <button (click)="findBookings()" class="btn btn-info pull-right">
+          <button (click)="searchBookings()" class="btn btn-info pull-right">
             <i class="fa fa-search"></i> Pesquisar
           </button>
           <button (click)="clear()" class="btn btn-danger pull-right">

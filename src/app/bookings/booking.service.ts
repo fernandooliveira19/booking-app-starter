@@ -1,5 +1,5 @@
 import { Injectable, Component } from "@angular/core";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpParams } from "@angular/common/http";
 import { BOOKING_API_GATEWAY} from "app/app.api";
 import { ErrorHandler } from "app/app.error-handler";
 import { Observable } from "rxjs";
@@ -30,7 +30,6 @@ export class BookingService {
     { label: 'Reservado', value: 'RESERVED' },
     { label: 'Pré-Reservado', value: 'PRE_RESERVED' },
     { label: 'Cancelado', value: 'CANCELED'},
-    { label: 'Estadia Atual', value: 'CURRENT_BOOKING'},
     { label: 'Finalizado', value: 'FINISHED'}
   ];
   paymentStatusList: any = [
@@ -157,6 +156,12 @@ export class BookingService {
     let bookingId = requestBody.id;
    
     return this.http.put<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings/finish/${bookingId}`, requestBody)
+  }
+
+  searchBookings(params:HttpParams): Observable<Booking[]> {
+    
+    return this.http.get<Booking[]>(`${BOOKING_API_GATEWAY}/v1/bookings/search?${params}`)
+
   }
 
 }

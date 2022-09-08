@@ -1,3 +1,4 @@
+import { HttpParams } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -14,28 +15,21 @@ export class BookingListComponent implements OnInit {
 
   bookings : Booking[]
   
-  constructor(private bookingService : BookingService,
+  constructor(public bookingService : BookingService,
               private formBuilder : FormBuilder,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit() {
     this.findForm = this.formBuilder.group({
-      bookingDate : this.formBuilder.control(''),
-      travelerName : this.formBuilder.control(''),
       paymentStatus : this.formBuilder.control(''),
-      bookingStatus : this.formBuilder.control('')
+      bookingStatus : this.formBuilder.control(''),
+      contractType : this.formBuilder.control('')
        
     });
-    this.findBookings();
+    this.searchBookings();
   }
 
-  findBookings(){
-    this.bookingService.findBookings()
-    .subscribe(response => this.bookings = response);
-  
-
-  } 
 
   updateBooking(id: number){
     this.router.navigate(['update', id], {relativeTo: this.route});
@@ -43,6 +37,18 @@ export class BookingListComponent implements OnInit {
 
   clear(){
 
+  }
+
+  searchBookings(){
+
+    const params = new HttpParams()
+    .append('bookingStatus',this.findForm.get('bookingStatus').value)
+    .append('paymentStatus', this.findForm.get('paymentStatus').value)
+    .append('contractType',this.findForm.get('contractType').value);
+
+  this.bookingService
+        .searchBookings(params)
+        .subscribe(response => this.bookings = response);
   }
 
 }
