@@ -34,7 +34,8 @@ export class BookingService {
   ];
   paymentStatusList: any = [
     { label: 'Pago', value: 'PAID' },
-    { label: 'Pendente', value: 'PENDING' }
+    { label: 'Pendente', value: 'PENDING' },
+    { label: 'Cancelado', value: 'CANCELED'}
   ];
 
   constructor(private http: HttpClient,

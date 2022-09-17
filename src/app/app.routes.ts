@@ -13,14 +13,14 @@ export const ROUTES : Routes = [
     {path : '' ,  component: HomeComponent},
     {path : 'login', component:LoginComponent},
     {path : 'travelers', component:TravelerListComponent,},
-    {path : 'travelers/update/:id', component:TravelerDetailComponent,
+    {path : 'travelers/detail/:id', component:TravelerDetailComponent,
         resolve:{
             travelerSaved : TravelerResolverGuard
         }
     },
     {path : 'travelers/create', component:TravelerFormComponent},
     {path : 'bookings', component:BookingListComponent },
-    {path : 'bookings/update/:id', component:BookingFormComponent,
+    {path : 'bookings/detail/:id', component:BookingFormComponent,
         resolve:{
             bookingSaved : BookingResolverGuard
         }

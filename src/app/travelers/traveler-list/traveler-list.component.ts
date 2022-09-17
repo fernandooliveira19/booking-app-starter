@@ -43,7 +43,7 @@ export class TravelerListComponent implements OnInit {
   }
 
   updateTraveler(id: number){
-    this.router.navigate(['update', id], {relativeTo: this.route});
+    this.router.navigate(['detail', id], {relativeTo: this.route});
   }
 
 }
