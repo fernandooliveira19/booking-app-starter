@@ -14,12 +14,12 @@ export class LaunchService{
     }
 
     deleteLaunch(id: number): Observable<VoidFunction> {
-        return this.http.delete<VoidFunction>(`${BOOKING_API_GATEWAY}/v1/launchs/${id}`);
+        return this.http.delete<VoidFunction>(`${BOOKING_API_GATEWAY}/launches/${id}`);
     }
 
     findNextLaunchs(): Observable<Launch[]> {
 
-        return this.http.get<Launch[]>(`${BOOKING_API_GATEWAY}/v1/launchs/next`)
+        return this.http.get<Launch[]>(`${BOOKING_API_GATEWAY}/launches/next`)
     
       }
    

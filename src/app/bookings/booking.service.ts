@@ -85,13 +85,13 @@ export class BookingService {
   findBookingById(id: number): Observable<Booking> {
 
     return this.http
-      .get<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings/${id}`)
+      .get<Booking>(`${BOOKING_API_GATEWAY}/bookings/${id}`)
 
   }
 
   findBookings(): Observable<Booking[]> {
 
-    return this.http.get<Booking[]>(`${BOOKING_API_GATEWAY}/v1/bookings/next`)
+    return this.http.get<Booking[]>(`${BOOKING_API_GATEWAY}/bookings/next`)
 
   }
 
@@ -110,7 +110,7 @@ export class BookingService {
   }
 
   createBooking(requestBody: Booking): Observable<Booking> {
-    return this.http.post<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings`, requestBody)
+    return this.http.post<Booking>(`${BOOKING_API_GATEWAY}/bookings`, requestBody)
   }
 
   update(booking: FormGroup){
@@ -132,12 +132,12 @@ export class BookingService {
     
     let bookingId = requestBody.id;
    
-    return this.http.put<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings/${bookingId}`, requestBody)
+    return this.http.put<Booking>(`${BOOKING_API_GATEWAY}/bookings/${bookingId}`, requestBody)
   }
 
   generateContract(bookingId: number): Observable<Blob>{
     const options = {responseType: 'blob' as 'json'};
-    const url = `${BOOKING_API_GATEWAY}/v1/bookings/${bookingId}/contract`;
+    const url = `${BOOKING_API_GATEWAY}/bookings/${bookingId}/contract`;
     
     return this.http.get<Blob>(url, options)
     .pipe(map(res => new Blob([res], {type :'application/pdf'})));
@@ -146,7 +146,7 @@ export class BookingService {
 
   generateAuthorization(bookingId: number): Observable<Blob>{
     const options = {responseType: 'blob' as 'json'};
-    const url = `${BOOKING_API_GATEWAY}/v1/bookings/${bookingId}/authorization`;
+    const url = `${BOOKING_API_GATEWAY}/bookings/${bookingId}/authorization`;
     
     return this.http.get<Blob>(url, options)
     .pipe(map(res => new Blob([res], {type :'application/pdf'})));
@@ -156,12 +156,12 @@ export class BookingService {
   finishBooking(requestBody: Booking): Observable<Booking> {
     let bookingId = requestBody.id;
    
-    return this.http.put<Booking>(`${BOOKING_API_GATEWAY}/v1/bookings/finish/${bookingId}`, requestBody)
+    return this.http.put<Booking>(`${BOOKING_API_GATEWAY}/bookings/finish/${bookingId}`, requestBody)
   }
 
   searchBookings(params:HttpParams): Observable<Booking[]> {
     
-    return this.http.get<Booking[]>(`${BOOKING_API_GATEWAY}/v1/bookings/search?${params}`)
+    return this.http.get<Booking[]>(`${BOOKING_API_GATEWAY}/bookings/search?${params}`)
 
   }
 
