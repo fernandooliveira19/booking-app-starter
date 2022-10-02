@@ -8,19 +8,20 @@
   <div class="col-xs-12 col-sm-offset-3 col-sm-6 login-box-body">
   <p class="login-logo">Acesse sua conta</p>
 
-  <form>
-    <div class="form-group has-feedback">
-          <input type="email" class="form-control" placeholder="Email">
-          <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
-    </div>
-    <div class="form-group has-feedback">
-          <input type="password" class="form-control" placeholder="Password">
-          <span class="glyphicon glyphicon-lock form-control-feedback"></span>
-    </div>
+  <form [formGroup]="loginForm">
+    <bkn-input-container [showTip]="false">
+      <input type="text" formControlName="email" class="form-control" placeholder="Email">
+      <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+    </bkn-input-container>
+    <bkn-input-container [showTip]="false">
+      <input type="password" formControlName="password" class="form-control" placeholder="Password">
+      <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+    </bkn-input-container>
+    
     <div class="row">
     <!-- /.col -->
     <div class="col-xs-offset-8 col-xs-4">
-      <button type="submit" class="btn btn-primary btn-block btn-flat">Entrar</button>
+      <button type="submit" [disabled]="loginForm.invalid" class="btn btn-primary btn-block btn-flat">Entrar</button>
     </div>
     <!-- /.col -->
     </div>
