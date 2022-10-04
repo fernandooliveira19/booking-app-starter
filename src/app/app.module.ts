@@ -13,6 +13,7 @@ import locatePt from '@angular/common/locales/pt'
 registerLocaleData(locatePt,'pt')
 
 import {ROUTES} from './app.routes';
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { InputComponent } from './shared/input/input.component';
 import { TravelerFormComponent } from './travelers/traveler-form/traveler-form.component';
 import { LoginComponent } from './login/login.component';
@@ -33,13 +34,17 @@ import { MatNativeDateModule} from '@angular/material/core';
 import { LaunchService} from './launchs/launch.service';
 import { LaunchComponent } from './launchs/launch/launch.component';
 import { CurrencyMaskModule } from 'ng2-currency-mask';
-import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatDatepickerModule} from '@angular/material/datepicker';
 import { LOCALE_ID } from '@angular/core';
 import { BookingResolverGuard } from './bookings/booking.resolver.guard';
 import { PaymentStatusPipe } from './shared/pipe/payment-status.pipe';
 import { PaymentTypePipe } from './shared/pipe/payment-type.pipe';
 import { BookingStatusPipe } from './shared/pipe/booking-status.pipe';
 import { LaunchListComponent } from './launchs/launch-list/launch-list.component';
+import { LoginService } from './login/login.service';
+import { LoggedInGuard} from './security/loggedin.guard';
+import { AuthInterceptor} from './security/auth.interceptor'
+
 
 @NgModule({
   declarations: [
@@ -86,6 +91,12 @@ import { LaunchListComponent } from './launchs/launch-list/launch-list.component
     BookingService,
     NotificationService,
     LaunchService,
+    LoginService,
+    LoggedInGuard,
+    {
+      provide:HTTP_INTERCEPTORS, 
+      useClass: AuthInterceptor, 
+      multi:true},
     {
       provide:MatDialogRef,
       useValue : {}

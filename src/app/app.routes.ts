@@ -9,23 +9,25 @@ import { BookingResolverGuard} from './bookings/booking.resolver.guard'
 import { BookingListComponent } from './bookings/booking-list/booking-list.component'
 import { BookingFormComponent } from './bookings/booking-form/booking-form.component'
 import { LaunchListComponent } from './launchs/launch-list/launch-list.component'
+import { LoggedInGuard } from './security/loggedin.guard'
 export const ROUTES : Routes = [
     {path : '' ,  component: HomeComponent},
+    {path : 'login/:to', component:LoginComponent},
     {path : 'login', component:LoginComponent},
-    {path : 'travelers', component:TravelerListComponent,},
+    {path : 'travelers', component:TravelerListComponent,canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]},
     {path : 'travelers/detail/:id', component:TravelerDetailComponent,
         resolve:{
             travelerSaved : TravelerResolverGuard
-        }
+        },canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]
     },
-    {path : 'travelers/create', component:TravelerFormComponent},
-    {path : 'bookings', component:BookingListComponent },
+    {path : 'travelers/create', component:TravelerFormComponent,canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]},
+    {path : 'bookings', component:BookingListComponent, canLoad: [LoggedInGuard],canActivate:[LoggedInGuard] },
     {path : 'bookings/detail/:id', component:BookingFormComponent,
         resolve:{
             bookingSaved : BookingResolverGuard
-        }
+        },canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]
     },
-    {path : 'bookings/create', component:BookingFormComponent},
-    {path : 'launchs', component:LaunchListComponent}
+    {path : 'bookings/create', component:BookingFormComponent,canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]},
+    {path : 'launchs', component:LaunchListComponent, canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]}
        
 ]
