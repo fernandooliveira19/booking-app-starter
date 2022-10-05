@@ -33,7 +33,7 @@ navigateTo: string
     this.loginService.login(this.loginForm.value.username,
                             this.loginForm.value.password)
                             .subscribe(
-                              user => this.notificationService.notify(`Bem vindo`),
+                              user => this.notificationService.notify(`Bem vindo, ${user.name}`),
                               response => this.notificationService.notify(response.error.message),
                               ()=>{
                                 this.router.navigate([atob(this.navigateTo)])

@@ -43,7 +43,8 @@ import { BookingStatusPipe } from './shared/pipe/booking-status.pipe';
 import { LaunchListComponent } from './launchs/launch-list/launch-list.component';
 import { LoginService } from './login/login.service';
 import { LoggedInGuard} from './security/loggedin.guard';
-import { AuthInterceptor} from './security/auth.interceptor'
+import { AuthInterceptor} from './security/auth.interceptor';
+import { UserDetailComponent } from './header/user-detail/user-detail.component'
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { AuthInterceptor} from './security/auth.interceptor'
     PaymentStatusPipe,
     PaymentTypePipe,
     BookingStatusPipe,
-    LaunchListComponent
+    LaunchListComponent,
+    UserDetailComponent
   ],
   imports: [
     BrowserModule,
