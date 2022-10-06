@@ -11,6 +11,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { NotificationService } from "app/shared/messages/notification.service";
 import { Launch } from "app/launchs/launch.model";
 import { map } from 'rxjs/operators';
+import { environment } from '../../environments/environment';
 
 
 @Injectable()
@@ -85,13 +86,13 @@ export class BookingService {
   findBookingById(id: number): Observable<Booking> {
 
     return this.http
-      .get<Booking>(`${BOOKING_API_GATEWAY}/bookings/${id}`)
+      .get<Booking>(`${environment.GATEWAY}/bookings/${id}`)
 
   }
 
   findBookings(): Observable<Booking[]> {
 
-    return this.http.get<Booking[]>(`${BOOKING_API_GATEWAY}/bookings/next`)
+    return this.http.get<Booking[]>(`${environment.GATEWAY}/bookings/next`)
 
   }
 
@@ -110,7 +111,7 @@ export class BookingService {
   }
 
   createBooking(requestBody: Booking): Observable<Booking> {
-    return this.http.post<Booking>(`${BOOKING_API_GATEWAY}/bookings`, requestBody)
+    return this.http.post<Booking>(`${environment.GATEWAY}/bookings`, requestBody)
   }
 
   update(booking: FormGroup){
@@ -132,12 +133,12 @@ export class BookingService {
     
     let bookingId = requestBody.id;
    
-    return this.http.put<Booking>(`${BOOKING_API_GATEWAY}/bookings/${bookingId}`, requestBody)
+    return this.http.put<Booking>(`${environment.GATEWAY}/bookings/${bookingId}`, requestBody)
   }
 
   generateContract(bookingId: number): Observable<Blob>{
     const options = {responseType: 'blob' as 'json'};
-    const url = `${BOOKING_API_GATEWAY}/bookings/${bookingId}/contract`;
+    const url = `${environment.GATEWAY}/bookings/${bookingId}/contract`;
     
     return this.http.get<Blob>(url, options)
     .pipe(map(res => new Blob([res], {type :'application/pdf'})));
@@ -146,7 +147,7 @@ export class BookingService {
 
   generateAuthorization(bookingId: number): Observable<Blob>{
     const options = {responseType: 'blob' as 'json'};
-    const url = `${BOOKING_API_GATEWAY}/bookings/${bookingId}/authorization`;
+    const url = `${environment.GATEWAY}/bookings/${bookingId}/authorization`;
     
     return this.http.get<Blob>(url, options)
     .pipe(map(res => new Blob([res], {type :'application/pdf'})));
@@ -156,12 +157,12 @@ export class BookingService {
   finishBooking(requestBody: Booking): Observable<Booking> {
     let bookingId = requestBody.id;
    
-    return this.http.put<Booking>(`${BOOKING_API_GATEWAY}/bookings/finish/${bookingId}`, requestBody)
+    return this.http.put<Booking>(`${environment.GATEWAY}/bookings/finish/${bookingId}`, requestBody)
   }
 
   searchBookings(params:HttpParams): Observable<Booking[]> {
     
-    return this.http.get<Booking[]>(`${BOOKING_API_GATEWAY}/bookings/search?${params}`)
+    return this.http.get<Booking[]>(`${environment.GATEWAY}/bookings/search?${params}`)
 
   }
 

@@ -7,6 +7,7 @@ import 'rxjs/add/operator/filter'
 import { BOOKING_API_GATEWAY} from "../app.api";
 import { User } from './user.model';
 import { NavigationEnd, Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class LoginService{
@@ -31,7 +32,7 @@ export class LoginService{
         .set('username', username)
         .set('password', password)
        
-        return this.http.post<User>(`${BOOKING_API_GATEWAY}/login`,payload)
+        return this.http.post<User>(`${environment.GATEWAY}/login`,payload)
         .do(user => this.user = user)
     }
 
