@@ -183,7 +183,6 @@
       }
     }
   },
-  "defaultProject": "booking",
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "bkn",
