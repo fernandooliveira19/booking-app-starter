@@ -18,14 +18,14 @@
 
         <div class="col-sm-6 col-xs-8">
 
-          <bkn-input-container errorMessage="Nome é obrigatório" label="Nome">
+          <bkn-input-container errorMessage="Nome é obrigatório" label="Nome" [showTip]="false">
             <input type="text" class="form-control" name="name" id="name" placeholder="Nome completo" 
             formControlName="name" autocomplete="off" >
           </bkn-input-container>
         </div>
         <div class="col-sm-4 col-xs-4">
 
-          <bkn-input-container errorMessage="CPF inválido" label="CPF">
+          <bkn-input-container errorMessage="CPF inválido" label="CPF" [showTip]="false">
             <input type="text" class="form-control" id="document" placeholder="CPF" 
             formControlName="document" name="document" mask="000.000.000-00" required="false"
             dropSpecialCharacters="true"
@@ -38,21 +38,21 @@
       <div class="row invoice-info">
         <div class="col-sm-4 col-xs-6">
 
-          <bkn-input-container errorMessage="Email inválido" label="E-mail">
+          <bkn-input-container errorMessage="Email inválido" label="E-mail" [showTip]="false">
             <input type="text" class="form-control" id="email" placeholder="E-mail" formControlName="email"
             name="email" autocomplete="off">
           </bkn-input-container>
           
         </div>
         <div class="col-sm-2 col-xs-4">
-          <bkn-input-container errorMessage="DDD é obrigatório e deve ser numérico" label="DDD">
+          <bkn-input-container errorMessage="DDD é obrigatório e deve ser numérico" label="DDD" [showTip]="false">
             <input type="text" class="form-control" id="prefixPhone" placeholder="DDD" formControlName="prefixPhone"
                   maxlength="2" name="prefixPhone" >
           </bkn-input-container>
             
         </div>
         <div class="col-sm-4 col-xs-6">
-          <bkn-input-container errorMessage="Telefone é obrigatório" label="Telefone">
+          <bkn-input-container errorMessage="Telefone é obrigatório" label="Telefone" [showTip]="false">
             <input type="text" class="form-control" id="numberPhone" placeholder="Telefone" formControlName="numberPhone"
                     name="numberPhone" mask="00000-0000">
           </bkn-input-container>        
