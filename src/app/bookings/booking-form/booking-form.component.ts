@@ -6,9 +6,9 @@ import { LaunchComponent } from 'app/launchs/launch/launch.component';
 import { NotificationService } from 'app/shared/messages/notification.service';
 import { Booking} from '../booking.model';
 import { BookingService } from '../booking.service';
-import { CurrencyMaskModule } from 'ng2-currency-mask';
 import { ActivatedRoute } from '@angular/router';
 import { LaunchService } from 'app/launchs/launch.service';
+import { saveAs } from 'file-saver';
 
 
 @Component({
@@ -65,21 +65,34 @@ export class BookingFormComponent implements OnInit {
     this.bookingService.update(this.bookingForm);
   }
   generateContract(){
+
   
-    this.bookingService.generateContract(this.booking.id).subscribe(res =>{
-      const fileUrl = URL.createObjectURL(res);
-      window.open(fileUrl, '_blank');
+    this.bookingService.generateContract(this.booking.id)
+      .subscribe(res =>{
+      saveAs(res, `contrato`+ this.getFilename());
+
     });
 
   }
 
   generateAuthorization(){
   
-    this.bookingService.generateAuthorization(this.booking.id).subscribe(res =>{
-      const fileUrl = URL.createObjectURL(res);
-      window.open(fileUrl, '_blank');
+    this.bookingService.generateAuthorization(this.booking.id)
+    .subscribe(res =>{
+      saveAs(res, `autorizacao`+ this.getFilename());
     });
 
+  }
+
+  getFilename():string{
+    var fullName = this.bookingForm.get('travelerName').value
+    fullName = fullName.normalize("NFD").replace(/[\u0300-\u036f]/g, "")
+    var name = fullName.split(' ')[0];
+
+    let checkIn = this.bookingForm.get('checkIn').value
+    checkIn = checkIn.substring(0, 10);
+
+    return `_`+ checkIn +`-`+ name + `.pdf` ;
   }
 
   openLaunchDialog(launchIndex: any, bookingId: number):void{
@@ -109,3 +122,7 @@ export class BookingFormComponent implements OnInit {
 
   }
 }
+function importedSaveAs(res: Blob, arg1: string) {
+  throw new Error('Function not implemented.');
+}
+

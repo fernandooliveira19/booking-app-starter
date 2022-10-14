@@ -70,7 +70,8 @@ export class BookingService {
       adults: new FormControl(booking.adults, [Validators.required]),
       children: new FormControl(booking.children, [Validators.required]),
       observation : new FormControl(booking.observation),
-      id: new FormControl(booking.id)
+      id: new FormControl(booking.id),
+      travelerName: new FormControl(booking.travelerName)
       
     });
   }
