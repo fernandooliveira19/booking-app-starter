@@ -13,7 +13,9 @@ export class HomeComponent implements OnInit {
     this.datesSelected=value;
   }
 
-  constructor() { }
+  constructor() {
+    this.ngOnInit();
+   }
 
   ngOnInit() {
 
