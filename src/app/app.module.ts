@@ -44,7 +44,10 @@ import { LaunchListComponent } from './launchs/launch-list/launch-list.component
 import { LoginService } from './login/login.service';
 import { LoggedInGuard} from './security/loggedin.guard';
 import { AuthInterceptor} from './security/auth.interceptor';
-import { UserDetailComponent } from './header/user-detail/user-detail.component'
+import { UserDetailComponent } from './header/user-detail/user-detail.component';
+import { NgbPaginationModule, NgbAlertModule} from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import {MultiDatePicker} from './shared/multi-date-picker/multi-date-picker'
 
 
 @NgModule({
@@ -65,7 +68,8 @@ import { UserDetailComponent } from './header/user-detail/user-detail.component'
     PaymentTypePipe,
     BookingStatusPipe,
     LaunchListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    MultiDatePicker
   ],
   imports: [
     BrowserModule,
@@ -81,7 +85,8 @@ import { UserDetailComponent } from './header/user-detail/user-detail.component'
     MatInputModule,
     MatNativeDateModule,
     CurrencyMaskModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    NgbModule
    
   
   ],
