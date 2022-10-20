@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgbDate, NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { HomeService } from './home.service';
 
 
 @Component({
@@ -9,16 +10,25 @@ import { NgbDate, NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap'
 export class HomeComponent implements OnInit {
 
   datesSelected:NgbDateStruct[]=[];
+  
   change(value:NgbDateStruct[]){
     this.datesSelected=value;
   }
 
-  constructor() {
-    this.ngOnInit();
+  constructor(private homeService: HomeService) {
+   this.reservedDates();
    }
 
   ngOnInit() {
+  }
 
+  reservedDates(){
+  this.homeService.reservedDates()
+  .subscribe(response => this.datesSelected = response);
+  console.log(this.datesSelected)
+  }
+}
+/*
     this.datesSelected = [
       {
         "year": 2022,
@@ -82,6 +92,10 @@ export class HomeComponent implements OnInit {
         "day": 21
       }
     ]
+    
   }
+  
  
 }
+
+*/
