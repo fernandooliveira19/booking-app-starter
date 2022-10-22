@@ -183,6 +183,7 @@
       }
     }
   },
+  
   "schematics": {
     "@schematics/angular:component": {
       "prefix": "bkn",

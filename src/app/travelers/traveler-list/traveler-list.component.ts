@@ -45,5 +45,9 @@ export class TravelerListComponent implements OnInit {
   updateTraveler(id: number){
     this.router.navigate(['detail', id], {relativeTo: this.route});
   }
+  bookingsByTraveler(id:number){
+  
+    this.router.navigate(['info',id], {relativeTo: this.route})
+  }
 
 }

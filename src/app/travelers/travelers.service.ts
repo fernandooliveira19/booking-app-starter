@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import {Traveler} from "./traveler.model" 
 import { Observable } from "rxjs";
 import { BOOKING_API_GATEWAY} from "app/app.api"
+import { Booking } from "app/bookings/booking.model";
 
 
 @Injectable()
@@ -41,6 +42,12 @@ export class TravelersService{
         return this.http.get<Traveler[]>(`${BOOKING_API_GATEWAY}/travelers/actives/`)
        
     }
+
+    findBookingsByTraveler(id: number):Observable<Booking[]>{
+        return this.http.get<Booking[]>(`${BOOKING_API_GATEWAY}/travelers/${id}/bookings`)
+    }
+
+
     
    
 }

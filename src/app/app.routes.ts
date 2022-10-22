@@ -10,12 +10,19 @@ import { BookingListComponent } from './bookings/booking-list/booking-list.compo
 import { BookingFormComponent } from './bookings/booking-form/booking-form.component'
 import { LaunchListComponent } from './launchs/launch-list/launch-list.component'
 import { LoggedInGuard } from './security/loggedin.guard'
+import { TravelerInfoComponent } from './travelers/traveler-info/traveler-info.component'
+
 export const ROUTES : Routes = [
     {path : '' ,  component: HomeComponent},
     {path : 'login/:to', component:LoginComponent},
     {path : 'login', component:LoginComponent},
     {path : 'travelers', component:TravelerListComponent,canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]},
     {path : 'travelers/detail/:id', component:TravelerDetailComponent,
+        resolve:{
+            travelerSaved : TravelerResolverGuard
+        },canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]
+    },
+    {path : 'travelers/info/:id', component:TravelerInfoComponent,
         resolve:{
             travelerSaved : TravelerResolverGuard
         },canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]

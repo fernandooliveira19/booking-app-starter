@@ -20,6 +20,7 @@ import { LoginComponent } from './login/login.component';
 import { TravelersService } from './travelers/travelers.service';
 import { FormBuilder,FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TravelerDetailComponent } from './travelers/traveler-detail/traveler-detail.component';
+import { TravelerInfoComponent } from './travelers/traveler-info/traveler-info.component';
 import { TravelerResolverGuard } from './travelers/traveler.resolver.guard';
 import { BookingFormComponent } from './bookings/booking-form/booking-form.component';
 import { BookingListComponent } from './bookings/booking-list/booking-list.component';
@@ -40,6 +41,7 @@ import { BookingResolverGuard } from './bookings/booking.resolver.guard';
 import { PaymentStatusPipe } from './shared/pipe/payment-status.pipe';
 import { PaymentTypePipe } from './shared/pipe/payment-type.pipe';
 import { BookingStatusPipe } from './shared/pipe/booking-status.pipe';
+import { ContractTypePipe } from './shared/pipe/contract-type.pipe';
 import { LaunchListComponent } from './launchs/launch-list/launch-list.component';
 import { LoginService } from './login/login.service';
 import { LoggedInGuard} from './security/loggedin.guard';
@@ -65,7 +67,9 @@ import { UserDetailComponent } from './header/user-detail/user-detail.component'
     PaymentTypePipe,
     BookingStatusPipe,
     LaunchListComponent,
-    UserDetailComponent
+    UserDetailComponent,
+    TravelerInfoComponent,
+    ContractTypePipe
   ],
   imports: [
     BrowserModule,
