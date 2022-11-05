@@ -63,10 +63,12 @@
 
             <td>({{traveler.prefixPhone}}) {{traveler.numberPhone}}</td>
             <td colspan="2">
-              <a (click)="updateTraveler(traveler.id)" class="btn btn-info btn-sm"><i
-                  class="fa fa-edit"></i>
+              <a (click)="updateTraveler(traveler.id)" class="btn btn-info btn-sm"><i class="fa fa-edit"></i>
               </a>
-              <a [routerLink]="travelers" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+              <a [routerLink]="travelers" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i>
+              </a>
+              <a (click)="bookingsByTraveler(traveler.id)" class="btn btn-primary btn-sm"><i class="fa fa-address-book-o"></i>
+              </a>
 
             </td>
           </tr>
