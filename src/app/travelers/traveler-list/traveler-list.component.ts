@@ -22,11 +22,11 @@ export class TravelerListComponent implements OnInit {
 
   ngOnInit() {
 
-    
+
     this.findForm = this.formBuilder.group({
-      name : this.formBuilder.control('')  
+      name : this.formBuilder.control('')
     })
-   
+
   }
 
   findTravelersByName(){
@@ -37,13 +37,17 @@ export class TravelerListComponent implements OnInit {
   }
   clear(){
     this.findForm = this.formBuilder.group({
-      name : this.formBuilder.control('')  
+      name : this.formBuilder.control('')
     })
     this.travelers = []
   }
 
   updateTraveler(id: number){
     this.router.navigate(['detail', id], {relativeTo: this.route});
+  }
+  bookingsByTraveler(id:number){
+
+    this.router.navigate(['info',id], {relativeTo: this.route})
   }
 
 }
