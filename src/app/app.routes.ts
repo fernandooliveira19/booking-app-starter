@@ -16,6 +16,7 @@ export const ROUTES : Routes = [
     {path : '' ,  component: HomeComponent},
     {path : 'login/:to', component:LoginComponent},
     {path : 'login', component:LoginComponent},
+    {path : 'home', component:HomeComponent},
     {path : 'travelers', component:TravelerListComponent,canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]},
     {path : 'travelers/detail/:id', component:TravelerDetailComponent,
         resolve:{

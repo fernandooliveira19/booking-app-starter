@@ -6,7 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
-import { HomeComponent } from './home/home.component';
+
 import { TravelerListComponent } from './travelers/traveler-list/traveler-list.component'
 import { registerLocaleData } from '@angular/common';
 import locatePt from '@angular/common/locales/pt'
@@ -44,9 +44,13 @@ import { BookingStatusPipe } from './shared/pipe/booking-status.pipe';
 import { ContractTypePipe } from './shared/pipe/contract-type.pipe';
 import { LaunchListComponent } from './launchs/launch-list/launch-list.component';
 import { LoginService } from './login/login.service';
+
 import { LoggedInGuard} from './security/loggedin.guard';
 import { AuthInterceptor} from './security/auth.interceptor';
-import { UserDetailComponent } from './header/user-detail/user-detail.component'
+import { UserDetailComponent } from './header/user-detail/user-detail.component';
+
+import { HomeService } from './home/home.service';
+import { HomeComponent } from './home/home.component';
 
 
 @NgModule({
@@ -98,6 +102,7 @@ import { UserDetailComponent } from './header/user-detail/user-detail.component'
     NotificationService,
     LaunchService,
     LoginService,
+    HomeService,
     LoggedInGuard,
     {
       provide:HTTP_INTERCEPTORS, 
