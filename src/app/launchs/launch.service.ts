@@ -21,7 +21,7 @@ export class LaunchService{
         return this.http.delete<VoidFunction>(`${BOOKING_API_GATEWAY}/launches/${id}`);
     }
 
-    findNextLaunchs(): Observable<Launch[]> {
+    findNextLaunches(): Observable<Launch[]> {
        
 
         return this.http.get<Launch[]>(`${BOOKING_API_GATEWAY}/launches/next`)

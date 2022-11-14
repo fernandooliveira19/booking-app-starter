@@ -24,7 +24,8 @@ export class LaunchComponent implements OnInit {
   paymentStatusList : any = [
     {label: 'Pago', value: 'PAID'},
     {label: 'Pendente', value: 'PENDING'},
-    {label: 'Cancelado', value:'CANCELED'}
+    {label: 'Cancelado', value:'CANCELED'},
+    {label: 'A receber pelo site', value:'TO_RECEIVE'}
   ];
 
   constructor(  @Inject(MAT_DIALOG_DATA) public data,
@@ -45,12 +46,12 @@ export class LaunchComponent implements OnInit {
     });
   }else{
      this.launchForm = new FormGroup({
-      id: this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].id ), 
-      amount : this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].amount, {validators: Validators.required}),
-      scheduleDate: this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].scheduleDate,{validators: Validators.required}),
-      paymentType: this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].paymentType,{validators: Validators.required}),
-      paymentStatus: this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].paymentStatus,{validators: Validators.required}),
-      paymentDate: this.formBuilder.control(this.bookingService.launchs[this.data.launchIndex].paymentDate)
+      id: this.formBuilder.control(this.bookingService.launches[this.data.launchIndex].id ), 
+      amount : this.formBuilder.control(this.bookingService.launches[this.data.launchIndex].amount, {validators: Validators.required}),
+      scheduleDate: this.formBuilder.control(this.bookingService.launches[this.data.launchIndex].scheduleDate,{validators: Validators.required}),
+      paymentType: this.formBuilder.control(this.bookingService.launches[this.data.launchIndex].paymentType,{validators: Validators.required}),
+      paymentStatus: this.formBuilder.control(this.bookingService.launches[this.data.launchIndex].paymentStatus,{validators: Validators.required}),
+      paymentDate: this.formBuilder.control(this.bookingService.launches[this.data.launchIndex].paymentDate)
     }); 
 
      const paymentStatus = this.launchForm.get('paymentStatus').value;
@@ -67,14 +68,14 @@ export class LaunchComponent implements OnInit {
   onSubmit(launchForm: FormGroup){
 
     if(this.data.launchIndex == null){
-      this.bookingService.launchs.push(launchForm.value);
+      this.bookingService.launches.push(launchForm.value);
     }else{
-      this.bookingService.launchs[this.data.launchIndex] = launchForm.value;
+      this.bookingService.launches[this.data.launchIndex] = launchForm.value;
     }
     this.dialogRef.close();
   }
   removeLaunch(launchId : number,  index: number){
-    this.bookingService.launchs.splice(index, 1);
+    this.bookingService.launches.splice(index, 1);
 
   }
 

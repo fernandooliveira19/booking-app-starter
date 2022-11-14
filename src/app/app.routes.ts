@@ -36,6 +36,6 @@ export const ROUTES : Routes = [
         },canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]
     },
     {path : 'bookings/create', component:BookingFormComponent,canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]},
-    {path : 'launchs', component:LaunchListComponent, canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]}
+    {path : 'launches', component:LaunchListComponent, canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]}
        
 ]

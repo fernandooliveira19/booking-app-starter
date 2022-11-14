@@ -1,7 +1,6 @@
 import { Injectable, Component } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { BOOKING_API_GATEWAY} from "app/app.api";
-import { ErrorHandler } from "app/app.error-handler";
 import { Observable } from "rxjs";
 import { Booking} from "./booking.model";
 
@@ -18,7 +17,7 @@ export class BookingService {
 
   booking: Booking;
   travelers: Traveler[];
-  launchs: Launch[] = [];
+  launches: Launch[] = [];
   launch: Launch;
 
   contractTypeList: any = [
@@ -35,7 +34,8 @@ export class BookingService {
   paymentStatusList: any = [
     { label: 'Pago', value: 'PAID' },
     { label: 'Pendente', value: 'PENDING' },
-    { label: 'Cancelado', value: 'CANCELED'}
+    { label: 'Cancelado', value: 'CANCELED'},
+    { label: 'A receber pelo site', value: 'TO_RECEIVE'}
   ];
 
   constructor(private http: HttpClient,
@@ -100,7 +100,7 @@ export class BookingService {
     
     var body = {
       ...booking.value,
-      launchs: this.launchs
+      launches: this.launches
     };
 
     this.createBooking(body).subscribe(response => this.booking,
@@ -118,7 +118,7 @@ export class BookingService {
    
     var body = {
       ...booking.value,
-      launchs: this.launchs
+      launches: this.launches
     };
 
     this.updateBooking(body).subscribe(response => this.booking,
