@@ -1,9 +1,8 @@
 import { Injectable, Component } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { BOOKING_MOCKOON} from "app/app.api";
+import { BOOKING_API_GATEWAY, BOOKING_MOCKOON} from "app/app.api";
 import { Observable } from "rxjs";
 
-import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { map } from 'rxjs/operators';
 import { Home } from "./home.model";
 
@@ -19,7 +18,7 @@ export class HomeService {
 
  getHomeDetails(): Observable<Home> {
     
-    return this.http.get<Home>(`${BOOKING_MOCKOON}/home`)
+    return this.http.get<Home>(`${BOOKING_API_GATEWAY}/home`)
 
   }
 

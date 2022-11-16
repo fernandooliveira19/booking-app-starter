@@ -1,26 +1,9 @@
+import {HomeBooking} from 'app/home/home-booking.model';
+import {HomeLaunch} from 'app/home/home-launch.model';
 class Home{
-   launchAmountTotal: number;    
-   launchOverdueQuantity : number;
-   launchOverdueAmount: number;
-   launchToReceiveQuantity : number;
-   launchToReceiveAmount: number; 
-   launchToOverdueSubTotal: number;
-   
-   launchToReceiveSiteQuantity: number;
-   launchToReceiveSiteAmount: number;
-
-   bookingReserved: number;
-   bookingPreReserved :number;
-
-   bookingPaid:number;
-   bookingPending: number;
-
-   bookingDirect: number;
-   bookingSite: number;
-
-   bookingTotal: number;
-
-   
+   homeBooking: HomeBooking ;    
+   homeLaunch : HomeLaunch;
+    
 }
 
 export {Home}
