@@ -21,7 +21,7 @@ export class BookingService {
   launch: Launch;
 
   contractTypeList: any = [
-    { label: 'Direto com viajante', value: 'DIRECT' },
+    { label: 'Diretamente', value: 'DIRECT' },
     { label: 'Site', value: 'SITE' }
   ];
 
