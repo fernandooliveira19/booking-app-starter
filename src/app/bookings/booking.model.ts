@@ -16,6 +16,7 @@ class Booking{
    amountPending? : number;
    rating? : number;
    observation? : string; 
+   websiteServiceFee? : number; 
 
 }
 

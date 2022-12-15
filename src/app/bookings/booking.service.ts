@@ -54,7 +54,8 @@ export class BookingService {
       contractType: new FormControl('', [Validators.required]),
       adults: new FormControl('', [Validators.required]),
       children: new FormControl('', [Validators.required]),
-      observation : new FormControl('')
+      observation : new FormControl(''),
+      websiteServiceFee: new FormControl('')
     });
   }
 
@@ -71,7 +72,8 @@ export class BookingService {
       children: new FormControl(booking.children, [Validators.required]),
       observation : new FormControl(booking.observation),
       id: new FormControl(booking.id),
-      travelerName: new FormControl(booking.travelerName)
+      travelerName: new FormControl(booking.travelerName),
+      websiteServiceFee: new FormControl('')
       
     });
   }

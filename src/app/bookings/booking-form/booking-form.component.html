@@ -25,13 +25,13 @@
         </div>
         <div class="col-sm-3 col-xs-4">
           
-          <bkn-input-container errorMessage="Data de check-in inválida" label="Check in">
+          <bkn-input-container errorMessage="Data de check-in inválida" label="Check in" [showTip]="false">
             <input type="datetime-local" class="form-control" id="checkIn" placeholder="Check in"
               formControlName="checkIn" name="checkIn">
           </bkn-input-container>
         </div>
         <div class="col-sm-3 col-xs-4">
-          <bkn-input-container errorMessage="Data de check-out inválida" label="Check out">
+          <bkn-input-container errorMessage="Data de check-out inválida" label="Check out" [showTip]="false">
             <input type="datetime-local" class="form-control" id="checkOut" placeholder="Check out"
               formControlName="checkOut" name="checkOut"
               min="checkIn">
@@ -39,30 +39,40 @@
         </div>
       </div>
       <div class="row invoice-info">
-        <div class="col-sm-3 col-xs-6">
-
-          <bkn-input-container errorMessage="Valor da Reserva é obrigatório" label="Valor da Reserva">
-            <input type="text" class="form-control" id="amountTotal" placeholder="0,00"
-              formControlName="amountTotal" name="amountTotal" 
-              currencyMask [options]="{prefix: '', thousands:'.', decimal:',', allowNegative:false}">
-          </bkn-input-container>
-
-        </div>
-        <div class="col-sm-3 col-xs-6">
+        
+        <div class="col-sm-2 col-xs-6">
           <label class="control-label" for="contractType">Tipo de Contrato</label>
           <select class="form-control form-control-lg" formControlName="contractType">
             <option value="" disabled>Selecione...</option>
             <option *ngFor="let contract of bookingService.contractTypeList" [ngValue]="contract.value">{{contract?.label}}</option>
           </select>
         </div>
+        
+        
+        <div class="col-sm-2 col-xs-6">
+          <bkn-input-container errorMessage="Valor da Reserva é obrigatório" label="Valor Total" [showTip]="false">
+            <input type="text" class="form-control" id="amountTotal" placeholder="0,00"
+              formControlName="amountTotal" name="amountTotal" 
+              currencyMask [options]="{prefix: '', thousands:'.', decimal:',', allowNegative:false}">
+          </bkn-input-container>
+        </div>
+
+        <div class="col-sm-2 col-xs-6">
+          <bkn-input-container errorMessage="" label="Taxa de Serviço" [showTip]="false">
+            <input type="text" class="form-control" id="websiteServiceFee" placeholder="0,00"
+              formControlName="websiteServiceFee" name="websiteServiceFee" 
+              currencyMask [options]="{prefix: '', thousands:'.', decimal:',', allowNegative:false}">
+          </bkn-input-container>
+        </div>
+        
         <div class="col-sm-3 col-xs-6">
-          <bkn-input-container errorMessage="Quantidade de adultos é obrigatório" label="Adultos">
+          <bkn-input-container errorMessage="Quantidade de adultos é obrigatório" label="Adultos" [showTip]="false">
             <input type="number" max="8" min="1" class="form-control" id="adults" placeholder="1-8"
               formControlName="adults" name="adults">
           </bkn-input-container>
         </div>
         <div class="col-sm-3 col-xs-6">
-          <bkn-input-container errorMessage="Quantidade de crianças é obrigatório" label="Crianças">
+          <bkn-input-container errorMessage="Quantidade de crianças é obrigatório" label="Crianças" [showTip]="false">
             <input type="number" max="7" min="0" class="form-control" id="children" placeholder="0-7"
               formControlName="children" name="children">
           </bkn-input-container>
@@ -70,7 +80,7 @@
       </div>
       <div class="row invoice-info">
         <div class="col-sm-6 col-xs-6">
-          <bkn-input-container errorMessage="" label="Observações">
+          <bkn-input-container errorMessage="" label="Observações" [showTip]="false">
             <textarea type="text" 
             class="form-control" id="observation" placeholder="Digite aqui..."
             formControlName="observation" name="observation" >
