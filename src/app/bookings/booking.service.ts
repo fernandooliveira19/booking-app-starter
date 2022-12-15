@@ -73,7 +73,7 @@ export class BookingService {
       observation : new FormControl(booking.observation),
       id: new FormControl(booking.id),
       travelerName: new FormControl(booking.travelerName),
-      websiteServiceFee: new FormControl('')
+      websiteServiceFee: new FormControl(booking.websiteServiceFee)
       
     });
   }
