@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { NgbDate, NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
+import { Home } from './home.model';
 import { HomeService } from './home.service';
-
 
 @Component({
   selector: 'bkn-home',
@@ -9,93 +8,20 @@ import { HomeService } from './home.service';
 })
 export class HomeComponent implements OnInit {
 
-  datesSelected:NgbDateStruct[]=[];
-  
-  change(value:NgbDateStruct[]){
-    this.datesSelected=value;
-  }
+  homeDetails : Home
 
-  constructor(private homeService: HomeService) {
-   this.reservedDates();
-   }
+  constructor(private homeService:HomeService) { }
 
   ngOnInit() {
+    this.getHomeDetails();
   }
 
-  reservedDates(){
-  this.homeService.reservedDates()
-  .subscribe(response => this.datesSelected = response);
-  console.log(this.datesSelected)
-  }
-}
-/*
-    this.datesSelected = [
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 3
-      },
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 4
-      }
-      ,
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 8
-      },
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 5
-      },
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 18
-      },
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 6
-      },
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 7
-      },
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 17
-      },
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 18
-      },
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 19
-      },
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 20
-      },
-      {
-        "year": 2022,
-        "month": 10,
-        "day": 21
-      }
-    ]
-    
-  }
-  
- 
-}
+  getHomeDetails(){
+   
+    this.homeService.getHomeDetails()
+    .subscribe(response => this.homeDetails = response);
+    console.log(this.homeDetails)
 
-*/
+  } 
+
+}

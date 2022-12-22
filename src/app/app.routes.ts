@@ -16,7 +16,6 @@ export const ROUTES : Routes = [
     {path : '' ,  component: HomeComponent},
     {path : 'login/:to', component:LoginComponent},
     {path : 'login', component:LoginComponent},
-    {path: 'home', component:HomeComponent, canLoad:[LoggedInGuard], canActivate:[LoggedInGuard]},
     {path : 'travelers', component:TravelerListComponent,canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]},
     {path : 'travelers/detail/:id', component:TravelerDetailComponent,
         resolve:{
@@ -37,5 +36,5 @@ export const ROUTES : Routes = [
     },
     {path : 'bookings/create', component:BookingFormComponent,canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]},
     {path : 'launchs', component:LaunchListComponent, canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]}
-
+       
 ]

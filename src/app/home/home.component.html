@@ -7,16 +7,85 @@
   <div class="jumbotron">
     <div class="row">
       <div class="col-sm-6">
-        <div class="card">
+        <div class="card" style="width: 48rem; text-align: left;">
           <div class="card-body">
-            <h3 class="card-title">Lançamentos</h3>
-            <ngb-multi-date-picker [datesSelected]="datesSelected"></ngb-multi-date-picker>
+           
+            <ul class="list-group">
+              <h3>
+              <li class="list-group-item list-group-item-action active" aria-current="true" >
+                Lançamentos
+                <span class="badge bg-primary rounded-pill" >{{homeDetails.homeLaunch.amountTotal | currency:'BRL':true}}</span>
+              </li>
+                
+              </h3>
+              <li class="list-group-item list-group-item-success" style="text-align: center;"><b>Direto com viajante</b></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Em atraso
+                <span class="badge bg-primary rounded-pill">{{homeDetails.homeLaunch.directOverdueAmount | currency:'BRL':true}}</span>
+                <span class="badge bg-primary rounded-pill">{{homeDetails.homeLaunch.directOverdueQuantity}}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                A receber
+                <span class="badge bg-primary rounded-pill">{{homeDetails.homeLaunch.directToReceiveAmount | currency:'BRL':true}}</span>
+                <span class="badge bg-primary rounded-pill">{{homeDetails.homeLaunch.directToReceiveQuantity}}</span>
+              </li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                Sub total
+                <span class="badge bg-primary rounded-pill">{{homeDetails.homeLaunch.directOverdueSubTotal | currency:'BRL':true}}</span>
+              </li>
+              <li class="list-group-item list-group-item-success" style="text-align: center;">
+                <b>Site</b></li>
+              <li class="list-group-item d-flex justify-content-between align-items-center">
+                A receber
+                <span class="badge bg-primary rounded-pill">{{homeDetails.homeLaunch.siteAmount | currency:'BRL':true}}</span>
+                <span class="badge bg-primary rounded-pill">{{homeDetails.homeLaunch.siteQuantity}}</span>
+                
+              </li>
+
+            </ul>
           </div>
+
         </div>
       </div>
+
+    
+        <div class="col-sm-6">
+          <div class="card" style="width: 48rem; text-align: left;">
+            <div class="card-body">
+              
+              <ul class="list-group">
+                <h3>
+                <li class="list-group-item active" aria-current="true">Reservas<span class="badge bg-primary rounded-pill">{{homeDetails.homeBooking.bookingTotal}}</span></li>
+                </h3>
+                
+                <li class="list-group-item list-group-item-success" style="text-align: center;"><b>Situação</b></li>
+                <li class="list-group-item">Reservado<span class="badge bg-primary rounded-pill">{{homeDetails.homeBooking.bookingReserved}}</span></li>
+                <li class="list-group-item">Pre-Reservado<span class="badge bg-primary rounded-pill">{{homeDetails.homeBooking.bookingPreReserved}}</span></li>
+                
+                <li class="list-group-item list-group-item-success" style="text-align: center;"><b>Pagamento</b></li>
+                <li class="list-group-item">Pago<span class="badge bg-primary rounded-pill">{{homeDetails.homeBooking.bookingPaid}}</span></li>
+                <li class="list-group-item">Pendente<span class="badge bg-primary rounded-pill">{{homeDetails.homeBooking.bookingPending}}</span></li>
+                <li class="list-group-item">A receber pelo site<span class="badge bg-primary rounded-pill">{{homeDetails.homeBooking.bookingToReceive}}</span></li>
+
+                <li class="list-group-item list-group-item-success" style="text-align: center;"><b>Contrato</b></li>
+                <li class="list-group-item">Site<span class="badge bg-primary rounded-pill">{{homeDetails.homeBooking.bookingSite}}</span></li>
+                <li class="list-group-item">Direto com viajante<span class="badge bg-primary rounded-pill">{{homeDetails.homeBooking.bookingDirect}}</span></li>
+                
+         
+
+              </ul>
+            </div>
+  
+          </div>
+        </div>
+
+
+      
     </div>
+    
+     
+     
   </div>
- 
 
 </section>
 <!-- FIM DO CONTEÚDO -->

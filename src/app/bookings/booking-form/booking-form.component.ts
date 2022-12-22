@@ -42,7 +42,7 @@ export class BookingFormComponent implements OnInit {
    
     if(this.booking != null){
       this.bookingForm = this.bookingService.getUpdateBookingForm(this.booking);
-      this.bookingService.launchs = this.booking.launchs;
+      this.bookingService.launches = this.booking.launches;
       this.update = true;
       if(this.booking.bookingStatus == 'PRE_RESERVED' 
         || this.booking.bookingStatus == 'RESERVED'){
@@ -51,7 +51,7 @@ export class BookingFormComponent implements OnInit {
 
     }else{
       this.bookingForm = this.bookingService.getCreateBookingForm();
-      this.bookingService.launchs = [];
+      this.bookingService.launches = [];
       this.update =false;
     }
     
@@ -110,14 +110,14 @@ export class BookingFormComponent implements OnInit {
     if(launchId != null){
       this.launchService.deleteLaunch(launchId)
         .subscribe(() => {
-          this.bookingService.launchs.splice(index, 1);
+          this.bookingService.launches.splice(index, 1);
         },
         err =>{
           this.notificationService.notify(`Lançamento não encontrado pelo id: ${launchId}`)
         });
 
     }else{
-      this.bookingService.launchs.splice(index, 1);
+      this.bookingService.launches.splice(index, 1);
     }
 
   }

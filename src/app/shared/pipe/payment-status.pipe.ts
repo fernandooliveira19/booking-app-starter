@@ -17,6 +17,9 @@ export class PaymentStatusPipe implements PipeTransform {
       case 'CANCELED':
         return 'Cancelado'
           break;
+      case 'TO_RECEIVE':
+        return 'A receber pelo site'
+          break;    
       default:
           return '';
           break;

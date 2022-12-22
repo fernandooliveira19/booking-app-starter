@@ -10,12 +10,13 @@ class Booking{
    contractType: string;
    children : number;
    adults: number;    
-   launchs: Launch[] = [];
+   launches: Launch[] = [];
    id?: number;
    amountPaid? : number;
    amountPending? : number;
    rating? : number;
    observation? : string; 
+   websiteServiceFee? : number; 
 
 }
 

@@ -1,25 +1,25 @@
 import { Injectable, Component } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
-import { BOOKING_API_GATEWAY} from "app/app.api";
+import { BOOKING_API_GATEWAY, BOOKING_MOCKOON} from "app/app.api";
 import { Observable } from "rxjs";
-import { NgbDate, NgbCalendar, NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
+import { map } from 'rxjs/operators';
+import { Home } from "./home.model";
 
 
 @Injectable()
 export class HomeService {
 
-
   constructor(private http: HttpClient) {
-
   }
 
-  reservedDates(): Observable<NgbDateStruct[]> {
 
-    return this.http.get<NgbDateStruct[]>(`${BOOKING_API_GATEWAY}/home`)
+
+
+ getHomeDetails(): Observable<Home> {
+    
+    return this.http.get<Home>(`${BOOKING_API_GATEWAY}/home`)
 
   }
-
-  
 
 }

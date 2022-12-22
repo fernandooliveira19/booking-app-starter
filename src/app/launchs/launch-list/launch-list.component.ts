@@ -9,19 +9,19 @@ import { LaunchService} from '../launch.service';
 })
 export class LaunchListComponent implements OnInit {
 
-  launchs : Launch[];
+  launches : Launch[];
 
   constructor(private launchService: LaunchService,
               private router: Router,
               private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.findNextLaunchs();
+    this.findNextLaunches();
   }
 
-  findNextLaunchs(){
-    this.launchService.findNextLaunchs()
-    .subscribe(response => this.launchs = response);
+  findNextLaunches(){
+    this.launchService.findNextLaunches()
+    .subscribe(response => this.launches = response);
 
   } 
 

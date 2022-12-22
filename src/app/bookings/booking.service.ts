@@ -1,7 +1,6 @@
 import { Injectable, Component } from "@angular/core";
 import { HttpClient, HttpParams } from "@angular/common/http";
 import { BOOKING_API_GATEWAY} from "app/app.api";
-import { ErrorHandler } from "app/app.error-handler";
 import { Observable } from "rxjs";
 import { Booking} from "./booking.model";
 
@@ -18,11 +17,11 @@ export class BookingService {
 
   booking: Booking;
   travelers: Traveler[];
-  launchs: Launch[] = [];
+  launches: Launch[] = [];
   launch: Launch;
 
   contractTypeList: any = [
-    { label: 'Direto com viajante', value: 'DIRECT' },
+    { label: 'Diretamente', value: 'DIRECT' },
     { label: 'Site', value: 'SITE' }
   ];
 
@@ -35,7 +34,8 @@ export class BookingService {
   paymentStatusList: any = [
     { label: 'Pago', value: 'PAID' },
     { label: 'Pendente', value: 'PENDING' },
-    { label: 'Cancelado', value: 'CANCELED'}
+    { label: 'Cancelado', value: 'CANCELED'},
+    { label: 'A receber pelo site', value: 'TO_RECEIVE'}
   ];
 
   constructor(private http: HttpClient,
@@ -54,7 +54,8 @@ export class BookingService {
       contractType: new FormControl('', [Validators.required]),
       adults: new FormControl('', [Validators.required]),
       children: new FormControl('', [Validators.required]),
-      observation : new FormControl('')
+      observation : new FormControl(''),
+      websiteServiceFee: new FormControl('')
     });
   }
 
@@ -71,7 +72,8 @@ export class BookingService {
       children: new FormControl(booking.children, [Validators.required]),
       observation : new FormControl(booking.observation),
       id: new FormControl(booking.id),
-      travelerName: new FormControl(booking.travelerName)
+      travelerName: new FormControl(booking.travelerName),
+      websiteServiceFee: new FormControl(booking.websiteServiceFee)
       
     });
   }
@@ -100,7 +102,7 @@ export class BookingService {
     
     var body = {
       ...booking.value,
-      launchs: this.launchs
+      launches: this.launches
     };
 
     this.createBooking(body).subscribe(response => this.booking,
@@ -118,7 +120,7 @@ export class BookingService {
    
     var body = {
       ...booking.value,
-      launchs: this.launchs
+      launches: this.launches
     };
 
     this.updateBooking(body).subscribe(response => this.booking,
