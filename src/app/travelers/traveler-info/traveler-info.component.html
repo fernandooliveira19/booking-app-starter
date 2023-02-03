@@ -22,6 +22,8 @@
             <th>Valor Reserva</th>
             <th>Situação</th>
             <th>Tipo Contrato</th>
+            <th>Diárias</th>
+            <th>Valor diária</th>
           </tr>
         </thead>
         <tbody *ngFor="let booking of bookings">
@@ -32,6 +34,8 @@
             <td>{{booking.amountTotal  | currency:'BRL':true}}</td>
             <td>{{booking.bookingStatus | bookingStatus}}</td>
             <td>{{booking.contractType | contractType}} </td>
+            <td>{{booking.rentDays}} </td>
+            <td>{{booking.averageValue | currency:'BRL':true}} </td>
             
           </tr>
 

@@ -17,6 +17,8 @@ class Booking{
    rating? : number;
    observation? : string; 
    websiteServiceFee? : number; 
+   rentDays? : number;
+   averageValue? : number;
 
 }
 
