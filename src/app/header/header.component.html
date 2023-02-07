@@ -15,6 +15,12 @@
             <li routerLinkActive="active"><a [routerLink]="['travelers']">Viajantes</a></li>
             <li routerLinkActive="active"><a [routerLink]="['bookings']">Reservas</a></li>
             <li routerLinkActive="active"><a [routerLink]="['launches']">Lançamentos</a></li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Ferramentas</a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item"[routerLink]="['previewBooking']">Calcular Reserva</a>
+              </div>
+            </li>
             <li routerLinkActive="active"><a href="#">Sobre</a></li>
         </ul>
       </div>

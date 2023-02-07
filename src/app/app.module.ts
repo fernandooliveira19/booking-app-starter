@@ -51,6 +51,8 @@ import { UserDetailComponent } from './header/user-detail/user-detail.component'
 
 import { HomeService } from './home/home.service';
 import { HomeComponent } from './home/home.component';
+import { PreviewBookingComponent } from './preview-booking/preview-booking.component';
+import { PreviewBookingService } from './preview-booking/preview-booking.service';
 
 
 @NgModule({
@@ -73,7 +75,8 @@ import { HomeComponent } from './home/home.component';
     LaunchListComponent,
     UserDetailComponent,
     TravelerInfoComponent,
-    ContractTypePipe
+    ContractTypePipe,
+    PreviewBookingComponent
   ],
   imports: [
     BrowserModule,
@@ -104,6 +107,7 @@ import { HomeComponent } from './home/home.component';
     LoginService,
     HomeService,
     LoggedInGuard,
+    PreviewBookingService,
     {
       provide:HTTP_INTERCEPTORS, 
       useClass: AuthInterceptor, 

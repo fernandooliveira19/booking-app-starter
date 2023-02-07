@@ -11,11 +11,15 @@ import { BookingFormComponent } from './bookings/booking-form/booking-form.compo
 import { LaunchListComponent } from './launchs/launch-list/launch-list.component'
 import { LoggedInGuard } from './security/loggedin.guard'
 import { TravelerInfoComponent } from './travelers/traveler-info/traveler-info.component'
+import { PreviewBookingComponent } from './preview-booking/preview-booking.component'
 
 export const ROUTES : Routes = [
     {path : '' ,  component: HomeComponent},
     {path : 'login/:to', component:LoginComponent},
     {path : 'login', component:LoginComponent},
+    {path : 'previewBooking', component:PreviewBookingComponent
+            ,canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]    
+    },
     {path : 'home', component:HomeComponent
             ,canLoad: [LoggedInGuard],canActivate:[LoggedInGuard]
     },
